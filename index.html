@@ -1,225 +1,438 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <title>OVA Inspired Studio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="css/styles.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="js/main.js" defer></script>
-</head>
-<body>
-  <header class="site-nav" data-animate="fade-down">
-    <div class="site-nav__inner">
-      <a href="#home" class="logo">OVA STUDIO</a>
-
-      <nav class="site-nav__menu" aria-label="Principal">
-        <a href="#thesis">Thesis</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#method">Metodología</a>
-        <a href="#contact">Contacto</a>
-      </nav>
-
-      <div class="site-nav__cta">
-        <button class="btn btn--ghost">ES / EN</button>
-        <button class="nav-toggle" aria-label="Abrir menú">
-          <span></span>
-          <span></span>
-        </button>
-      </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OVA Inspired Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
+    <div class="o-loading" id="loading">
+      <span>Preparando experiencia OVA</span>
     </div>
-  </header>
 
-  <main>
-    <section id="home" class="hero">
-      <div class="hero__inner">
-        <div class="hero__copy" data-animate="fade-up">
-          <p class="eyebrow">Capital + Diseño</p>
-          <h1>
-            Impulso productos digitales <span>ambiciosos</span> con un playbook probado en tecnología, negocio y marca.
-          </h1>
-          <p>
-            Trabajo con fundadores y equipos que buscan una web de alto impacto y animaciones de clase mundial para contar historias
-            con precisión quirúrgica. Inspirado en OVA Investment, este estudio une estrategia, contenido y GSAP para mover a la audiencia.
-          </p>
-          <div class="hero__actions">
-            <a href="#portfolio" class="btn btn--primary">Ver casos</a>
-            <a href="#contact" class="btn btn--text">Agendar llamada →</a>
+    <header class="o-nav" data-animate="nav">
+      <a href="#hero" class="o-nav_logo">OVA STUDIO</a>
+      <div class="o-nav_anchors">
+        <a class="c-button" href="#portfolio">Portafolio</a>
+        <a class="c-button" href="#manifesto">Manifiesto</a>
+        <a class="c-button" href="#about">Estudio</a>
+        <a class="c-button" href="#contact">Contacto</a>
+      </div>
+      <div class="o-nav_time" id="navTime"></div>
+      <div class="o-nav_menu">
+        <button class="c-button" id="menuToggle">Menu</button>
+      </div>
+    </header>
+
+    <main id="page">
+      <section class="o-section -hero" id="hero" data-items="1">
+        <div class="o-section_background">
+          <div class="s-noise"></div>
+        </div>
+        <div class="o-section_sticky">
+          <div class="s-hero">
+            <div class="s-hero_background">
+              <div class="s-hero_background_start">
+                <img
+                  src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80"
+                  alt="Texturas oscuras"
+                />
+              </div>
+              <div class="s-hero_background_end">
+                <img
+                  src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80"
+                  alt="Paisaje tecnológico"
+                />
+              </div>
+            </div>
+            <div class="s-hero_experiment" aria-hidden="true">
+              <div class="s-hero_experiment-placeholder">
+                Canvas WebGL <span>pronto</span>
+              </div>
+            </div>
+            <img
+              class="s-hero_logo"
+              src="https://dummyimage.com/560x220/0f1119/ffffff&text=OVA+INVEST"
+              alt="OVA Inspired Studio"
+            />
+            <div class="s-hero_title">
+              <p class="line">
+                <span class="word">Narrativas</span>
+                <span class="word">de</span>
+                <span class="word">impacto</span>
+              </p>
+              <div class="s-hero_title_rotator-wrap">
+                <span>para</span>
+                <ul class="s-hero_title_rotator">
+                  <li class="word">scale-ups</li>
+                  <li class="word">fondos</li>
+                  <li class="word">venture studios</li>
+                </ul>
+              </div>
+            </div>
+            <div class="s-hero_content">
+              <p class="line">
+                <span class="word">WebGL</span>
+                <span class="word">y</span>
+                <span class="word">GSAP</span>
+                <span class="word">en</span>
+                <span class="word">sintonía</span>
+              </p>
+              <p class="line">
+                <span class="word">Diseñamos</span>
+                <span class="word">un</span>
+                <span class="word">playbook</span>
+                <span class="word">end-to-end</span>
+                <span class="word">para</span>
+                <span class="word">lanzar</span>
+                <span class="word">sitios</span>
+                <span class="word">memorables.</span>
+              </p>
+            </div>
           </div>
         </div>
+      </section>
 
-        <div class="hero__panel" data-animate="fade-in">
-          <div class="hero__panel-glow"></div>
-          <div class="hero__panel-header">
-            <p>Venture Grade Craft</p>
-            <span>2024</span>
-          </div>
-          <div class="hero__panel-body">
-            <div>
-              <p class="hero__metric-label">Sectores</p>
-              <p class="hero__metric-value">Fintech · SaaS · Proptech</p>
-            </div>
-            <div>
-              <p class="hero__metric-label">KPIs activados</p>
-              <p class="hero__metric-value">Brand lift 38% · +72% leads</p>
-            </div>
-            <div>
-              <p class="hero__metric-label">Stack</p>
-              <p class="hero__metric-value">GSAP, WebGL, Framer Motion</p>
-            </div>
-          </div>
+      <section class="o-section -portfolio" id="portfolio">
+        <div class="o-section_background">
+          <div class="s-gradient"></div>
         </div>
-      </div>
-
-      <div class="hero__stats" data-animate="fade-up">
-        <article>
-          <p class="hero__stats-value">12</p>
-          <p class="hero__stats-label">Lanzamientos anuales acompañados de estrategia narrativa y performance.</p>
-        </article>
-        <article>
-          <p class="hero__stats-value">+120M€</p>
-          <p class="hero__stats-label">Capital levantado por startups que confiaron en nuestro site para su ronda.</p>
-        </article>
-        <article>
-          <p class="hero__stats-value">04 semanas</p>
-          <p class="hero__stats-label">Media para pasar de descubrimiento a despliegue en producción.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="thesis" class="thesis">
-      <div class="section-heading" data-animate="fade-up">
-        <p class="eyebrow">Investment Thesis</p>
-        <h2>Choosing partners, not projects.</h2>
-        <p>OVA Inspired Studio replica la estructura estratégica de ova-investment.com: claridad radical, storytelling contundente y una ruta clara para cada stakeholder.</p>
-      </div>
-      <div class="thesis__grid">
-        <article class="thesis-card" data-animate="card">
-          <span>01</span>
-          <h3>OVA invierte</h3>
-          <p>Identificamos compañías en etapas seed / series A con visión continental y producto diferencial. Todo empieza con research, posicionamiento y un sistema visual escalable.</p>
-        </article>
-        <article class="thesis-card" data-animate="card">
-          <span>02</span>
-          <h3>OVA evalúa</h3>
-          <p>Auditamos UX, tono de voz, performance y métricas de conversión. El output es un blueprint modular listo para animaciones sincronizadas con la narrativa.</p>
-        </article>
-        <article class="thesis-card" data-animate="card">
-          <span>03</span>
-          <h3>OVA ejecuta</h3>
-          <p>Desplegamos front-end de alta fidelidad con GSAP, efectos magnéticos y microinteracciones que sostienen la historia sin robar protagonismo al contenido.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="industries">
-      <div class="section-heading" data-animate="fade-up">
-        <p class="eyebrow">Playbook</p>
-        <h2>Especialistas en verticales complejos.</h2>
-        <p>Imitamos la grilla editorial de OVA: tarjetas altas, tipografía generosa y contraste controlado.</p>
-      </div>
-
-      <div class="industries__grid">
-        <article class="industry-card" data-animate="tile">
-          <h3>Infraestructura financiera</h3>
-          <p>Dashboards, underwriting y producto regulado con énfasis en claridad.</p>
-          <span>Series A / B</span>
-        </article>
-        <article class="industry-card" data-animate="tile">
-          <h3>Clima &amp; energía</h3>
-          <p>Productos que comunican impacto y métricas ESG en tiempo real.</p>
-          <span>Impact funds</span>
-        </article>
-        <article class="industry-card" data-animate="tile">
-          <h3>Proptech</h3>
-          <p>Experiencias inmersivas con spatial web, mapas custom y data 3D.</p>
-          <span>Seed / Growth</span>
-        </article>
-        <article class="industry-card" data-animate="tile">
-          <h3>Future of work</h3>
-          <p>Aplicaciones colaborativas con onboarding animado y multilingüe.</p>
-          <span>Global launch</span>
-        </article>
-      </div>
-    </section>
-
-    <section id="portfolio" class="feature">
-      <div class="feature__inner">
-        <div class="feature__content" data-animate="fade-up">
-          <p class="eyebrow">Case Study</p>
-          <h2>El site que catapultó la ronda Serie B de Caden.</h2>
-          <p>
-            Una landing con scroll coreografiado, tipografía editorial y datos incrustados en tiempo real. Inspiración directa: la sección "OVA performs" donde texto e imagen conviven en un layout apilado.
-          </p>
-          <ul>
-            <li>Storyboards + prototipos animados en 10 días.</li>
-            <li>Implementación GSAP con timelines anidados y ScrollTrigger.</li>
-            <li>Headless CMS para iterar mensajes durante la gira con inversores.</li>
-          </ul>
-          <a class="btn btn--primary" href="#contact">Solicitar demo</a>
-        </div>
-        <div class="feature__visual" data-animate="fade-in">
-          <div class="feature__visual-glare"></div>
-          <div class="feature__visual-card">
-            <p>Interacciones</p>
-            <div class="feature__visual-meter">
-              <span style="width: 86%"></span>
+        <div class="o-section_sticky">
+          <div class="s-portfolio" style="--items: 3">
+            <div class="s-portfolio_backgrounds">
+              <div class="s-portfolio_background -visible" data-index="01">
+                <img
+                  src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80"
+                  alt="Panel financiero"
+                />
+              </div>
+              <div class="s-portfolio_background" data-index="02">
+                <img
+                  src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80"
+                  alt="Paisaje urbano"
+                />
+              </div>
+              <div class="s-portfolio_background" data-index="03">
+                <img
+                  src="https://images.unsplash.com/photo-1469478715127-0c2f710d1f32?auto=format&fit=crop&w=1600&q=80"
+                  alt="Tecnología inmersiva"
+                />
+              </div>
             </div>
-            <p>Tiempo en sitio 4m 12s</p>
-            <p>+54% leads inbound</p>
+
+            <div class="s-portfolio_contents">
+              <article class="s-portfolio_content" data-index="01">
+                <header class="s-portfolio_content_intro">
+                  <p class="line">
+                    <span class="word">Caden</span>
+                    <span class="word">Series</span>
+                    <span class="word">B</span>
+                  </p>
+                  <p class="line">
+                    <span class="word">Narrativa</span>
+                    <span class="word">de</span>
+                    <span class="word">innovación</span>
+                  </p>
+                </header>
+                <div class="s-portfolio_content_text">
+                  <p>
+                    Re-lanzamiento del site con animaciones orquestadas, métricas en vivo y módulos WebGL que muestran los
+                    datos críticos de la plataforma.
+                  </p>
+                  <ul>
+                    <li>+72% leads inbound</li>
+                    <li>12 días para producción</li>
+                    <li>Playbook reutilizable por el equipo interno</li>
+                  </ul>
+                </div>
+              </article>
+
+              <article class="s-portfolio_content" data-index="02">
+                <header class="s-portfolio_content_intro">
+                  <p class="line">
+                    <span class="word">Umbra</span>
+                    <span class="word">Climate</span>
+                  </p>
+                  <p class="line">
+                    <span class="word">Impacto</span>
+                    <span class="word">medible</span>
+                  </p>
+                </header>
+                <div class="s-portfolio_content_text">
+                  <p>
+                    Interfaz editorial con mapas 3D y storytelling que simplifica el discurso climático para socios e
+                    inversores. Construido sobre la misma lógica de grid de ova-investment.com.
+                  </p>
+                  <ul>
+                    <li>Microinteracciones GSAP</li>
+                    <li>Loader cinemático</li>
+                    <li>Modo accesible / contraste alto</li>
+                  </ul>
+                </div>
+              </article>
+
+              <article class="s-portfolio_content" data-index="03">
+                <header class="s-portfolio_content_intro">
+                  <p class="line">
+                    <span class="word">Atlas</span>
+                    <span class="word">Proptech</span>
+                  </p>
+                  <p class="line">
+                    <span class="word">Experiencia</span>
+                    <span class="word">inmersiva</span>
+                  </p>
+                </header>
+                <div class="s-portfolio_content_text">
+                  <p>
+                    Módulos interactivos, recorridos virtuales y un manifiesto que alinea capital, producto y marca en una
+                    sola página.
+                  </p>
+                  <ul>
+                    <li>Scroll coreografiado</li>
+                    <li>Componentes reutilizables</li>
+                    <li>Entrega en 5 semanas</li>
+                  </ul>
+                </div>
+              </article>
+            </div>
+
+            <aside class="s-portfolio_aside">
+              <nav class="s-portfolio_nav">
+                <a class="s-portfolio_nav_item -active" href="#portfolio" data-index="01">Caden</a>
+                <a class="s-portfolio_nav_item" href="#portfolio" data-index="02">Umbra Climate</a>
+                <a class="s-portfolio_nav_item" href="#portfolio" data-index="03">Atlas Proptech</a>
+              </nav>
+              <div class="s-portfolio_progress">
+                <div class="s-portfolio_progress_track"></div>
+              </div>
+            </aside>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="method" class="method">
-      <div class="method__sticky" data-animate="fade-up">
-        <p class="eyebrow">Metodología</p>
-        <h2>Un proceso claro, inspirado en la narrativa de ova-investment.com.</h2>
-        <p>Secciones apiladas, grids simétricos y contraste profundo. Todo lo que ves aquí reproduce la sensación de "peso" y elegancia de la web original.</p>
-      </div>
-      <div class="method__steps">
-        <article data-animate="step">
-          <span>Discovery</span>
-          <h3>Week 01</h3>
-          <p>Entrevistas, research, definición de voz y arquitectura de contenido.</p>
-        </article>
-        <article data-animate="step">
-          <span>Design</span>
-          <h3>Week 02 - 03</h3>
-          <p>Layout editorial, prototipos, motion systems y handoff técnico.</p>
-        </article>
-        <article data-animate="step">
-          <span>Build</span>
-          <h3>Week 04</h3>
-          <p>Implementación front-end, GSAP timelines, QA y optimización.</p>
-        </article>
-        <article data-animate="step">
-          <span>Launch</span>
-          <h3>Week 05</h3>
-          <p>Medición, experimentos A/B y training para el equipo interno.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="contact" class="cta">
-      <div class="cta__inner" data-animate="fade-up">
-        <p class="eyebrow">Contacto</p>
-        <h2>¿Listo para recrear la experiencia OVA en tu proyecto?</h2>
-        <p>Agenda una llamada estratégica y diseñemos una landing que respire venture capital, GSAP y precisión.</p>
-        <a href="mailto:hola@ovastudio.com" class="cta__mail">hola@ovastudio.com</a>
-        <div class="cta__links">
-          <a href="#">LinkedIn</a>
-          <a href="#">Behance</a>
-          <a href="#">Instagram</a>
+      <section class="o-section -manifesto" id="manifesto">
+        <div class="o-section_background">
+          <img
+            src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=80"
+            alt="Arquitectura moderna"
+          />
         </div>
-      </div>
-    </section>
-  </main>
+        <div class="o-section_inner">
+          <div class="s-manifesto">
+            <div class="s-manifesto_titles">
+              <p class="c-heading -h3">Manifesto</p>
+              <div class="s-manifesto_titles_rotator">
+                <p class="s-manifesto_title" data-item="0">
+                  <span class="char">R</span><span class="char">e</span><span class="char">s</span><span class="char">e</span
+                  ><span class="char">a</span><span class="char">r</span><span class="char">c</span><span class="char">h</span>
+                </p>
+                <p class="s-manifesto_title" data-item="1">
+                  <span class="char">S</span><span class="char">t</span><span class="char">o</span><span class="char">r</span
+                  ><span class="char">y</span><span class="char">t</span><span class="char">e</span><span class="char">l</span
+                  ><span class="char">l</span><span class="char">i</span><span class="char">n</span><span class="char">g</span>
+                </p>
+                <p class="s-manifesto_title" data-item="2">
+                  <span class="char">M</span><span class="char">o</span><span class="char">t</span><span class="char">i</span
+                  ><span class="char">o</span><span class="char">n</span><span class="char">.</span>
+                </p>
+              </div>
+            </div>
+            <div class="s-manifesto_contents">
+              <article class="s-manifesto_content" data-item="0">
+                <p class="line">
+                  <span class="word">Investigamos</span>
+                  <span class="word">mercado,</span>
+                  <span class="word">producto</span>
+                  <span class="word">y</span>
+                  <span class="word">usuarios</span>
+                </p>
+                <p class="line">
+                  <span class="word">para</span>
+                  <span class="word">crear</span>
+                  <span class="word">copy</span>
+                  <span class="word">y</span>
+                  <span class="word">visuales</span>
+                  <span class="word">con</span>
+                  <span class="word">claridad.</span>
+                </p>
+              </article>
+              <article class="s-manifesto_content" data-item="1">
+                <p class="line">
+                  <span class="word">Cada</span>
+                  <span class="word">línea</span>
+                  <span class="word">se</span>
+                  <span class="word">coreografía</span>
+                </p>
+                <p class="line">
+                  <span class="word">con</span>
+                  <span class="word">micro</span>
+                  <span class="word">transiciones</span>
+                  <span class="word">que</span>
+                  <span class="word">refuerzan</span>
+                  <span class="word">el</span>
+                  <span class="word">relato.</span>
+                </p>
+              </article>
+              <article class="s-manifesto_content" data-item="2">
+                <p class="line">
+                  <span class="word">La</span>
+                  <span class="word">animación</span>
+                  <span class="word">no</span>
+                  <span class="word">es</span>
+                  <span class="word">decoración,</span>
+                  <span class="word">es</span>
+                  <span class="word">sistema.</span>
+                </p>
+                <p class="line">
+                  <span class="word">Sincronizamos</span>
+                  <span class="word">GSAP</span>
+                  <span class="word">y</span>
+                  <span class="word">scroll</span>
+                  <span class="word">para</span>
+                  <span class="word">guiar</span>
+                  <span class="word">decisiones.</span>
+                </p>
+              </article>
+            </div>
+            <div class="s-manifesto_footer">
+              <p>Disponible para 3 lanzamientos en 2024 · contacto en hola@ovastudio.com</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <footer class="site-footer">
-    <p>© <span id="year"></span> OVA Inspired Studio. Crafted with GSAP.</p>
-  </footer>
-</body>
+      <section class="o-section -about" id="about">
+        <div class="o-section_sticky">
+          <div class="s-about">
+            <div class="s-about_backgrounds">
+              <div class="s-about_background -about">
+                <img
+                  src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1600&q=80"
+                  alt="Estudio"
+                />
+              </div>
+              <div class="s-about_background -inter">
+                <img
+                  src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=80"
+                  alt="Interludio"
+                />
+              </div>
+              <div class="s-about_background -contact">
+                <img
+                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80"
+                  alt="Contacto"
+                />
+              </div>
+            </div>
+            <div class="s-about_content">
+              <p class="-h1 c-heading">
+                <span class="line">
+                  <span class="word">Estudio</span>
+                  <span class="word">digital</span>
+                  <span class="word">boutique</span>
+                </span>
+                <span class="line">
+                  <span class="word">Anclado</span>
+                  <span class="word">en</span>
+                  <span class="word">Europa</span>
+                </span>
+              </p>
+              <p class="c-sp1">
+                <span class="line">
+                  <span class="word">Trabajamos</span>
+                  <span class="word">con</span>
+                  <span class="word">equipos</span>
+                  <span class="word">que</span>
+                  <span class="word">piensan</span>
+                  <span class="word">en</span>
+                  <span class="word">escala.</span>
+                </span>
+                <span class="line">
+                  <span class="word">Sincronicemos</span>
+                  <span class="word">estrategia,</span>
+                  <span class="word">diseño</span>
+                  <span class="word">y</span>
+                  <span class="word">tecnología.</span>
+                </span>
+              </p>
+              <p class="c-sp1">
+                <span class="line">
+                  <span class="word">Hand-off</span>
+                  <span class="word">en</span>
+                  <span class="word">Notion,</span>
+                  <span class="word">Figma</span>
+                  <span class="word">y</span>
+                  <span class="word">repositorios</span>
+                  <span class="word">claros.</span>
+                </span>
+              </p>
+            </div>
+            <div class="s-contact" id="contact">
+              <div class="o-section_inner">
+                <div class="s-contact_wrap">
+                  <p class="-h1 c-heading">
+                    <span class="line">
+                      <span class="word">¿Listo</span>
+                      <span class="word">para</span>
+                      <span class="word">iterar</span>
+                      <span class="word">tu</span>
+                      <span class="word">site?</span>
+                    </span>
+                    <span class="line">
+                      <span class="word">Escríbenos</span>
+                      <span class="word">y</span>
+                      <span class="word">lanzamos</span>
+                      <span class="word">en</span>
+                      <span class="word">5</span>
+                      <span class="word">semanas.</span>
+                    </span>
+                  </p>
+                  <div class="s-contact_content">
+                    <p class="line">
+                      <span class="word">hola@ovastudio.com</span>
+                    </p>
+                    <p class="line">
+                      <span class="word">LinkedIn</span>
+                      <span class="word">·</span>
+                      <span class="word">Behance</span>
+                      <span class="word">·</span>
+                      <span class="word">Instagram</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="o-footer">
+      <div>
+        <p>OVA Inspired Studio · Crafted con GSAP y WebGL · <span id="year"></span></p>
+      </div>
+      <div>
+        <ul>
+          <li><a href="#portfolio">Casos</a></li>
+          <li><a href="#manifesto">Manifesto</a></li>
+          <li><a href="#about">Estudio</a></li>
+        </ul>
+      </div>
+      <button class="c-button -top-button" aria-label="Ir al inicio" id="scrollTop">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M12 5l-7 8h14l-7-8zm0 14V9" stroke="currentColor" stroke-width="1.5" />
+        </svg>
+      </button>
+    </footer>
+  </body>
 </html>
