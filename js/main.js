@@ -73,6 +73,42 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  const initHeroScrollSync = (api) => {
+    const heroSection = document.querySelector("#hero");
+    if (!heroSection || !api?.setScrollProgress) return;
+
+    ScrollTrigger.create({
+      trigger: heroSection,
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+      onUpdate: (self) => api.setScrollProgress(self.progress),
+    });
+  };
+
+  if (window.heroExperience?.setScrollProgress) {
+    initHeroScrollSync(window.heroExperience);
+  } else {
+    window.addEventListener(
+      "heroWebGL:ready",
+      (event) => {
+        initHeroScrollSync(event.detail);
+      },
+      { once: true }
+    );
+  }
+
+  gsap.to(".s-hero_background_end", {
+    opacity: 0,
+    ease: "power2.inOut",
+    scrollTrigger: {
+      trigger: "#hero",
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+    },
+  });
+
   const portfolioProgress = document.querySelector(".s-portfolio_progress_track");
   if (portfolioProgress) {
     ScrollTrigger.create({
