@@ -30,13 +30,64 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  let lenis = null;
+  if (window.Lenis) {
+    lenis = new Lenis({
+      duration: 1.2,
+      smoothWheel: true,
+      smoothTouch: false,
+    });
+
+    window.lenisInstance = lenis;
+    const raf = (time) => {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    };
+    requestAnimationFrame(raf);
+  }
+
+  const getNavOffset = () => (window.innerWidth < 700 ? -40 : -120);
+  const smoothScrollTo = (target, options = {}) => {
+    const offset = options.offset ?? getNavOffset();
+    if (lenis) {
+      lenis.scrollTo(target, {
+        offset,
+        duration: options.duration ?? 1.1,
+        immediate: options.immediate ?? false,
+      });
+    } else if (typeof target === "number") {
+      window.scrollTo({ top: target, behavior: "smooth" });
+    } else if (target && target.scrollIntoView) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (offset) {
+        window.scrollBy({ top: offset, behavior: "smooth" });
+      }
+    }
+  };
+
   const scrollTopBtn = document.getElementById("scrollTop");
   if (scrollTopBtn) {
-    scrollTopBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+    scrollTopBtn.addEventListener("click", () => smoothScrollTo(0, { offset: 0 }));
   }
+
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const targetId = link.getAttribute("href");
+      if (!targetId || targetId === "#") return;
+      const targetEl = document.querySelector(targetId);
+      if (!targetEl) return;
+      event.preventDefault();
+      smoothScrollTo(targetEl);
+      anchors?.classList.remove("is-open");
+    });
+  });
 
   if (!window.gsap || !window.ScrollTrigger) return;
   gsap.registerPlugin(ScrollTrigger);
+
+  if (lenis) {
+    lenis.on("scroll", ScrollTrigger.update);
+  }
 
   const revealWords = (selector) => {
     gsap.utils.toArray(selector).forEach((container) => {
@@ -74,6 +125,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const heroRingItems = gsap.utils.toArray(".s-hero_ring-item");
+  const heroRing = document.querySelector(".s-hero_ring");
+  const heroRingTrack = document.querySelector(".s-hero_ring-track");
   if (heroRingItems.length) {
     gsap.from(heroRingItems, {
       autoAlpha: 0,
@@ -86,8 +139,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  if (heroRingTrack) {
+    gsap.to(heroRingTrack, {
+      rotation: "+=360",
+      duration: 36,
+      ease: "none",
+      repeat: -1,
+    });
+  }
+
+  const heroSection = document.querySelector("#hero");
   const initHeroScrollSync = (api) => {
-    const heroSection = document.querySelector("#hero");
     if (!heroSection || !api?.setScrollProgress) return;
 
     ScrollTrigger.create({
@@ -97,6 +159,38 @@ document.addEventListener("DOMContentLoaded", () => {
       scrub: true,
       onUpdate: (self) => api.setScrollProgress(self.progress),
     });
+
+    if (heroRing) {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: heroSection,
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          },
+        })
+        .to(
+          heroRing,
+          {
+            scale: 1.15,
+            rotation: 18,
+            yPercent: -40,
+            opacity: 0.9,
+            ease: "none",
+          },
+          0
+        )
+        .to(
+          heroRing,
+          {
+            scale: 1.35,
+            rotation: 35,
+            opacity: 0.4,
+          },
+          0.6
+        );
+    }
   };
 
   if (window.heroExperience?.setScrollProgress) {
@@ -154,7 +248,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const targetIndex = item.getAttribute("data-index");
       const targetSection = document.querySelector(`.s-portfolio_content[data-index="${targetIndex}"]`);
       if (targetSection) {
-        targetSection.scrollIntoView({ behavior: "smooth", block: "center" });
+        smoothScrollTo(targetSection, { offset: -140 });
       }
     });
   });
