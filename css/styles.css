@@ -244,13 +244,13 @@ ul {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   mix-blend-mode: lighten;
+  pointer-events: none;
 }
 
-.s-hero_experiment-placeholder {
-  border: 1px dashed rgba(255, 255, 255, 0.3);
-  padding: 1rem 2rem;
-  border-radius: 999px;
-  backdrop-filter: blur(6px);
+.s-hero_experiment canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .s-hero_logo {
