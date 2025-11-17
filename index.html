@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mi Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- GSAP + ScrollTrigger desde CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <!-- HEADER / NAV -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="#home" class="logo">TU LOGO</a>
+
+      <nav class="main-nav">
+        <a href="#home">Home</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#manifesto">Manifesto</a>
+        <a href="#about">Sobre mí</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+
+      <button class="burger" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section id="home" class="hero">
+      <div class="hero__content">
+        <p class="hero__eyebrow" data-animate="fade-up">
+          Valuable, that is my
+        </p>
+
+        <div class="hero__headline" data-animate="fade-up">
+          <h1>
+            <span class="hero__word hero__word--active">future.</span>
+            <span class="hero__word">portfolio.</span>
+            <span class="hero__word">collaboration.</span>
+          </h1>
+        </div>
+
+        <p class="hero__text" data-animate="fade-up">
+          Soy un desarrollador web enfocado en crear experiencias digitales
+          fluidas, minimalistas y potentes usando GSAP y las tecnologías web modernas.
+        </p>
+
+        <div class="hero__cta" data-animate="fade-up">
+          <a href="#portfolio" class="btn btn--primary">Ver proyectos</a>
+          <a href="#contact" class="btn btn--ghost">Hablemos</a>
+        </div>
+      </div>
+
+      <div class="hero__visual" data-animate="fade-in">
+        <!-- Puedes cambiar esta imagen por la tuya -->
+        <div class="hero__background"></div>
+      </div>
+    </section>
+
+    <!-- SECTORES / ÁREAS (como las tarjetas de OVA) -->
+    <section id="portfolio" class="sectors">
+      <div class="section-heading" data-animate="fade-up">
+        <p class="section-heading__eyebrow">Áreas de especialización</p>
+        <h2>En qué tipo de proyectos invierto mi tiempo</h2>
+        <p class="section-heading__text">
+          Puedes usar este bloque para explicar los tipos de proyectos que te interesan:
+          producto digital, webs de marca, landing pages, dashboards, etc.
+        </p>
+      </div>
+
+      <div class="sectors__grid">
+        <article class="sector-card" data-animate="card">
+          <h3>Aplicaciones Web</h3>
+          <p>SPAs, dashboards y herramientas internas con foco en rendimiento.</p>
+        </article>
+        <article class="sector-card" data-animate="card">
+          <h3>Landings Animadas</h3>
+          <p>Experiencias visuales con GSAP, microinteracciones y scroll suave.</p>
+        </article>
+        <article class="sector-card" data-animate="card">
+          <h3>Portfolios & Branding</h3>
+          <p>Webs limpias y elegantes para marcas personales o estudios creativos.</p>
+        </article>
+        <article class="sector-card" data-animate="card">
+          <h3>Prototipos Rápidos</h3>
+          <p>Pruebas de concepto para validar ideas en poco tiempo.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- BLOQUE TIPO "OVA INVESTS / EVALUATES / PERFORMS" -->
+    <section id="manifesto" class="steps">
+      <div class="steps__col steps__col--sticky">
+        <p class="section-heading__eyebrow">Manifiesto</p>
+        <h2>Cómo trabajo cada proyecto</h2>
+        <p class="section-heading__text">
+          Inspirado en la estructura de OVA: tres pilares claros que se van
+          revelando mientras haces scroll.
+        </p>
+      </div>
+
+      <div class="steps__col steps__col--scroll">
+        <article class="step" data-animate="step">
+          <span class="step__index">01</span>
+          <h3>Exploro</h3>
+          <p>Analizo el contexto, usuarios y objetivos de negocio para entender qué hay que construir.</p>
+        </article>
+
+        <article class="step" data-animate="step">
+          <span class="step__index">02</span>
+          <h3>Diseño & Animo</h3>
+          <p>Defino arquitectura, interacciones y animaciones con GSAP para que la experiencia se sienta viva.</p>
+        </article>
+
+        <article class="step" data-animate="step">
+          <span class="step__index">03</span>
+          <h3>Optimizo</h3>
+          <p>Refino rendimiento, accesibilidad y SEO para que el resultado no solo sea bonito, sino sólido.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section id="about" class="about">
+      <div class="about__image" data-animate="fade-in">
+        <!-- Aquí puedes poner tu foto o un patrón -->
+        <div class="about__placeholder"></div>
+      </div>
+      <div class="about__content" data-animate="fade-up">
+        <p class="section-heading__eyebrow">Sobre mí</p>
+        <h2>Desarrollador web & animaciones GSAP</h2>
+        <p>
+          Aquí cuentas quién eres, tu experiencia, tecnologías principales,
+          y qué te diferencia como desarrollador.
+        </p>
+        <p>
+          Este bloque está pensado para ocupar un lado de la pantalla (como en OVA)
+          mientras la imagen ocupa el otro, generando un layout limpio y editorial.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contact" class="contact">
+      <div class="section-heading" data-animate="fade-up">
+        <p class="section-heading__eyebrow">Contacto</p>
+        <h2>Construyamos algo valioso</h2>
+        <p class="section-heading__text">
+          Invita al usuario a escribirte. Más adelante podemos convertir esto en un formulario real.
+        </p>
+      </div>
+
+      <div class="contact__content" data-animate="fade-up">
+        <a href="mailto:tucorreo@ejemplo.com" class="contact__email">
+          tucorreo@ejemplo.com
+        </a>
+        <div class="contact__links">
+          <a href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="#" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="#" target="_blank" rel="noreferrer">Behance</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Tu Nombre. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
