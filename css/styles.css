@@ -271,6 +271,8 @@ ul {
   position: relative;
   width: 100%;
   height: 100%;
+  border-radius: 50%;
+  transform-style: preserve-3d;
   animation: heroRingSpin 36s linear infinite;
 }
 
@@ -287,9 +289,14 @@ ul {
 .s-hero_ring-item {
   position: absolute;
   inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   --angle: calc(var(--index) * 360deg / var(--items));
-  transform: rotate(var(--angle)) translateY(calc(-1 * var(--radius))) rotate(calc(var(--angle) * -1));
+  transform: rotate(var(--angle)) translateY(calc(var(--radius) * -1)) rotate(calc(var(--angle) * -1));
   transition: opacity 0.4s ease;
+  transform-origin: center;
+  will-change: transform;
 }
 
 .s-hero_ring-item img {
