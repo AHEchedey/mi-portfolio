@@ -2,177 +2,224 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Mi Portfolio</title>
+  <title>OVA Inspired Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="css/styles.css" />
-
-  <!-- GSAP + ScrollTrigger desde CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script src="js/main.js" defer></script>
 </head>
 <body>
-  <!-- HEADER / NAV -->
-  <header class="site-header">
-    <div class="site-header__inner">
-      <a href="#home" class="logo">TU LOGO</a>
+  <header class="site-nav" data-animate="fade-down">
+    <div class="site-nav__inner">
+      <a href="#home" class="logo">OVA STUDIO</a>
 
-      <nav class="main-nav">
-        <a href="#home">Home</a>
+      <nav class="site-nav__menu" aria-label="Principal">
+        <a href="#thesis">Thesis</a>
         <a href="#portfolio">Portfolio</a>
-        <a href="#manifesto">Manifesto</a>
-        <a href="#about">Sobre mí</a>
+        <a href="#method">Metodología</a>
         <a href="#contact">Contacto</a>
       </nav>
 
-      <button class="burger" aria-label="Abrir menú">
-        <span></span>
-        <span></span>
-      </button>
+      <div class="site-nav__cta">
+        <button class="btn btn--ghost">ES / EN</button>
+        <button class="nav-toggle" aria-label="Abrir menú">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
-  <!-- HERO -->
   <main>
     <section id="home" class="hero">
-      <div class="hero__content">
-        <p class="hero__eyebrow" data-animate="fade-up">
-          Valuable, that is my
-        </p>
-
-        <div class="hero__headline" data-animate="fade-up">
+      <div class="hero__inner">
+        <div class="hero__copy" data-animate="fade-up">
+          <p class="eyebrow">Capital + Diseño</p>
           <h1>
-            <span class="hero__word hero__word--active">future.</span>
-            <span class="hero__word">portfolio.</span>
-            <span class="hero__word">collaboration.</span>
+            Impulso productos digitales <span>ambiciosos</span> con un playbook probado en tecnología, negocio y marca.
           </h1>
+          <p>
+            Trabajo con fundadores y equipos que buscan una web de alto impacto y animaciones de clase mundial para contar historias
+            con precisión quirúrgica. Inspirado en OVA Investment, este estudio une estrategia, contenido y GSAP para mover a la audiencia.
+          </p>
+          <div class="hero__actions">
+            <a href="#portfolio" class="btn btn--primary">Ver casos</a>
+            <a href="#contact" class="btn btn--text">Agendar llamada →</a>
+          </div>
         </div>
 
-        <p class="hero__text" data-animate="fade-up">
-          Soy un desarrollador web enfocado en crear experiencias digitales
-          fluidas, minimalistas y potentes usando GSAP y las tecnologías web modernas.
-        </p>
-
-        <div class="hero__cta" data-animate="fade-up">
-          <a href="#portfolio" class="btn btn--primary">Ver proyectos</a>
-          <a href="#contact" class="btn btn--ghost">Hablemos</a>
+        <div class="hero__panel" data-animate="fade-in">
+          <div class="hero__panel-glow"></div>
+          <div class="hero__panel-header">
+            <p>Venture Grade Craft</p>
+            <span>2024</span>
+          </div>
+          <div class="hero__panel-body">
+            <div>
+              <p class="hero__metric-label">Sectores</p>
+              <p class="hero__metric-value">Fintech · SaaS · Proptech</p>
+            </div>
+            <div>
+              <p class="hero__metric-label">KPIs activados</p>
+              <p class="hero__metric-value">Brand lift 38% · +72% leads</p>
+            </div>
+            <div>
+              <p class="hero__metric-label">Stack</p>
+              <p class="hero__metric-value">GSAP, WebGL, Framer Motion</p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="hero__visual" data-animate="fade-in">
-        <!-- Puedes cambiar esta imagen por la tuya -->
-        <div class="hero__background"></div>
+      <div class="hero__stats" data-animate="fade-up">
+        <article>
+          <p class="hero__stats-value">12</p>
+          <p class="hero__stats-label">Lanzamientos anuales acompañados de estrategia narrativa y performance.</p>
+        </article>
+        <article>
+          <p class="hero__stats-value">+120M€</p>
+          <p class="hero__stats-label">Capital levantado por startups que confiaron en nuestro site para su ronda.</p>
+        </article>
+        <article>
+          <p class="hero__stats-value">04 semanas</p>
+          <p class="hero__stats-label">Media para pasar de descubrimiento a despliegue en producción.</p>
+        </article>
       </div>
     </section>
 
-    <!-- SECTORES / ÁREAS (como las tarjetas de OVA) -->
-    <section id="portfolio" class="sectors">
+    <section id="thesis" class="thesis">
       <div class="section-heading" data-animate="fade-up">
-        <p class="section-heading__eyebrow">Áreas de especialización</p>
-        <h2>En qué tipo de proyectos invierto mi tiempo</h2>
-        <p class="section-heading__text">
-          Puedes usar este bloque para explicar los tipos de proyectos que te interesan:
-          producto digital, webs de marca, landing pages, dashboards, etc.
-        </p>
+        <p class="eyebrow">Investment Thesis</p>
+        <h2>Choosing partners, not projects.</h2>
+        <p>OVA Inspired Studio replica la estructura estratégica de ova-investment.com: claridad radical, storytelling contundente y una ruta clara para cada stakeholder.</p>
       </div>
-
-      <div class="sectors__grid">
-        <article class="sector-card" data-animate="card">
-          <h3>Aplicaciones Web</h3>
-          <p>SPAs, dashboards y herramientas internas con foco en rendimiento.</p>
+      <div class="thesis__grid">
+        <article class="thesis-card" data-animate="card">
+          <span>01</span>
+          <h3>OVA invierte</h3>
+          <p>Identificamos compañías en etapas seed / series A con visión continental y producto diferencial. Todo empieza con research, posicionamiento y un sistema visual escalable.</p>
         </article>
-        <article class="sector-card" data-animate="card">
-          <h3>Landings Animadas</h3>
-          <p>Experiencias visuales con GSAP, microinteracciones y scroll suave.</p>
+        <article class="thesis-card" data-animate="card">
+          <span>02</span>
+          <h3>OVA evalúa</h3>
+          <p>Auditamos UX, tono de voz, performance y métricas de conversión. El output es un blueprint modular listo para animaciones sincronizadas con la narrativa.</p>
         </article>
-        <article class="sector-card" data-animate="card">
-          <h3>Portfolios & Branding</h3>
-          <p>Webs limpias y elegantes para marcas personales o estudios creativos.</p>
-        </article>
-        <article class="sector-card" data-animate="card">
-          <h3>Prototipos Rápidos</h3>
-          <p>Pruebas de concepto para validar ideas en poco tiempo.</p>
+        <article class="thesis-card" data-animate="card">
+          <span>03</span>
+          <h3>OVA ejecuta</h3>
+          <p>Desplegamos front-end de alta fidelidad con GSAP, efectos magnéticos y microinteracciones que sostienen la historia sin robar protagonismo al contenido.</p>
         </article>
       </div>
     </section>
 
-    <!-- BLOQUE TIPO "OVA INVESTS / EVALUATES / PERFORMS" -->
-    <section id="manifesto" class="steps">
-      <div class="steps__col steps__col--sticky">
-        <p class="section-heading__eyebrow">Manifiesto</p>
-        <h2>Cómo trabajo cada proyecto</h2>
-        <p class="section-heading__text">
-          Inspirado en la estructura de OVA: tres pilares claros que se van
-          revelando mientras haces scroll.
-        </p>
-      </div>
-
-      <div class="steps__col steps__col--scroll">
-        <article class="step" data-animate="step">
-          <span class="step__index">01</span>
-          <h3>Exploro</h3>
-          <p>Analizo el contexto, usuarios y objetivos de negocio para entender qué hay que construir.</p>
-        </article>
-
-        <article class="step" data-animate="step">
-          <span class="step__index">02</span>
-          <h3>Diseño & Animo</h3>
-          <p>Defino arquitectura, interacciones y animaciones con GSAP para que la experiencia se sienta viva.</p>
-        </article>
-
-        <article class="step" data-animate="step">
-          <span class="step__index">03</span>
-          <h3>Optimizo</h3>
-          <p>Refino rendimiento, accesibilidad y SEO para que el resultado no solo sea bonito, sino sólido.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- SOBRE MÍ -->
-    <section id="about" class="about">
-      <div class="about__image" data-animate="fade-in">
-        <!-- Aquí puedes poner tu foto o un patrón -->
-        <div class="about__placeholder"></div>
-      </div>
-      <div class="about__content" data-animate="fade-up">
-        <p class="section-heading__eyebrow">Sobre mí</p>
-        <h2>Desarrollador web & animaciones GSAP</h2>
-        <p>
-          Aquí cuentas quién eres, tu experiencia, tecnologías principales,
-          y qué te diferencia como desarrollador.
-        </p>
-        <p>
-          Este bloque está pensado para ocupar un lado de la pantalla (como en OVA)
-          mientras la imagen ocupa el otro, generando un layout limpio y editorial.
-        </p>
-      </div>
-    </section>
-
-    <!-- CONTACTO -->
-    <section id="contact" class="contact">
+    <section class="industries">
       <div class="section-heading" data-animate="fade-up">
-        <p class="section-heading__eyebrow">Contacto</p>
-        <h2>Construyamos algo valioso</h2>
-        <p class="section-heading__text">
-          Invita al usuario a escribirte. Más adelante podemos convertir esto en un formulario real.
-        </p>
+        <p class="eyebrow">Playbook</p>
+        <h2>Especialistas en verticales complejos.</h2>
+        <p>Imitamos la grilla editorial de OVA: tarjetas altas, tipografía generosa y contraste controlado.</p>
       </div>
 
-      <div class="contact__content" data-animate="fade-up">
-        <a href="mailto:tucorreo@ejemplo.com" class="contact__email">
-          tucorreo@ejemplo.com
-        </a>
-        <div class="contact__links">
-          <a href="#" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="#" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="#" target="_blank" rel="noreferrer">Behance</a>
+      <div class="industries__grid">
+        <article class="industry-card" data-animate="tile">
+          <h3>Infraestructura financiera</h3>
+          <p>Dashboards, underwriting y producto regulado con énfasis en claridad.</p>
+          <span>Series A / B</span>
+        </article>
+        <article class="industry-card" data-animate="tile">
+          <h3>Clima &amp; energía</h3>
+          <p>Productos que comunican impacto y métricas ESG en tiempo real.</p>
+          <span>Impact funds</span>
+        </article>
+        <article class="industry-card" data-animate="tile">
+          <h3>Proptech</h3>
+          <p>Experiencias inmersivas con spatial web, mapas custom y data 3D.</p>
+          <span>Seed / Growth</span>
+        </article>
+        <article class="industry-card" data-animate="tile">
+          <h3>Future of work</h3>
+          <p>Aplicaciones colaborativas con onboarding animado y multilingüe.</p>
+          <span>Global launch</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="portfolio" class="feature">
+      <div class="feature__inner">
+        <div class="feature__content" data-animate="fade-up">
+          <p class="eyebrow">Case Study</p>
+          <h2>El site que catapultó la ronda Serie B de Caden.</h2>
+          <p>
+            Una landing con scroll coreografiado, tipografía editorial y datos incrustados en tiempo real. Inspiración directa: la sección "OVA performs" donde texto e imagen conviven en un layout apilado.
+          </p>
+          <ul>
+            <li>Storyboards + prototipos animados en 10 días.</li>
+            <li>Implementación GSAP con timelines anidados y ScrollTrigger.</li>
+            <li>Headless CMS para iterar mensajes durante la gira con inversores.</li>
+          </ul>
+          <a class="btn btn--primary" href="#contact">Solicitar demo</a>
+        </div>
+        <div class="feature__visual" data-animate="fade-in">
+          <div class="feature__visual-glare"></div>
+          <div class="feature__visual-card">
+            <p>Interacciones</p>
+            <div class="feature__visual-meter">
+              <span style="width: 86%"></span>
+            </div>
+            <p>Tiempo en sitio 4m 12s</p>
+            <p>+54% leads inbound</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="method" class="method">
+      <div class="method__sticky" data-animate="fade-up">
+        <p class="eyebrow">Metodología</p>
+        <h2>Un proceso claro, inspirado en la narrativa de ova-investment.com.</h2>
+        <p>Secciones apiladas, grids simétricos y contraste profundo. Todo lo que ves aquí reproduce la sensación de "peso" y elegancia de la web original.</p>
+      </div>
+      <div class="method__steps">
+        <article data-animate="step">
+          <span>Discovery</span>
+          <h3>Week 01</h3>
+          <p>Entrevistas, research, definición de voz y arquitectura de contenido.</p>
+        </article>
+        <article data-animate="step">
+          <span>Design</span>
+          <h3>Week 02 - 03</h3>
+          <p>Layout editorial, prototipos, motion systems y handoff técnico.</p>
+        </article>
+        <article data-animate="step">
+          <span>Build</span>
+          <h3>Week 04</h3>
+          <p>Implementación front-end, GSAP timelines, QA y optimización.</p>
+        </article>
+        <article data-animate="step">
+          <span>Launch</span>
+          <h3>Week 05</h3>
+          <p>Medición, experimentos A/B y training para el equipo interno.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="cta">
+      <div class="cta__inner" data-animate="fade-up">
+        <p class="eyebrow">Contacto</p>
+        <h2>¿Listo para recrear la experiencia OVA en tu proyecto?</h2>
+        <p>Agenda una llamada estratégica y diseñemos una landing que respire venture capital, GSAP y precisión.</p>
+        <a href="mailto:hola@ovastudio.com" class="cta__mail">hola@ovastudio.com</a>
+        <div class="cta__links">
+          <a href="#">LinkedIn</a>
+          <a href="#">Behance</a>
+          <a href="#">Instagram</a>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>© <span id="year"></span> Tu Nombre. Todos los derechos reservados.</p>
+    <p>© <span id="year"></span> OVA Inspired Studio. Crafted with GSAP.</p>
   </footer>
 </body>
 </html>
