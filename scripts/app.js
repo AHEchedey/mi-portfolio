@@ -21857,28 +21857,28 @@ precision highp float;in vec2 vUv;out vec4 fragColor;uniform sampler2D uMap;unif
             this.gl = null,
             this.images = [{
                 name: "tech",
-                desktop: "/assets/images/webgl/portfolio-tech.avif"
+                desktop: "/images/webgl/portfolio-tech.avif"
             }, {
                 name: "immo",
-                desktop: "/assets/images/webgl/portfolio-immo.avif"
+                desktop: "/images/webgl/portfolio-immo.avif"
             }, {
                 name: "sante",
-                desktop: "/assets/images/webgl/portfolio-sante.avif"
+                desktop: "/images/webgl/portfolio-sante.avif"
             }, {
                 name: "tourisme",
-                desktop: "/assets/images/webgl/portfolio-tourisme.avif"
+                desktop: "/images/webgl/portfolio-tourisme.avif"
             }, {
                 name: "finance",
-                desktop: "/assets/images/webgl/portfolio-finance.avif"
+                desktop: "/images/webgl/portfolio-finance.avif"
             }, {
                 name: "pub",
-                desktop: "/assets/images/webgl/portfolio-pub.avif"
+                desktop: "/images/webgl/portfolio-pub.avif"
             }, {
                 name: "energie",
-                desktop: "/assets/images/webgl/portfolio-energie.avif"
+                desktop: "/images/webgl/portfolio-energie.avif"
             }, {
                 name: "divertissement",
-                desktop: "/assets/images/webgl/portfolio-divertissement.avif"
+                desktop: "/images/webgl/portfolio-divertissement.avif"
             }],
             window.addEventListener("hideBgs", t => {
                 let {target: e, progress: r} = t.detail;
