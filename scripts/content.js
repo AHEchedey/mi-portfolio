@@ -43,8 +43,8 @@ const portfolioContent = {
             title: "Sobre mí",
             subtitle: "Desde mi formación,",
             paragraphs: [
-                "Soy Echedey Aguilar Hernández, Ingeniero Informático graduado de la Universidad de Sevilla con una sólida formación en desarrollo de software, robótica y sistemas energéticos.",
-                "Actualmente trabajo como Técnico Especialista en la Universidad de Sevilla, en Proyectos de Generación de Conocimiento, específicamente en la Línea de Energía, trabajando con redes energéticas que integran baterías, grupos de hidrógeno (H2) y energías renovables.",
+                "Soy Echedey Aguilar Hernández, Ingeniero Informático graduado de la Universidad de Lanzarote con una sólida formación en desarrollo de software, robótica y sistemas energéticos.",
+                "Actualmente trabajo como Técnico Especialista en la Universidad de Lanzarote, en Proyectos de Generación de Conocimiento, específicamente en la Línea de Energía, trabajando con redes energéticas que integran baterías, grupos de hidrógeno (H2) y energías renovables.",
                 "Mi pasión por la tecnología me ha llevado a participar en proyectos innovadores como FyCUS (CubeSat), robótica con Turtlebot, y competiciones como HACK FOR GOOD Seville."
             ],
             interests: "Intereses: Ciencia, Ingeniería Informática, Espacio, Aeronáutica, Música, Bodyboard, Surf"
@@ -72,7 +72,7 @@ const portfolioContent = {
                 {
                     name: "FyCUS - CubeSat",
                     year: "2022",
-                    description: "Proyecto internacional Fly your Cubesat con la Universidad de Sevilla. Departamento de Aviónica y TTC.",
+                    description: "Proyecto internacional Fly your Cubesat con la Universidad de Lanzarote. Departamento de Aviónica y TTC.",
                     tech: ["Sistemas Embebidos", "Comunicaciones", "Aeroespacial"]
                 },
                 {
@@ -108,9 +108,9 @@ const portfolioContent = {
             items: [
                 {
                     position: "Técnico Especialista",
-                    company: "Universidad de Sevilla",
-                    period: "2024 - 2026",
-                    location: "Sevilla, España",
+                    company: "Universidad de Lanzarote",
+                    period: "2024 - Presente",
+                    location: "Lanzarote, España",
                     description: "Proyectos de Generación de Conocimiento. Línea de Energía. Redes energéticas con baterías, grupo H2 y renovables."
                 }
             ]
@@ -122,9 +122,9 @@ const portfolioContent = {
             items: [
                 {
                     degree: "Grado en Ingeniería Informática",
-                    institution: "Universidad de Sevilla",
+                    institution: "Universidad de Lanzarote",
                     period: "2019 - 2025",
-                    location: "Sevilla, España"
+                    location: "Lanzarote, España"
                 },
                 {
                     degree: "Bachillerato Científico-Tecnológico",
@@ -168,7 +168,7 @@ const portfolioContent = {
                 {
                     year: "2024",
                     name: "ROSCon Spain 2024",
-                    institution: "Universidad Pablo de Olavide, Sevilla",
+                    institution: "Universidad Pablo de Olavide, Lanzarote",
                     type: "Conferencia"
                 },
                 {
@@ -201,7 +201,7 @@ const portfolioContent = {
             title: "Contacto",
             subtitle: "Hablemos",
             description: "Comparte tu visión conmigo. Juntos, exploremos cómo transformar tus ideas en oportunidades tangibles.",
-            location: "Sevilla, España",
+            location: "Lanzarote, España",
             role: "Ingeniero Informático",
             buttons: {
                 linkedin: "LinkedIn",
