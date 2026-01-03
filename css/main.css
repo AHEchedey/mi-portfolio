@@ -1027,7 +1027,13 @@ body {
 .s-portfolio_content_text {
     opacity: 0;
     visibility: hidden;
-    max-width: calc((var(--container-width) - (var(--grid-columns) - 1) * var(--grid-gutter)) / var(--grid-columns) * 3 + 2 * var(--grid-gutter) + 0vw)
+    max-width: calc((var(--container-width) - (var(--grid-columns) - 1) * var(--grid-gutter)) / var(--grid-columns) * 3 + 2 * var(--grid-gutter) + 0vw);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 1rem;
 }
 
 @media(max-width: 999px) {
@@ -1690,6 +1696,392 @@ body {
 .s-about_content .char {
     opacity: .3
 }
+
+/* ===================================
+   SECCIÓN SOBRE MÍ - PARALLAX OVERLAY
+   =================================== */
+
+/* Sección principal con posicionamiento para parallax */
+.o-section.-about-parallax-overlay {
+    position: relative;
+    min-height: 100lvh;
+    overflow: hidden;
+}
+
+/* ========== IMAGEN DE FONDO COMPLETA ========== */
+
+.s-about_full-bg-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.s-about_full-bg-image {
+    position: absolute;
+    top: -10%;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    will-change: transform;
+}
+
+.s-about_full-bg-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.6) contrast(1.1);
+}
+
+/* Overlay gradient para mejorar legibilidad del texto */
+.s-about_overlay-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right,
+            rgba(0, 0, 0, 0.85) 0%,
+            rgba(0, 0, 0, 0.6) 40%,
+            rgba(0, 0, 0, 0.3) 60%,
+            rgba(0, 0, 0, 0.75) 100%);
+    z-index: 1;
+}
+
+/* Agregar patrón de puntos sutil */
+.s-about_overlay-gradient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 4px 4px;
+    opacity: 0.5;
+}
+
+/* ========== CONTENEDOR DE PARALLAX ========== */
+
+.s-about_parallax-container {
+    position: relative;
+    z-index: 2;
+    min-height: 100lvh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0;
+}
+
+/* ========== TEXTO OVERLAY - LADO DERECHO ========== */
+
+.s-about_text-overlay {
+    max-width: 600px;
+    width: 50%;
+    padding: 3rem;
+    margin-right: 5%;
+    will-change: transform;
+    position: relative;
+}
+
+/* Fondo glassmorphism para el contenedor de texto */
+.s-about_text-overlay::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    z-index: -1;
+    box-shadow:
+        0 20px 80px rgba(0, 0, 0, 0.5),
+        inset 0 0 100px rgba(255, 255, 255, 0.03);
+}
+
+/* Borde animado */
+.s-about_text-overlay::after {
+    content: '';
+    position: absolute;
+    inset: -22px;
+    background: linear-gradient(135deg,
+            rgba(231, 52, 52, 0.4),
+            rgba(52, 152, 219, 0.3),
+            rgba(155, 89, 182, 0.4));
+    border-radius: 30px;
+    z-index: -2;
+    filter: blur(20px);
+    opacity: 0.6;
+    animation: rotateBorderOverlay 8s linear infinite;
+}
+
+@keyframes rotateBorderOverlay {
+
+    0%,
+    100% {
+        filter: blur(20px) hue-rotate(0deg);
+    }
+
+    50% {
+        filter: blur(25px) hue-rotate(45deg);
+    }
+}
+
+/* ========== TÍTULO ========== */
+
+.s-about_title-reveal {
+    overflow: hidden;
+    margin-bottom: 2rem;
+    padding-top: 0.2em;
+    /* Fix for cut-off text at top */
+}
+
+.s-about_title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.s-about_title-line {
+    display: block;
+    background: linear-gradient(135deg,
+            #ffffff 0%,
+            #e73434 40%,
+            #3498db 80%,
+            #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 200%;
+    animation: gradientShiftOverlay 6s ease infinite;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 40px rgba(231, 52, 52, 0.5);
+}
+
+@keyframes gradientShiftOverlay {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* ========== BLOQUES DE TEXTO ========== */
+
+.s-about_text-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.s-about_text-block {
+    position: relative;
+    overflow: hidden;
+}
+
+.s-about_text-inner {
+    padding: 1.2rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de sweep */
+.s-about_text-inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(231, 52, 52, 0.15) 50%,
+            transparent 100%);
+    transition: left 0.7s ease;
+}
+
+.s-about_text-block:hover .s-about_text-inner::before {
+    left: 100%;
+}
+
+.s-about_text-inner:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(231, 52, 52, 0.4);
+    transform: translateX(8px);
+    box-shadow:
+        -4px 0 15px rgba(231, 52, 52, 0.3),
+        0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.s-about_text-inner p {
+    margin: 0;
+    line-height: 1.6;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.s-about_text-inner strong {
+    color: #e73434;
+    font-weight: 600;
+}
+
+/* ========== ESTADÍSTICAS ========== */
+
+.s-about_stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.s-about_stat {
+    text-align: center;
+    padding: 1.5rem 0.8rem;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.s-about_stat::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+            rgba(231, 52, 52, 0.15) 0%,
+            rgba(52, 152, 219, 0.15) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.s-about_stat:hover::before {
+    opacity: 1;
+}
+
+.s-about_stat:hover {
+    transform: translateY(-4px) scale(1.02);
+    border-color: rgba(231, 52, 52, 0.5);
+    box-shadow:
+        0 8px 30px rgba(231, 52, 52, 0.3),
+        0 0 50px rgba(52, 152, 219, 0.2);
+}
+
+.s-about_stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #e73434 0%, #3498db 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.4rem;
+    font-family: 'Geist Mono', monospace;
+}
+
+.s-about_stat-label {
+    display: block;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 400;
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media (max-width: 1200px) {
+    .s-about_text-overlay {
+        width: 55%;
+        margin-right: 3%;
+        padding: 2.5rem;
+    }
+}
+
+@media (max-width: 999px) {
+    .s-about_parallax-container {
+        justify-content: center;
+        align-items: flex-end;
+        padding-bottom: 3rem;
+    }
+
+    .s-about_text-overlay {
+        width: 90%;
+        max-width: 550px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .s-about_overlay-gradient {
+        background: linear-gradient(to bottom,
+                rgba(0, 0, 0, 0.5) 0%,
+                rgba(0, 0, 0, 0.7) 50%,
+                rgba(0, 0, 0, 0.85) 100%);
+    }
+
+    .s-about_title {
+        font-size: clamp(2rem, 7vw, 3rem);
+        text-align: center;
+        align-items: center;
+    }
+
+    .s-about_text-inner:hover {
+        transform: translateX(0) translateY(-4px);
+    }
+}
+
+@media (max-width: 699px) {
+    .s-about_text-overlay {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    .s-about_text-overlay::before {
+        inset: -10px;
+    }
+
+    .s-about_stats {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+
+    .s-about_stat {
+        padding: 1.2rem 0.8rem;
+    }
+
+    .s-about_stat-number {
+        font-size: 1.8rem;
+    }
+
+    .s-about_text-blocks {
+        gap: 1rem;
+    }
+
+    .s-about_text-inner {
+        padding: 1rem 1.2rem;
+    }
+
+    .s-about_title {
+        margin-bottom: 1.5rem;
+    }
+}
+
+
 
 .s-contact {
     position: absolute;
@@ -2737,5 +3129,282 @@ body {
 
     .s-skills_card_progress {
         height: 4px;
+    }
+}
+
+/* Experience & Education Section Styles */
+.s-experience,
+.s-education {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.s-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: calc(var(--grid-margin) * 1.5);
+    margin-top: 2rem;
+    animation: fadeIn 0.8s ease forwards;
+    opacity: 0;
+}
+
+.s-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.s-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.s-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.s-card:hover::before {
+    opacity: 1;
+}
+
+.s-card_header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.s-card_title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.s-card_subtitle {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: "Geist Mono", monospace;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.s-card_subtitle span:last-child {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.s-card_content {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.s-card_content strong {
+    color: #fff;
+    font-weight: 500;
+}
+
+/* Specific styling for Education to look slightly different if needed, 
+   or keep shared .s-card styles for consistency */
+.s-education .s-card {
+    border-left: 3px solid rgba(59, 130, 246, 0.5);
+}
+
+.s-experience .s-card {
+    border-left: 3px solid rgba(16, 185, 129, 0.5);
+}
+
+@media (max-width: 699px) {
+    .s-card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .s-card {
+        padding: 1.5rem;
+    }
+
+    .s-card_subtitle {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
+
+/* =============================================================================
+   GSAP ABOUT ME PARALLAX SECTION
+   ============================================================================= */
+
+.pSection {
+    position: relative;
+    /* Use 100lvh to ensure full screen on mobile */
+    height: 100lvh;
+    overflow: hidden;
+    /* Ensure it sits correctly in the stack */
+    z-index: 2;
+    background: #000;
+}
+
+.pContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* Display flex to center/align content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Background Image Container */
+.pImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Start taller so we can move it (parallax) */
+    height: 130%;
+    z-index: 1;
+    will-change: transform;
+}
+
+.pImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    /* Darken slightly */
+    filter: brightness(0.6);
+}
+
+.s-about_overlay-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #000 0%, transparent 40%),
+        linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent 50%);
+    z-index: 2;
+}
+
+/* Content Container - The "Floating Card" */
+.pContent {
+    position: relative;
+    z-index: 10;
+    width: 60%;
+    /* Occupy right side (approx half) */
+    max-width: 800px;
+    margin: 0;
+    margin-right: 5%;
+    /* Spacing rom right edge */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Align internal text to left? User screenshot showed centered/right. Let's stick to their previous styles or new preference. Screenshot had centered text in glass cards. Let's keep it clean. */
+    will-change: transform;
+
+    /* Glass Effect Wrapper - Now only covers this 45% width */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+
+    /* Ensure it's vertically centered in the flex container (.pContainer) */
+    align-self: center;
+    /* FIX: Move it down to avoid cutting off title under nav/top edge */
+    margin-top: 15vh;
+}
+
+.pContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    /* Push content to right */
+    align-items: center;
+    /* Center vertically */
+}
+
+/* Force Title to One Line */
+/* Force Title to One Line */
+.pContent .s-about_title {
+    display: flex;
+    flex-direction: row;
+    /* Ensure row */
+    flex-wrap: nowrap;
+    gap: 0.3em;
+    white-space: nowrap;
+    font-size: 3.5rem;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+/* Adjust text blocks inside */
+.pContent .s-about_text-blocks {
+    text-align: left;
+    /* Reading flow better on left inside the card? User screenshot had them as separate bubbles? */
+    /* Screenshot showed "Ingeniero..." in a grey bubble. 
+       My previous code wrapped them in .s-about_text-block.
+       If I want that bubble look inside the glass card, I might need to adjust.
+       But I think the USER meant the WHOLE content block is the glass card on the right.
+       Let's stick to .pContent being the main glass card.
+    */
+    width: 100%;
+}
+
+.pContent .s-about_text-block {
+    margin-bottom: 1rem;
+}
+
+/* Specific fix for "sale cortado" (cut off) */
+/* Ensure the section is visible and image covers it */
+.pSection {
+    height: 100vh;
+    /* Use vh/lvh */
+    max-height: 100vh;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 900px) {
+    .pContent {
+        width: 90%;
+        margin-right: 0;
+    }
+
+    .pContainer {
+        justify-content: center;
+    }
+
+    .pContent .s-about_title {
+        font-size: 2rem;
+        /* Reduce font size to fit on one line */
+        flex-wrap: nowrap;
+        /* Do NOT wrap */
+        white-space: nowrap;
     }
 }
