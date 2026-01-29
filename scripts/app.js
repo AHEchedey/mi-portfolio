@@ -20666,14 +20666,19 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 , 5e3)
         }
         getMtlTime() {
-            return new Date(new Date().toLocaleString("en-US", {
-                timeZone: "America/Montreal"
-            }))
+            // Hora local del usuario (la del sistema)
+            return new Date();
         }
+
         update() {
-            let i = this.mtlTime.getHours().toString()
-                , t = this.mtlTime.getMinutes().toString();
-            this.el.innerHTML = i + ":" + t.padStart(2, "0") + " MTL"
+            const tz = Intl.DateTimeFormat().resolvedOptions().timeZone; // ej: "America/Mexico_City"
+            const hhmm = new Intl.DateTimeFormat("es-ES", {
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: false
+            }).format(this.mtlTime);
+
+            this.el.textContent = `${hhmm} ${tz}`;
         }
     }
         ;
@@ -21857,22 +21862,26 @@ precision highp float;in vec2 vUv;out vec4 fragColor;uniform sampler2D uMap;unif
                 this.gl = null,
                 this.images = [{
                     name: "congreso1",
-                    desktop: "/images/congresos1.png"
+                    desktop: "/images/webgl/congresos1.png"
                 }, {
                     name: "congreso2",
-                    desktop: "/images/congreso2.png"
+                    desktop: "/images/webgl/congreso2.png"
                 }, {
                     name: "foxglove",
-                    desktop: "/images/foxglove.png"
+                    desktop: "/images/webgl/foxglove.png"
                 }, {
                     name: "impresion3d",
-                    desktop: "/images/impresion3d.png"
+                    desktop: "/images/webgl/impresion3d.png"
                 }, {
                     name: "sate-lite-us",
-                    desktop: "/images/sate-lite-us.jpeg"
+                    desktop: "/images/webgl/sate-lite-us.jpeg"
                 }, {
                     name: "trabajo",
-                    desktop: "/images/trabajo.png"
+                    desktop: "/images/webgl/trabajo.png"
+                },
+                {
+                    name: "voluntariado",
+                    desktop: "/images/webgl/voluntariado.jpeg"
                 }],
                 window.addEventListener("hideBgs", t => {
                     let { target: e, progress: r } = t.detail;
