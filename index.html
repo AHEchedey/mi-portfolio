@@ -302,49 +302,53 @@
                                     </div>
                                 </div>
                             </div> -->
-                            <div class="pContainer">
-                                <div class="pImage" data-about-image>
-                                    <img src="images/webgl/sobremi.png" alt="Sobre mi" />
-                                    <div class="s-about_overlay-gradient"></div>
-                                </div>
-
-                                <div class="pContent" data-about-card data-about-content>
-                                    <div class="s-about_title-reveal">
-                                        <h2 class="c-heading -h1 s-about_title" data-module-split
-                                            data-split="words chars">
-                                            Sobre mí
-                                        </h2>
+                            <div class="s-portfolio_content" data-index="sobre_mi">
+                                <div class="pContainer">
+                                    <div class="pImage" data-about-image>
+                                        <img src="images/webgl/sobremi.png" alt="Sobre mi" />
+                                        <div class="s-about_overlay-gradient"></div>
                                     </div>
 
-                                    <div class="s-about_text-blocks">
-                                        <div class="s-about_text-block" data-module-split data-split="lines,words">
-                                            <div class="s-about_text-inner">
-                                                <p class="c-sp1">
-                                                    Soy Echedey Aguilar Hernández, originario de Lanzarote. Soy
-                                                    Ingeniero Informático - Ingeniero de Computadores de la Universidad
-                                                    de
-                                                    Sevilla.
-                                                </p>
-                                            </div>
+                                    <div class="pContent" data-about-card data-about-content>
+                                        <div class="s-about_title-reveal">
+                                            <h2 class="c-heading -h1 s-about_title" data-module-split
+                                                data-split="words chars">
+                                                Sobre mí
+                                            </h2>
                                         </div>
 
-                                        <div class="s-about_text-block" data-module-split data-split="lines,words">
-                                            <div class="s-about_text-inner">
-                                                <p class="c-sp1">
-                                                    Actualmente, desempeño mi labor profesional como Técnico
-                                                    Especialista de laboratorio en proyectos de generación de
-                                                    conocimiento,
-                                                    centrándome en el proyecto REEGREENH2.
-                                                </p>
+                                        <div class="s-about_text-blocks">
+                                            <div class="s-about_text-block" data-module-split data-split="lines,words">
+                                                <div class="s-about_text-inner">
+                                                    <p class="c-sp1">
+                                                        Soy Echedey Aguilar Hernández, originario de Lanzarote. Soy
+                                                        Ingeniero Informático - Ingeniero de Computadores de la
+                                                        Universidad
+                                                        de
+                                                        Sevilla.
+                                                    </p>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="s-about_text-block" data-module-split data-split="lines,words">
-                                            <div class="s-about_text-inner">
-                                                <p class="c-sp1">
-                                                    Mis intereses abarcan la divulgación científica, la informática y la
-                                                    robótica, así como viajar y disfrutar de la naturaleza.
-                                                </p>
+                                            <div class="s-about_text-block" data-module-split data-split="lines,words">
+                                                <div class="s-about_text-inner">
+                                                    <p class="c-sp1">
+                                                        Actualmente, desempeño mi labor profesional como Técnico
+                                                        Especialista de laboratorio en proyectos de generación de
+                                                        conocimiento,
+                                                        centrándome en el proyecto REEGREENH2.
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div class="s-about_text-block" data-module-split data-split="lines,words">
+                                                <div class="s-about_text-inner">
+                                                    <p class="c-sp1">
+                                                        Mis intereses abarcan la divulgación científica, la informática
+                                                        y la
+                                                        robótica, así como viajar y disfrutar de la naturaleza.
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -666,79 +670,7 @@
     <script src="scripts/app.js"></script>
     <script>
         (function () {
-            function initAboutAnim() {
-                if (!window.gsap || !window.ScrollTrigger) return;
-                gsap.registerPlugin(ScrollTrigger);
-
-                const section = document.querySelector('[data-scroll-target="sobre_mi"]');
-                if (!section) return;
-                const card = section.querySelector('[data-about-card]');
-                const image = section.querySelector('[data-about-image] img');
-                const contentItems = section.querySelectorAll('[data-about-content] .c-heading, [data-about-content] .c-sp1');
-
-
-
-                // Si falta algún elemento, salimos para no romper el resto de la página
-                if (!card || !image) return;
-                // Ensure 3D context
-                gsap.set(card, { transformStyle: 'preserve-3d' });
-
-                // Scroll-driven parallax / 3D rotation
-                gsap.timeline({
-                    scrollTrigger: {
-                        trigger: section,
-                        start: 'top center',
-                        end: 'bottom top',
-                        scrub: true
-                    }
-                })
-                    .to(card, { z: -140, rotationX: 8, rotationY: -8, scale: 1.03, ease: 'none' }, 0)
-                    .to(image, { scale: 1.18, y: -40, filter: 'brightness(0.95)', ease: 'none' }, 0);
-
-                // Text reveal
-                gsap.from(contentItems, {
-                    y: 30,
-                    opacity: 0,
-                    stagger: 0.12,
-                    duration: 0.6,
-                    ease: 'power2.out',
-                    scrollTrigger: {
-                        trigger: section,
-                        start: 'top 75%',
-                        toggleActions: 'play reverse play reverse'
-                    }
-                });
-
-                // Mouse/touch tilt for interactivity (desktop and touch)
-                let bounds = card.getBoundingClientRect();
-                function updateBounds() { bounds = card.getBoundingClientRect(); }
-                window.addEventListener('resize', updateBounds);
-
-                function onMove(e) {
-                    const clientX = e.clientX || (e.touches && e.touches[0] && e.touches[0].clientX) || 0;
-                    const clientY = e.clientY || (e.touches && e.touches[0] && e.touches[0].clientY) || 0;
-                    const x = clientX - (bounds.left + bounds.width / 2);
-                    const y = clientY - (bounds.top + bounds.height / 2);
-                    const rx = gsap.utils.clamp(-12, 12, - (y / (bounds.height / 2)) * 10);
-                    const ry = gsap.utils.clamp(-12, 12, (x / (bounds.width / 2)) * 10);
-                    gsap.to(card, { rotationX: rx, rotationY: ry, duration: 0.6, ease: 'power3.out' });
-                }
-
-                function onLeave() {
-                    gsap.to(card, { rotationX: 0, rotationY: 0, duration: 0.8, ease: 'power3.out' });
-                }
-
-                section.addEventListener('mousemove', onMove);
-                section.addEventListener('touchmove', onMove, { passive: true });
-                section.addEventListener('mouseleave', onLeave);
-                section.addEventListener('touchend', onLeave);
-            }
-
-            if (document.readyState === 'complete' || document.readyState === 'interactive') {
-                setTimeout(initAboutAnim, 50);
-            } else {
-                window.addEventListener('DOMContentLoaded', initAboutAnim);
-            }
+            // Logic moved to scripts/gsap-about.js
         })();
     </script>
     <script src="scripts/gsap-about.js"></script>
