@@ -36,6 +36,10 @@
 
     <link rel="stylesheet" href="css/main.css">
 
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
     <script src="scripts/content.js"></script>
 </head>
 
@@ -298,7 +302,6 @@
                                     </div>
                                 </div>
                             </div> -->
-
                             <div class="pContainer">
                                 <div class="pImage" data-about-image>
                                     <img src="images/webgl/sobremi.png" alt="Sobre mi" />
@@ -650,12 +653,10 @@
                         data-scroll-offset="25%,50%"></div>
                     <div class="o-section_trigger -showBgContact" data-scroll
                         data-scroll-event-progress="aboutShowBgContact" data-scroll-offset="0%,100%"></div>
-                    <div class="o-section_trigger -progressTxt" data-scroll-target="sobre_mi" data-scroll
+                    <div class="o-section_trigger -progressTxt" data-scroll
                         data-scroll-event-progress="aboutProgressTxt" data-scroll-offset="50%,50%"></div>
-
-                    <div class="o-section_trigger -progressClip" data-scroll-target="sobre_mi" data-scroll
+                    <div class="o-section_trigger -progressClip" data-scroll-target="about" data-scroll
                         data-scroll-event-progress="aboutProgressClip" data-scroll-offset="50%,50%"></div>
-
                 </section>
 
             </main>
@@ -740,6 +741,7 @@
             }
         })();
     </script>
+    <script src="scripts/gsap-about.js"></script>
 </body>
 
 </html>
