@@ -20858,10 +20858,18 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         }
         scrollTo(i) {
             let e = i.currentTarget.getAttribute("data-section-id")
-                , r = document.querySelector('[data-scroll-target="' + e + '"]');
-            r && (this.closeMenu(),
+                , r = {
+                    sobre_mi: '.s-portfolio_target[data-index="sobre_mi"]',
+                    habilidades_tecnicas: '.s-portfolio_target[data-index="software"]',
+                    experiencia_laboral: '.s-portfolio_target[data-index="renewables"]',
+                    educacion: '.s-portfolio_target[data-index="ai"]',
+                    certificaciones: '.s-portfolio_target[data-index="iot"]',
+                    conferencias_workshops_premios: '[data-scroll-target="conferences"]'
+                }[e]
+                , s = document.querySelector('[data-scroll-target="' + e + '"]') || r && document.querySelector(r);
+            s && (this.closeMenu(),
                 this.call("scrollTo", {
-                    target: r
+                    target: s
                 }, "Scroll"))
         }
     }
