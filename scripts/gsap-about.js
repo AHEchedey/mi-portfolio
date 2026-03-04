@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const section = document.querySelector('.s-portfolio_content[data-index="sobre_mi"]');
     if (!section) return;
+    const topNav = document.querySelector('.o-nav');
 
     // Use the container inside the section
     const container = section.querySelector('.pContainer');
@@ -19,6 +20,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     if (section && content && image) {
+
+        // Ensure top nav is visible while "Sobre mí" is in view
+        if (topNav) {
+            ScrollTrigger.create({
+                trigger: section,
+                start: "top bottom",
+                end: "bottom top",
+                onEnter: () => gsap.to(topNav, { autoAlpha: 1, duration: 0.3, overwrite: "auto" }),
+                onEnterBack: () => gsap.to(topNav, { autoAlpha: 1, duration: 0.3, overwrite: "auto" })
+            });
+        }
 
         // Parallax for Content (moves up slightly slower)
         gsap.to(content, {
