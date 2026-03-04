@@ -23,12 +23,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Ensure top nav is visible while "Sobre mí" is in view
         if (topNav) {
+            const showTopNav = () => gsap.to(topNav, { autoAlpha: 1, duration: 0.3, overwrite: "auto" });
+
             ScrollTrigger.create({
                 trigger: section,
                 start: "top bottom",
                 end: "bottom top",
-                onEnter: () => gsap.to(topNav, { autoAlpha: 1, duration: 0.3, overwrite: "auto" }),
-                onEnterBack: () => gsap.to(topNav, { autoAlpha: 1, duration: 0.3, overwrite: "auto" })
+                onEnter: showTopNav,
+                onEnterBack: showTopNav,
+                onToggle: ({ isActive }) => {
+                    if (isActive) showTopNav();
+                },
+                onRefresh: self => {
+                    if (self.isActive) showTopNav();
+                }
             });
         }
 
