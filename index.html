@@ -210,12 +210,70 @@
 
 
 
-                <!-- 5) PROYECTOS (ANTES ERA "portfolio") -->
-                <section class="o-section -portfolio" data-scroll-target="proyectos" data-module-portfolio
-                    style="--items: 5">
+                <!-- 1) SOBRE MÍ - AHORA ES UNA SECCIÓN INDEPENDIENTE -->
+                <section class="o-section -about-me" data-scroll-target="sobre_mi" data-module-about-me
+                    style="min-height: 100vh;">
                     <div class="o-section_trigger" data-scroll data-scroll-call="changeTitle, SectionTitle"
-                        data-scroll-offset="50%,50%" data-scroll-repeat data-section-title="Proyectos"
-                        data-section-title-id="proyectos"></div>
+                        data-scroll-offset="50%,50%" data-scroll-repeat data-section-title="Sobre mí"
+                        data-section-title-id="sobre_mi"></div>
+
+                    <div class="pContainer">
+                        <div class="pImage" data-about-image>
+                            <img src="images/webgl/sobremi.png" alt="Sobre mi" />
+                            <div class="s-about_overlay-gradient"></div>
+                        </div>
+
+                        <div class="pContent" data-about-card data-about-content>
+                            <div class="s-about_title-reveal">
+                                <h2 class="c-heading -h1 s-about_title" data-module-split data-split="words chars">
+                                    Sobre mí
+                                </h2>
+                            </div>
+
+                            <div class="s-about_text-blocks">
+                                <div class="s-about_text-block" data-module-split data-split="lines,words">
+                                    <div class="s-about_text-inner">
+                                        <p class="c-sp1">
+                                            Soy Echedey Aguilar Hernández, originario de Lanzarote. Soy
+                                            Ingeniero Informático - Ingeniero de Computadores de la
+                                            Universidad
+                                            de
+                                            Sevilla.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="s-about_text-block" data-module-split data-split="lines,words">
+                                    <div class="s-about_text-inner">
+                                        <p class="c-sp1">
+                                            Actualmente, desempeño mi labor profesional como Técnico
+                                            Especialista de laboratorio en proyectos de generación de
+                                            conocimiento,
+                                            centrándome en el proyecto REEGREENH2.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="s-about_text-block" data-module-split data-split="lines,words">
+                                    <div class="s-about_text-inner">
+                                        <p class="c-sp1">
+                                            Mis intereses abarcan la divulgación científica, la informática
+                                            y la
+                                            robótica, así como viajar y disfrutar de la naturaleza.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2) COMPUTER SKILLS (ANTES ERA "PROYECTOS") -->
+                <section class="o-section -portfolio" data-scroll-target="computer_skills" data-module-portfolio
+                    style="--items: 4">
+                    <div class="o-section_trigger" data-scroll data-scroll-call="changeTitle, SectionTitle"
+                        data-scroll-offset="50%,50%" data-scroll-repeat data-section-title="Computer Skills"
+                        data-section-title-id="computer_skills"></div>
 
                     <div class="o-section_trigger -inview" data-scroll data-scroll-call="inview, Portfolio"
                         data-scroll-offset="50%,50%" data-scroll-repeat></div>
@@ -228,6 +286,7 @@
                         </div>
 
                         <div class="s-portfolio_target" data-index="software" data-scroll-target="habilidades_tecnicas" data-scroll
+                        <div class="s-portfolio_target" data-index="software" data-scroll
                             data-scroll-call="activeSub, Portfolio" data-scroll-offset="50%,50%" data-scroll-repeat>
                         </div>
 
@@ -247,12 +306,6 @@
 
                     <div class="s-portfolio">
                         <div class="s-portfolio_backgrounds">
-
-                            <div class="s-portfolio_background" data-index="sobre_mi">
-                                <picture>
-                                    <img src="images/webgl/sobremi.png" alt="Sobre mí" loading="lazy" />
-                                </picture>
-                            </div>
 
                             <div class="s-portfolio_background" data-index="software">
                                 <picture>
@@ -289,80 +342,10 @@
 
                         <div class="s-portfolio_contents">
 
-                            <!-- <div class="s-portfolio_content" data-index="sobre_mi">
-                                <div class="c-sp2 s-portfolio_content_intro" data-module-split data-split="lines,words">
-                                    Soy Echedey Aguilar Hernández, originario de Lanzarote. Ingeniero Informático –
-                                    Ingeniero de Computadores.
-                                </div>
-
-                                <div class="s-portfolio_content_text">
-                                    <h3 class="c-heading -h3">Sobre mí</h3>
-                                    <div class="c-sp3">
-                                        Actualmente, desempeño mi labor como Técnico Especialista de laboratorio en
-                                        proyectos de generación de conocimiento,
-                                        centrándome en REEGREENH2.<br><br>
-                                        Mis intereses abarcan la divulgación científica, la informática y la robótica,
-                                        así como viajar y disfrutar de la naturaleza.
-                                    </div>
-                                </div>
-                            </div> -->
-                            <div class="s-portfolio_content" data-index="sobre_mi">
-                                <div class="pContainer">
-                                    <div class="pImage" data-about-image>
-                                        <img src="images/webgl/sobremi.png" alt="Sobre mi" />
-                                        <div class="s-about_overlay-gradient"></div>
-                                    </div>
-
-                                    <div class="pContent" data-about-card data-about-content>
-                                        <div class="s-about_title-reveal">
-                                            <h2 class="c-heading -h1 s-about_title" data-module-split
-                                                data-split="words chars">
-                                                Sobre mí
-                                            </h2>
-                                        </div>
-
-                                        <div class="s-about_text-blocks">
-                                            <div class="s-about_text-block" data-module-split data-split="lines,words">
-                                                <div class="s-about_text-inner">
-                                                    <p class="c-sp1">
-                                                        Soy Echedey Aguilar Hernández, originario de Lanzarote. Soy
-                                                        Ingeniero Informático - Ingeniero de Computadores de la
-                                                        Universidad
-                                                        de
-                                                        Sevilla.
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div class="s-about_text-block" data-module-split data-split="lines,words">
-                                                <div class="s-about_text-inner">
-                                                    <p class="c-sp1">
-                                                        Actualmente, desempeño mi labor profesional como Técnico
-                                                        Especialista de laboratorio en proyectos de generación de
-                                                        conocimiento,
-                                                        centrándome en el proyecto REEGREENH2.
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div class="s-about_text-block" data-module-split data-split="lines,words">
-                                                <div class="s-about_text-inner">
-                                                    <p class="c-sp1">
-                                                        Mis intereses abarcan la divulgación científica, la informática
-                                                        y la
-                                                        robótica, así como viajar y disfrutar de la naturaleza.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
+                            <!-- INDICE: 1 -->
                             <div class="s-portfolio_content" data-index="software">
                                 <div class="c-sp2 s-portfolio_content_intro" data-module-split data-split="lines,words">
-                                    Creación de aplicaciones robustas y escalables. <span class='c-ova-txt'>EAH</span>
+                                    Creación de aplicaciones robustas y escalables. <span class="c-ova-txt">EAH</span>
                                     domina el ciclo
                                     completo de desarrollo.
                                 </div>
@@ -377,10 +360,13 @@
                                 </div>
                             </div>
 
+                            <!-- INDICE: 2 -->
                             <div class="s-portfolio_content" data-index="ai">
                                 <div class="c-sp2 s-portfolio_content_intro" data-module-split data-split="lines,words">
                                     Implementación de modelos de aprendizaje automático. <span
-                                        class='c-ova-txt'>EAH</span> aplica la IA
+                                        class="c-ova-txt">EAH</span>
+                                    aplica
+                                    la IA
                                     para resolver problemas complejos.
                                 </div>
                                 <div class="s-portfolio_content_text">
@@ -393,9 +379,10 @@
                                 </div>
                             </div>
 
+                            <!-- INDICE: 3 -->
                             <div class="s-portfolio_content" data-index="iot">
                                 <div class="c-sp2 s-portfolio_content_intro" data-module-split data-split="lines,words">
-                                    Conectando el mundo físico con el digital. <span class='c-ova-txt'>EAH</span> diseña
+                                    Conectando el mundo físico con el digital. <span class="c-ova-txt">EAH</span> diseña
                                     redes de
                                     dispositivos interconectados.
                                 </div>
@@ -409,9 +396,10 @@
                                 </div>
                             </div>
 
+                            <!-- INDICE: 4 -->
                             <div class="s-portfolio_content" data-index="renewables">
                                 <div class="c-sp2 s-portfolio_content_intro" data-module-split data-split="lines,words">
-                                    Compromiso con un futuro sostenible. <span class='c-ova-txt'>EAH</span> aplica la
+                                    Compromiso con un futuro sostenible. <span class="c-ova-txt">EAH</span> aplica la
                                     ingeniería para
                                     optimizar energías limpias.
                                 </div>
@@ -425,7 +413,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
 
@@ -437,12 +424,62 @@
                             <a href="#renewables" class="s-portfolio_nav_item" data-index="renewables">Experiencia laboral</a>
                             <a href="#ai" class="s-portfolio_nav_item" data-index="ai">Educación</a>
                             <a href="#iot" class="s-portfolio_nav_item" data-index="iot">Certificaciones</a>
+                            <a href="#software" class="s-portfolio_nav_item" data-index="software">00</a>
+                            <a href="#software" class="s-portfolio_nav_item" data-index="software">01</a>
+                            <a href="#ai" class="s-portfolio_nav_item" data-index="ai">02</a>
+                            <a href="#iot" class="s-portfolio_nav_item" data-index="iot">03</a>
+                            <a href="#renewables" class="s-portfolio_nav_item" data-index="renewables">04</a>
 
                             <div class="s-portfolio_progress">
                                 <div class="s-portfolio_progress_track"></div>
                             </div>
                         </nav>
                     </aside>
+                </section>
+
+                <!-- 3) TRABAJO - NUEVA SECCIÓN PLACEHOLDER -->
+                <section class="o-section -work" data-scroll-target="trabajo"
+                    style="min-height: 50vh; padding: 4rem 2rem;">
+                    <div class="o-section_trigger" data-scroll data-scroll-call="changeTitle, SectionTitle"
+                        data-scroll-offset="50%,50%" data-scroll-repeat data-section-title="Trabajo"
+                        data-section-title-id="trabajo"></div>
+
+                    <div class="o-section_inner">
+                        <h2 class="c-heading -h2" data-module-split data-split="lines,words">Experiencia Laboral</h2>
+                        <div class="c-sp1" style="margin-top: 2rem;">
+                            Contenido de experiencia laboral por desarrollar.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4) EDUCACIÓN - NUEVA SECCIÓN PLACEHOLDER -->
+                <section class="o-section -education" data-scroll-target="educacion"
+                    style="min-height: 50vh; padding: 4rem 2rem;">
+                    <div class="o-section_trigger" data-scroll data-scroll-call="changeTitle, SectionTitle"
+                        data-scroll-offset="50%,50%" data-scroll-repeat data-section-title="Educación"
+                        data-section-title-id="educacion"></div>
+
+                    <div class="o-section_inner">
+                        <h2 class="c-heading -h2" data-module-split data-split="lines,words">Formación Académica</h2>
+                        <div class="c-sp1" style="margin-top: 2rem;">
+                            Contenido de educación por desarrollar.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5) PROYECTOS - NUEVA SECCIÓN PLACEHOLDER -->
+                <section class="o-section -projects" data-scroll-target="proyectos"
+                    style="min-height: 50vh; padding: 4rem 2rem;">
+                    <div class="o-section_trigger" data-scroll data-scroll-call="changeTitle, SectionTitle"
+                        data-scroll-offset="50%,50%" data-scroll-repeat data-section-title="Proyectos"
+                        data-section-title-id="proyectos"></div>
+
+                    <div class="o-section_inner">
+                        <h2 class="c-heading -h2" data-module-split data-split="lines,words">Proyectos Destacados</h2>
+                        <div class="c-sp1" style="margin-top: 2rem;">
+                            Contenido de proyectos por desarrollar.
+                        </div>
+                    </div>
                 </section>
 
                 <!-- 6) CONFERENCES - WORKSHOPS - ACTIVITIES - COMPETITIONS (ANTES ERA "manifesto") -->
