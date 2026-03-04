@@ -106,25 +106,10 @@
                                         onclick="setLanguage('en'); return false;">EN</a>
                                 </div>
 
-                                <!-- 7 SECCIONES (SIN "INICIO" NI "CONTACTAR" EN MENÚ) -->
+                                <!-- Secciones en el orden solicitado -->
                                 <div class="c-menu_content_item" data-menu="scrollTo" data-section-id="sobre_mi">
-                                    <span>Sobre mi</span>
-                                    <img src="images/webgl/sobremi.png" alt="Sobre mi" loading="lazy" />
-                                </div>
-
-                                <div class="c-menu_content_item" data-menu="scrollTo" data-section-id="computer_skills">
-                                    <span>Computer skills</span>
-                                    <img src="images/webgl/foxglove.png" alt="Computer skills" loading="lazy" />
-                                </div>
-
-                                <div class="c-menu_content_item" data-menu="scrollTo" data-section-id="trabajo">
-                                    <span>Trabajo</span>
-                                    <img src="images/webgl/trabajo.png" alt="Trabajo" loading="lazy" />
-                                </div>
-
-                                <div class="c-menu_content_item" data-menu="scrollTo" data-section-id="educacion">
-                                    <span>Educacion</span>
-                                    <img src="images/webgl/impresion3d.png" alt="Educacion" loading="lazy" />
+                                    <span>Sobre mí</span>
+                                    <img src="images/webgl/sobremi.png" alt="Sobre mí" loading="lazy" />
                                 </div>
 
                                 <div class="c-menu_content_item" data-menu="scrollTo" data-section-id="proyectos">
@@ -132,15 +117,34 @@
                                     <img src="images/webgl/voluntariado.jpeg" alt="Proyectos" loading="lazy" />
                                 </div>
 
-                                <div class="c-menu_content_item" data-menu="scrollTo" data-section-id="conferences">
-                                    <span>Conferences - Workshops - Activities - Competitions</span>
-                                    <img src="images/webgl/congresos1.png"
-                                        alt="Conferences - Workshops - Activities - Competitions" loading="lazy" />
+                                <div class="c-menu_content_item" data-menu="scrollTo" data-section-id="experiencia_laboral">
+                                    <span>Experiencia laboral</span>
+                                    <img src="images/webgl/trabajo.png" alt="Experiencia laboral" loading="lazy" />
                                 </div>
 
-                                <div class="c-menu_content_item" data-menu="scrollTo" data-section-id="premios">
-                                    <span>Premios</span>
-                                    <img src="images/webgl/menu-contact.avif" alt="Premios" loading="lazy" />
+                                <div class="c-menu_content_item" data-menu="scrollTo" data-section-id="habilidades_tecnicas">
+                                    <span>Habilidades técnicas</span>
+                                    <img src="images/webgl/foxglove.png" alt="Habilidades técnicas" loading="lazy" />
+                                </div>
+
+                                <div class="c-menu_content_item" data-menu="scrollTo" data-section-id="educacion">
+                                    <span>Educación</span>
+                                    <img src="images/webgl/impresion3d.png" alt="Educación" loading="lazy" />
+                                </div>
+
+                                <div class="c-menu_content_item" data-menu="scrollTo" data-section-id="certificaciones">
+                                    <span>Certificaciones</span>
+                                    <img src="images/webgl/sate-lite-us.jpeg" alt="Certificaciones" loading="lazy" />
+                                </div>
+
+                                <div class="c-menu_content_item" data-menu="scrollTo" data-section-id="conferencias_workshops_premios">
+                                    <span>Conferencias-workshops-premios</span>
+                                    <img src="images/webgl/congresos1.png" alt="Conferencias-workshops-premios" loading="lazy" />
+                                </div>
+
+                                <div class="c-menu_content_item" data-menu="scrollTo" data-section-id="contact">
+                                    <span>Contacto</span>
+                                    <img src="images/webgl/menu-contact.avif" alt="Contacto" loading="lazy" />
                                 </div>
 
                             </div>
@@ -277,19 +281,24 @@
                     <div class="o-section_trigger -progress" data-scroll data-scroll-event-progress="portfolioProgress"
                         data-scroll-offset="50%,50%">
 
+                        <div class="s-portfolio_target" data-index="sobre_mi" data-scroll-target="sobre_mi" data-scroll
+                            data-scroll-call="activeSub, Portfolio" data-scroll-offset="50%,50%" data-scroll-repeat>
+                        </div>
+
+                        <div class="s-portfolio_target" data-index="software" data-scroll-target="habilidades_tecnicas" data-scroll
                         <div class="s-portfolio_target" data-index="software" data-scroll
                             data-scroll-call="activeSub, Portfolio" data-scroll-offset="50%,50%" data-scroll-repeat>
                         </div>
 
-                        <div class="s-portfolio_target" data-index="ai" data-scroll
+                        <div class="s-portfolio_target" data-index="ai" data-scroll-target="educacion" data-scroll
                             data-scroll-call="activeSub, Portfolio" data-scroll-offset="50%,50%" data-scroll-repeat>
                         </div>
 
-                        <div class="s-portfolio_target" data-index="iot" data-scroll
+                        <div class="s-portfolio_target" data-index="iot" data-scroll-target="certificaciones" data-scroll
                             data-scroll-call="activeSub, Portfolio" data-scroll-offset="50%,50%" data-scroll-repeat>
                         </div>
 
-                        <div class="s-portfolio_target" data-index="renewables" data-scroll
+                        <div class="s-portfolio_target" data-index="renewables" data-scroll-target="experiencia_laboral" data-scroll
                             data-scroll-call="activeSub, Portfolio" data-scroll-offset="50%,50%" data-scroll-repeat>
                         </div>
 
@@ -410,6 +419,11 @@
                     <aside class="s-portfolio_aside">
                         <nav class="s-portfolio_nav">
 
+                            <a href="#sobre_mi" class="s-portfolio_nav_item" data-index="sobre_mi">Sobre mí</a>
+                            <a href="#software" class="s-portfolio_nav_item" data-index="software">Habilidades técnicas</a>
+                            <a href="#renewables" class="s-portfolio_nav_item" data-index="renewables">Experiencia laboral</a>
+                            <a href="#ai" class="s-portfolio_nav_item" data-index="ai">Educación</a>
+                            <a href="#iot" class="s-portfolio_nav_item" data-index="iot">Certificaciones</a>
                             <a href="#software" class="s-portfolio_nav_item" data-index="software">00</a>
                             <a href="#software" class="s-portfolio_nav_item" data-index="software">01</a>
                             <a href="#ai" class="s-portfolio_nav_item" data-index="ai">02</a>
@@ -469,7 +483,7 @@
                 </section>
 
                 <!-- 6) CONFERENCES - WORKSHOPS - ACTIVITIES - COMPETITIONS (ANTES ERA "manifesto") -->
-                <section class="o-section -manifesto" data-scroll-target="conferences" data-module-manifesto
+                <section class="o-section -manifesto" data-scroll-target="conferencias_workshops_premios" data-module-manifesto
                     style="--items: 3">
 
                     <div class="o-section_background">
@@ -540,7 +554,7 @@
                     <div class="o-section_trigger" data-scroll data-scroll-call="changeTitle, SectionTitle"
                         data-scroll-offset="50%,50%" data-scroll-repeat
                         data-section-title="Conferences - Workshops - Activities - Competitions"
-                        data-section-title-id="conferences"></div>
+                        data-section-title-id="conferencias_workshops_premios"></div>
 
                     <div class="o-section_trigger -show" data-scroll data-scroll-event-progress="manifestoShow"
                         data-scroll-offset="0%,100%"></div>
