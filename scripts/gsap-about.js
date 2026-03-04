@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     gsap.registerPlugin(ScrollTrigger);
 
-    const section = document.querySelector('.s-portfolio_content[data-index="sobre_mi"]');
+    const section = document.querySelector('.o-section.-about-me');
     if (!section) return;
 
     // Use the container inside the section
