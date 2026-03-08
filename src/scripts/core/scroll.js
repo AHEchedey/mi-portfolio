@@ -1,10 +1,11 @@
 /**
  * Ownership: Frontend Architecture
  * Purpose: Shared scroll adapter for modular sections.
- * Note: Scaffold only. Not connected to production yet.
+ * Note: Coexists with legacy runtime and can be replaced later.
  */
-export function createScrollAdapter() {
+export function createScrollAdapter({ strategy = "native" } = {}) {
   return {
+    strategy,
     getY() {
       return window.scrollY || window.pageYOffset || 0;
     },

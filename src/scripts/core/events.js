@@ -1,7 +1,7 @@
 /**
  * Ownership: Frontend Architecture
  * Purpose: Shared event bus for modular communication.
- * Note: Scaffold only. Not connected to production yet.
+ * Note: Coexists with legacy runtime.
  */
 export function createEventBus() {
   const listeners = new Map();
@@ -25,5 +25,9 @@ export function createEventBus() {
     set.forEach((handler) => handler(payload));
   }
 
-  return { on, off, emit };
+  function clear() {
+    listeners.clear();
+  }
+
+  return { on, off, emit, clear };
 }
