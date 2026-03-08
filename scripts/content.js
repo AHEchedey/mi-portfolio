@@ -481,10 +481,26 @@ function updateContent() {
     console.log('Idioma actualizado a:', currentLang);
 }
 
+// Enlaza los controles de idioma sin usar handlers inline
+function bindLanguageControls() {
+    const langLinks = document.querySelectorAll('.c-menu_lang a[data-lang]');
+    langLinks.forEach(link => {
+        link.addEventListener('click', event => {
+            event.preventDefault();
+            const lang = link.getAttribute('data-lang');
+            if (lang) setLanguage(lang);
+        });
+    });
+}
+
 // Inicializar cuando el DOM esté listo
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', updateContent);
+    document.addEventListener('DOMContentLoaded', () => {
+        bindLanguageControls();
+        updateContent();
+    });
 } else {
+    bindLanguageControls();
     updateContent();
 }
 
