@@ -6,12 +6,15 @@ This document defines the mandatory rules for the progressive refactor from lega
 
 ## Naming Conventions
 
-- Use prefixes by layer:
+Use prefixes by layer:
+
 - `o-` for objects/layout structures.
 - `c-` for reusable components.
 - `s-` for section-specific blocks.
 - `u-` for utility classes.
-- Use `kebab-case` for:
+
+Use `kebab-case` for:
+
 - file names
 - CSS classes
 - data attributes
@@ -45,8 +48,8 @@ el.dataset.initialized = "true";
 
 - Keep legacy runtime active until each section is migrated.
 - Use architecture flags:
-- global: `data-arch="legacy|modular"`
-- per section: `data-arch-hero="modular"`, `data-arch-about="modular"`, etc.
+  - global: `data-arch="legacy|modular"`
+  - per section: `data-arch-hero="modular"`, `data-arch-about="modular"`, etc.
 - Register GSAP plugins once in a single shared module.
 - Use one shared scroll adapter for all new modules.
 - Do not use global implicit dependencies in new code (no `window.gsap` usage in module internals).
@@ -64,13 +67,13 @@ el.dataset.initialized = "true";
 - Lint passes (`eslint`, `stylelint`, `html-validate`, link check).
 - No critical console errors.
 - Smoke test passed:
-- desktop
-- mobile
-- keyboard navigation + visible focus
-- scroll
-- menu
-- hero
-- about
+  - desktop
+  - mobile
+  - keyboard navigation + visible focus
+  - scroll
+  - menu
+  - hero
+  - about
 - No double initialization.
 - No leaked listeners/triggers after `destroy()`.
 - Visual regression controlled for affected area.
