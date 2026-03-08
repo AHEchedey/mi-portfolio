@@ -8,8 +8,11 @@ import { createEventBus } from "./events.js";
 import { createI18n } from "./i18n.js";
 import { registerGsap } from "./animation.js";
 import { createScrollAdapter } from "./scroll.js";
+import heroModule from "../sections/hero.js";
 
-const MODULES = new Map();
+const MODULES = new Map([
+  ["hero", heroModule]
+]);
 const SECTION_FLAG_PREFIX = "arch";
 const BOOTSTRAP_GUARD = "modularBootstrapInitialized";
 

@@ -1,9 +1,13 @@
 /*
-  Ownership: Sections Team (Hero)
-  Purpose: Future isolated styles for Hero section.
-  Note: Scaffold only. Not connected to production yet.
-*/
+ * Ownership: Sections Team (Hero)
+ * Purpose: Modular ownership layer for Hero pilot.
+ * Note: Conservative layer; visual output should remain equivalent to legacy.
+ */
 
-.s-hero {
-  /* Placeholder for modular migration in PR-009 */
+[data-section="hero"] {
+  /* Anchor selector for hero modular ownership. */
+}
+
+[data-section="hero"][data-hero-module="ready"] {
+  /* No visual override by default. Keeps legacy rendering intact. */
 }
