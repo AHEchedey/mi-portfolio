@@ -3,6 +3,7 @@
 @import url("../src/styles/layout.css");
 @import url("../src/styles/utilities.css");
 @import url("../src/styles/sections/hero.css");
+@import url("../src/styles/sections/about.css");
 
 .o-footer {
     position: relative;

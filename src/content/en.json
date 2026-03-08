@@ -5,6 +5,16 @@
   },
   "about": {
     "title": "About me",
-    "summary": "Temporary content for modular migration."
+    "intro": "Computer engineer focused on applied technology and impactful projects.",
+    "body": [
+      "I work on knowledge-generation projects in the energy domain.",
+      "My interests include robotics, software engineering and science outreach."
+    ],
+    "focus": [
+      "Software",
+      "Robotics",
+      "Renewables",
+      "IoT"
+    ]
   }
 }

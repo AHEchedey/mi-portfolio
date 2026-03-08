@@ -5,6 +5,16 @@
   },
   "about": {
     "title": "Sobre mí",
-    "summary": "Contenido provisional para migración modular."
+    "intro": "Ingeniero informático con foco en tecnología aplicada y proyectos de impacto.",
+    "body": [
+      "Trabajo en proyectos de generación de conocimiento en el ámbito energético.",
+      "Me interesan la robótica, el software y la divulgación científica."
+    ],
+    "focus": [
+      "Software",
+      "Robótica",
+      "Renovables",
+      "IoT"
+    ]
   }
 }

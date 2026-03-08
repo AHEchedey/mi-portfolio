@@ -1,9 +1,13 @@
 /*
-  Ownership: Sections Team (About)
-  Purpose: Future isolated styles for About section.
-  Note: Scaffold only. Not connected to production yet.
-*/
+ * Ownership: Sections Team (About)
+ * Purpose: Modular ownership layer for About pilot.
+ * Note: Conservative layer; visual output should remain equivalent to legacy.
+ */
 
-.s-about {
-  /* Placeholder for modular migration in PR-010 */
+[data-section="about"] {
+  /* Anchor selector for about modular ownership. */
+}
+
+[data-section="about"][data-about-module="ready"] {
+  /* No visual override by default. Keeps legacy rendering intact. */
 }

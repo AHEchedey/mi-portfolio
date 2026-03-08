@@ -9,9 +9,11 @@ import { createI18n } from "./i18n.js";
 import { registerGsap } from "./animation.js";
 import { createScrollAdapter } from "./scroll.js";
 import heroModule from "../sections/hero.js";
+import aboutModule from "../sections/about.js";
 
 const MODULES = new Map([
-  ["hero", heroModule]
+  ["hero", heroModule],
+  ["about", aboutModule]
 ]);
 const SECTION_FLAG_PREFIX = "arch";
 const BOOTSTRAP_GUARD = "modularBootstrapInitialized";
@@ -50,7 +52,8 @@ export function bootstrap({ modules = MODULES } = {}) {
       fallbackLang: "es"
     }),
     animation: {
-      gsap: gsapInstance
+      gsap: gsapInstance,
+      scrollTrigger: globalThis.ScrollTrigger || null
     }
   };
 
