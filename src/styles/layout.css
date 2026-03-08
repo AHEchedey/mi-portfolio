@@ -1,14 +1,152 @@
 /*
   Ownership: Frontend Architecture
-  Purpose: Global layout primitives (containers, wrappers, spacing behavior).
-  Note: Scaffold only. Not connected to production yet.
+  Purpose: Global layout/object rules extracted from legacy main.css.
+  Note: Prepared for progressive migration. Not yet directly linked from production HTML.
 */
 
-.o-container {
-  width: min(1200px, 100% - 2rem);
-  margin-inline: auto;
+.o-loading {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    background-color: #fff;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    line-height: 1.3
 }
 
-.o-stack > * + * {
-  margin-top: var(--space-3);
+.o-loading.-hidden {
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0
+}
+
+.o-nav {
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: var(--grid-margin) var(--grid-margin);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0;
+    visibility: hidden
+}
+
+.o-nav_anchors .c-button+.c-button {
+    margin-left: 5px
+}
+
+@media(max-width: 999px) {
+    .o-nav_anchors .c-button+.c-button {
+        display: none
+    }
+}
+
+@media(max-width: 699px) {
+    .o-nav_anchors {
+        display: none
+    }
+}
+
+.o-nav_time {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Geist Mono", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    font-weight: 500;
+    font-size: .6rem;
+    line-height: 1.3;
+    text-align: center;
+    padding-top: .4rem
+}
+
+@media(max-width: 999px) {
+    .o-nav_time {
+        display: none
+    }
+}
+
+.o-nav_menu {
+    text-align: right;
+    font-size: 0
+}
+
+@media(max-width: 699px) {
+    .o-nav_menu {
+        width: 100%
+    }
+}
+
+.o-section {
+    position: relative;
+    background: #000;
+    z-index: 1
+}
+
+.o-section_sticky {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100lvh;
+    z-index: 1
+}
+
+.o-section_inner {
+    position: relative;
+    min-height: 100lvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: calc(4.5rem + var(--grid-margin));
+    padding-bottom: var(--grid-margin);
+    padding-left: var(--grid-margin);
+    padding-right: var(--grid-margin)
+}
+
+@media(max-width: 699px) {
+    .o-section_inner {
+        padding-top: calc(40px + var(--grid-margin)*2)
+    }
+}
+
+.o-section_background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: clip
+}
+
+.o-section_background img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
+.o-section_trigger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 0;
+    pointer-events: none
 }

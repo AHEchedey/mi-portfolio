@@ -1,28 +1,317 @@
 /*
   Ownership: Frontend Architecture
-  Purpose: Base styles and baseline accessibility defaults.
-  Note: Scaffold only. Not connected to production yet.
+  Purpose: Base/reset/global semantic rules extracted from legacy main.css.
+  Note: Prepared for progressive migration. Not yet directly linked from production HTML.
 */
+
+html.lenis,
+html.lenis body {
+    height: auto
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden
+}
+
+html {
+    box-sizing: border-box;
+    -webkit-text-size-adjust: 100%;
+    word-break: normal;
+    -moz-tab-size: 4;
+    tab-size: 4
+}
+
+*,
+::before,
+::after {
+    background-repeat: no-repeat;
+    box-sizing: inherit
+}
+
+::before,
+::after {
+    text-decoration: inherit;
+    vertical-align: inherit
+}
+
+* {
+    padding: 0;
+    margin: 0
+}
+
+hr {
+    overflow: visible;
+    height: 0;
+    color: inherit
+}
+
+main {
+    display: block
+}
+
+small {
+    font-size: 80%
+}
+
+[hidden] {
+    display: none
+}
+
+a {
+    background-color: rgba(0, 0, 0, 0)
+}
+
+a:active,
+a:hover {
+    outline-width: 0
+}
+
+pre {
+    font-family: monospace, monospace
+}
+
+pre {
+    font-size: 1em
+}
+
+b,
+strong {
+    font-weight: bolder
+}
+
+sub {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline
+}
+
+sub {
+    bottom: -0.25em
+}
+
+input {
+    border-radius: 0
+}
+
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+    height: auto
+}
+
+textarea {
+    overflow: auto;
+    resize: vertical
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit
+}
+
+button {
+    overflow: visible
+}
+
+button,
+select {
+    text-transform: none
+}
+
+button,
+[type=button],
+[type=reset] {
+    cursor: pointer
+}
+
+button::-moz-focus-inner,
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner {
+    border-style: none;
+    padding: 0
+}
+
+button:-moz-focusring,
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner {
+    outline: 1px dotted ButtonText
+}
+
+button,
+html [type=button],
+[type=reset] {
+    -webkit-appearance: button
+}
+
+button,
+input,
+select,
+textarea {
+    background-color: rgba(0, 0, 0, 0);
+    border-style: none
+}
+
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline-width: 0
+}
+
+select {
+    -moz-appearance: none;
+    -webkit-appearance: none
+}
+
+select::-ms-expand {
+    display: none
+}
+
+select::-ms-value {
+    color: currentColor
+}
+
+::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    color: inherit;
+    font: inherit
+}
+
+[disabled] {
+    cursor: default
+}
+
+img {
+    border-style: none
+}
+
+progress {
+    vertical-align: baseline
+}
 
 *,
 *::before,
-*::after {
-  box-sizing: border-box;
+*::after,
+*:before,
+*:after,
+*:focus,
+*:active {
+    box-sizing: border-box;
+    outline: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -ms-interpolation-mode: bicubic;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
 }
 
-html,
+a,
+a:visited {
+    color: #fff
+}
+
+p {
+    margin: 0
+}
+
+p+p {
+    margin-top: 1em
+}
+
+ul {
+    padding: 0;
+    margin: 0
+}
+
+ul,
+ul li {
+    list-style: none
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    font-weight: normal;
+    font-size: 1rem
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Neue Montreal";
+    src: url("../fonts/NeueMontreal-Regular.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Neue Montreal";
+    src: url("../fonts/NeueMontreal-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Neue Montreal";
+    src: url("../fonts/NeueMontreal-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Geist Mono";
+    src: url("../fonts/GeistMono-Medium.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Geist Mono";
+    src: url("../fonts/GeistMono-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Geist Mono";
+    src: url("../fonts/GeistMono-Medium.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal
+}
+
+html {
+    min-height: 100%;
+    font-size: var(--font-size);
+    line-height: 1.3;
+    font-family: "Neue Montreal", -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+    color: #fff
+}
+
+html.is-loading {
+    cursor: wait
+}
+
 body {
-  margin: 0;
-  padding: 0;
+    background-color: #000
 }
 
-body {
-  font-family: var(--font-sans);
-  background: var(--color-bg);
-  color: var(--color-fg);
-}
-
-:focus-visible {
-  outline: 2px solid #ffffff;
-  outline-offset: 2px;
+::selection {
+    background-color: #fff;
+    color: #000;
+    text-shadow: none
 }

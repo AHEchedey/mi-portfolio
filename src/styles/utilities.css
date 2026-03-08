@@ -1,8 +1,28 @@
 /*
   Ownership: Frontend Architecture
-  Purpose: Utility classes for future modular styling.
-  Note: Scaffold only. Not connected to production yet.
+  Purpose: Utility classes and reusable utility keyframes.
+  Note: Prepared for progressive migration. Not yet directly linked from production HTML.
 */
+
+@keyframes u-rotate {
+    0% {
+        transform: rotateZ(-360deg)
+    }
+
+    100% {
+        transform: rotateZ(0deg)
+    }
+}
+
+@keyframes u-rotate-inverse {
+    0% {
+        transform: rotateZ(360deg)
+    }
+
+    100% {
+        transform: rotateZ(0deg)
+    }
+}
 
 .u-hidden {
   display: none !important;
