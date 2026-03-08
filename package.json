@@ -1,0 +1,17 @@
+{
+  "name": "mi-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "lint:js": "eslint scripts/*.js",
+    "lint:css": "stylelint \"css/**/*.css\"",
+    "lint:html": "html-validate index.html",
+    "check:links": "node scripts/check-links.mjs",
+    "qa": "npm run lint:js && npm run lint:css && npm run lint:html && npm run check:links"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "html-validate": "^8.24.2",
+    "stylelint": "^16.24.0"
+  }
+}

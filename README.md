@@ -7,6 +7,7 @@ Web personal en proceso de refactorización progresiva desde arquitectura legacy
 Antes de mergear cualquier PR, ejecutar:
 
 ```bash
+npm install
 npm run qa
 ```
 
