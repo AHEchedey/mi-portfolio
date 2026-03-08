@@ -117,12 +117,14 @@
                                     <img src="images/webgl/voluntariado.jpeg" alt="Proyectos" loading="lazy" />
                                 </div>
 
-                                <div class="c-menu_content_item" data-menu="scrollTo" data-section-id="experiencia_laboral">
+                                <div class="c-menu_content_item" data-menu="scrollTo"
+                                    data-section-id="experiencia_laboral">
                                     <span>Experiencia laboral</span>
                                     <img src="images/webgl/trabajo.png" alt="Experiencia laboral" loading="lazy" />
                                 </div>
 
-                                <div class="c-menu_content_item" data-menu="scrollTo" data-section-id="habilidades_tecnicas">
+                                <div class="c-menu_content_item" data-menu="scrollTo"
+                                    data-section-id="habilidades_tecnicas">
                                     <span>Habilidades técnicas</span>
                                     <img src="images/webgl/foxglove.png" alt="Habilidades técnicas" loading="lazy" />
                                 </div>
@@ -137,9 +139,11 @@
                                     <img src="images/webgl/sate-lite-us.jpeg" alt="Certificaciones" loading="lazy" />
                                 </div>
 
-                                <div class="c-menu_content_item" data-menu="scrollTo" data-section-id="conferencias_workshops_premios">
+                                <div class="c-menu_content_item" data-menu="scrollTo"
+                                    data-section-id="conferencias_workshops_premios">
                                     <span>Conferencias-workshops-premios</span>
-                                    <img src="images/webgl/congresos1.png" alt="Conferencias-workshops-premios" loading="lazy" />
+                                    <img src="images/webgl/congresos1.png" alt="Conferencias-workshops-premios"
+                                        loading="lazy" />
                                 </div>
 
                                 <div class="c-menu_content_item" data-menu="scrollTo" data-section-id="contact">
@@ -210,496 +214,225 @@
 
 
 
-                <!-- 1) SOBRE MÍ - AHORA ES UNA SECCIÓN INDEPENDIENTE -->
+                <!-- SOBRE MÍ -->
                 <section class="o-section -about-me" data-scroll-target="sobre_mi" data-module-about-me
                     style="min-height: 100vh;">
                     <div class="o-section_trigger" data-scroll data-scroll-call="changeTitle, SectionTitle"
                         data-scroll-offset="50%,50%" data-scroll-repeat data-section-title="Sobre mí"
                         data-section-title-id="sobre_mi"></div>
 
-                    <div class="pContainer">
-                        <div class="pImage" data-about-image>
-                            <img src="images/webgl/sobremi.png" alt="Sobre mi" />
-                            <div class="s-about_overlay-gradient"></div>
+                    <div class="s-about_overlay-gradient" aria-hidden="true"></div>
+                    <figure class="pImage pProfile" data-about-image data-tilt>
+                        <img src="images/webgl/fondo_sobre_mi.jpg" alt="Foto de perfil de Echedey" loading="lazy"
+                            decoding="async" />
+                    </figure>
+
+                    <div class="pContent s-card" data-about-card data-about-content>
+                        <div class="c-eyebrow" data-module-split data-split="words chars">SECCIÓN 01</div>
+
+                        <h2 class="c-title" data-module-split data-split="words chars">
+                            Sobre mí
+                        </h2>
+
+                        <p class="c-body" data-module-split data-split="lines,words">
+                            Soy Echedey Aguilar Hernández, originario de Lanzarote. Ingeniero Informático (Ingeniería de
+                            Computadores, Universidad de Sevilla).
+                        </p>
+
+                        <p class="c-body" data-module-split data-split="lines,words">
+                            Actualmente trabajo como Técnico Especialista de laboratorio en proyectos de generación de
+                            conocimiento, centrado en el proyecto REEGREENH2.
+                        </p>
+
+                        <p class="c-body" data-module-split data-split="lines,words">
+                            Me interesan la divulgación científica, la informática y la robótica, así como viajar y
+                            disfrutar de la naturaleza.
+                        </p>
+
+                        <div class="c-tags">
+                            <span class="c-tag">Software</span>
+                            <span class="c-tag">Robótica</span>
+                            <span class="c-tag">Renovables</span>
+                            <span class="c-tag">IoT</span>
                         </div>
 
-                        <div class="pContent" data-about-card data-about-content>
-                            <div class="s-about_title-reveal">
-                                <h2 class="c-heading -h1 s-about_title" data-module-split data-split="words chars">
-                                    Sobre mí
-                                </h2>
-                            </div>
-
-                            <div class="s-about_text-blocks">
-                                <div class="s-about_text-block" data-module-split data-split="lines,words">
-                                    <div class="s-about_text-inner">
-                                        <p class="c-sp1">
-                                            Soy Echedey Aguilar Hernández, originario de Lanzarote. Soy
-                                            Ingeniero Informático - Ingeniero de Computadores de la
-                                            Universidad
-                                            de
-                                            Sevilla.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="s-about_text-block" data-module-split data-split="lines,words">
-                                    <div class="s-about_text-inner">
-                                        <p class="c-sp1">
-                                            Actualmente, desempeño mi labor profesional como Técnico
-                                            Especialista de laboratorio en proyectos de generación de
-                                            conocimiento,
-                                            centrándome en el proyecto REEGREENH2.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="s-about_text-block" data-module-split data-split="lines,words">
-                                    <div class="s-about_text-inner">
-                                        <p class="c-sp1">
-                                            Mis intereses abarcan la divulgación científica, la informática
-                                            y la
-                                            robótica, así como viajar y disfrutar de la naturaleza.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="c-actions">
+                            <a class="c-button" href="https://www.linkedin.com/..." target="_blank"
+                                rel="noopener noreferrer">LinkedIn</a>
+                            <a class="c-button" href="https://github.com/..." target="_blank"
+                                rel="noopener noreferrer">GitHub</a>
                         </div>
                     </div>
-                </section>
-
-                <!-- 2) COMPUTER SKILLS (ANTES ERA "PROYECTOS") -->
-                <section class="o-section -portfolio" data-scroll-target="computer_skills" data-module-portfolio
-                    style="--items: 4">
-                    <div class="o-section_trigger" data-scroll data-scroll-call="changeTitle, SectionTitle"
-                        data-scroll-offset="50%,50%" data-scroll-repeat data-section-title="Computer Skills"
-                        data-section-title-id="computer_skills"></div>
-
-                    <div class="o-section_trigger -inview" data-scroll data-scroll-call="inview, Portfolio"
-                        data-scroll-offset="50%,50%" data-scroll-repeat></div>
-
-                    <div class="o-section_trigger -progress" data-scroll data-scroll-event-progress="portfolioProgress"
-                        data-scroll-offset="50%,50%">
-
-                        <div class="s-portfolio_target" data-index="sobre_mi" data-scroll-target="sobre_mi" data-scroll
-                            data-scroll-call="activeSub, Portfolio" data-scroll-offset="50%,50%" data-scroll-repeat>
-                        </div>
-
-                        <div class="s-portfolio_target" data-index="software" data-scroll-target="habilidades_tecnicas" data-scroll
-                            data-scroll-call="activeSub, Portfolio" data-scroll-offset="50%,50%" data-scroll-repeat>
-                        </div>
-
-                        <div class="s-portfolio_target" data-index="ai" data-scroll-target="educacion" data-scroll
-                            data-scroll-call="activeSub, Portfolio" data-scroll-offset="50%,50%" data-scroll-repeat>
-                        </div>
-
-                        <div class="s-portfolio_target" data-index="iot" data-scroll-target="certificaciones" data-scroll
-                            data-scroll-call="activeSub, Portfolio" data-scroll-offset="50%,50%" data-scroll-repeat>
-                        </div>
-
-                        <div class="s-portfolio_target" data-index="renewables" data-scroll-target="experiencia_laboral" data-scroll
-                            data-scroll-call="activeSub, Portfolio" data-scroll-offset="50%,50%" data-scroll-repeat>
-                        </div>
-
-                    </div>
-
-                    <div class="s-portfolio">
-                        <div class="s-portfolio_backgrounds">
-
-                            <div class="s-portfolio_background" data-index="software">
-                                <picture>
-                                    <source srcset="images/mobile/portfolio-finance.avif" media="(max-width: 1000px)" />
-                                    <img src="images/webgl/portfolio-finance.avif" alt="Desarrollo de Software"
-                                        loading="lazy" />
-                                </picture>
-                            </div>
-
-                            <div class="s-portfolio_background" data-index="ai">
-                                <picture>
-                                    <source srcset="images/mobile/portfolio-sante.avif" media="(max-width: 1000px)" />
-                                    <img src="images/webgl/portfolio-sante.avif" alt="Inteligencia Artificial"
-                                        loading="lazy" />
-                                </picture>
-                            </div>
-
-                            <div class="s-portfolio_background" data-index="iot">
-                                <picture>
-                                    <source srcset="images/mobile/portfolio-immo.avif" media="(max-width: 1000px)" />
-                                    <img src="images/webgl/portfolio-immo.avif" alt="IoT" loading="lazy" />
-                                </picture>
-                            </div>
-
-                            <div class="s-portfolio_background" data-index="renewables">
-                                <picture>
-                                    <source srcset="images/mobile/portfolio-energie.avif" media="(max-width: 1000px)" />
-                                    <img src="images/webgl/portfolio-energie.avif" alt="Energías Renovables"
-                                        loading="lazy" />
-                                </picture>
-                            </div>
-
-                        </div>
-
-                        <div class="s-portfolio_contents">
-
-                            <!-- INDICE: 1 -->
-                            <div class="s-portfolio_content" data-index="software">
-                                <div class="c-sp2 s-portfolio_content_intro" data-module-split data-split="lines,words">
-                                    Creación de aplicaciones robustas y escalables. <span class="c-ova-txt">EAH</span>
-                                    domina el ciclo
-                                    completo de desarrollo.
-                                </div>
-                                <div class="s-portfolio_content_text">
-                                    <h3 class="c-heading -h3">Desarrollo de Software</h3>
-                                    <div class="c-sp3">
-                                        Dominio de C++, Python, Java y JavaScript. Participación en proyectos como
-                                        <strong>Fly your Cubesat (FyCUS)</strong> con la <strong>Universidad de
-                                            Sevilla</strong> (Dpto.
-                                        Aviónica / TTC).
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- INDICE: 2 -->
-                            <div class="s-portfolio_content" data-index="ai">
-                                <div class="c-sp2 s-portfolio_content_intro" data-module-split data-split="lines,words">
-                                    Implementación de modelos de aprendizaje automático. <span
-                                        class="c-ova-txt">EAH</span>
-                                    aplica
-                                    la IA
-                                    para resolver problemas complejos.
-                                </div>
-                                <div class="s-portfolio_content_text">
-                                    <h3 class="c-heading -h3">Inteligencia Artificial</h3>
-                                    <div class="c-sp3">
-                                        Formación en <strong>Generative AI</strong> (MIT Professional Education). Uso de
-                                        bibliotecas como
-                                        TensorFlow y PyTorch para visión por computador y sistemas de predicción.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- INDICE: 3 -->
-                            <div class="s-portfolio_content" data-index="iot">
-                                <div class="c-sp2 s-portfolio_content_intro" data-module-split data-split="lines,words">
-                                    Conectando el mundo físico con el digital. <span class="c-ova-txt">EAH</span> diseña
-                                    redes de
-                                    dispositivos interconectados.
-                                </div>
-                                <div class="s-portfolio_content_text">
-                                    <h3 class="c-heading -h3">Internet of Things (IoT)</h3>
-                                    <div class="c-sp3">
-                                        Certificación en <strong>Internet of Things</strong> (MIT). Integración de
-                                        sensores, protocolos
-                                        (MQTT) y plataformas como NVIDIA Jetson Nano para ecosistemas inteligentes.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- INDICE: 4 -->
-                            <div class="s-portfolio_content" data-index="renewables">
-                                <div class="c-sp2 s-portfolio_content_intro" data-module-split data-split="lines,words">
-                                    Compromiso con un futuro sostenible. <span class="c-ova-txt">EAH</span> aplica la
-                                    ingeniería para
-                                    optimizar energías limpias.
-                                </div>
-                                <div class="s-portfolio_content_text">
-                                    <h3 class="c-heading -h3">Energías Renovables</h3>
-                                    <div class="c-sp3">
-                                        <strong>Técnico Especialista</strong> en la <strong>Universidad de
-                                            Sevilla</strong> (Línea de
-                                        Energía). Trabajo con redes energéticas, baterías y tecnologías de Hidrógeno
-                                        (H2).
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <aside class="s-portfolio_aside">
-                        <nav class="s-portfolio_nav">
-
-                            <a href="#sobre_mi" class="s-portfolio_nav_item" data-index="sobre_mi">00</a>
-                            <a href="#software" class="s-portfolio_nav_item" data-index="software">01</a>
-                            <a href="#ai" class="s-portfolio_nav_item" data-index="ai">02</a>
-                            <a href="#iot" class="s-portfolio_nav_item" data-index="iot">03</a>
-                            <a href="#renewables" class="s-portfolio_nav_item" data-index="renewables">04</a>
-
-                            <div class="s-portfolio_progress">
-                                <div class="s-portfolio_progress_track"></div>
-                            </div>
-                        </nav>
-                    </aside>
-                </section>
-
-                <!-- 3) TRABAJO - NUEVA SECCIÓN PLACEHOLDER -->
-                <section class="o-section -work" data-scroll-target="trabajo"
-                    style="min-height: 50vh; padding: 4rem 2rem;">
-                    <div class="o-section_trigger" data-scroll data-scroll-call="changeTitle, SectionTitle"
-                        data-scroll-offset="50%,50%" data-scroll-repeat data-section-title="Trabajo"
-                        data-section-title-id="trabajo"></div>
-
-                    <div class="o-section_inner">
-                        <h2 class="c-heading -h2" data-module-split data-split="lines,words">Experiencia Laboral</h2>
-                        <div class="c-sp1" style="margin-top: 2rem;">
-                            Contenido de experiencia laboral por desarrollar.
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 4) EDUCACIÓN - NUEVA SECCIÓN PLACEHOLDER -->
-                <section class="o-section -education" data-scroll-target="educacion"
-                    style="min-height: 50vh; padding: 4rem 2rem;">
-                    <div class="o-section_trigger" data-scroll data-scroll-call="changeTitle, SectionTitle"
-                        data-scroll-offset="50%,50%" data-scroll-repeat data-section-title="Educación"
-                        data-section-title-id="educacion"></div>
-
-                    <div class="o-section_inner">
-                        <h2 class="c-heading -h2" data-module-split data-split="lines,words">Formación Académica</h2>
-                        <div class="c-sp1" style="margin-top: 2rem;">
-                            Contenido de educación por desarrollar.
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 5) PROYECTOS - NUEVA SECCIÓN PLACEHOLDER -->
-                <section class="o-section -projects" data-scroll-target="proyectos"
-                    style="min-height: 50vh; padding: 4rem 2rem;">
-                    <div class="o-section_trigger" data-scroll data-scroll-call="changeTitle, SectionTitle"
-                        data-scroll-offset="50%,50%" data-scroll-repeat data-section-title="Proyectos"
-                        data-section-title-id="proyectos"></div>
-
-                    <div class="o-section_inner">
-                        <h2 class="c-heading -h2" data-module-split data-split="lines,words">Proyectos Destacados</h2>
-                        <div class="c-sp1" style="margin-top: 2rem;">
-                            Contenido de proyectos por desarrollar.
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 6) CONFERENCES - WORKSHOPS - ACTIVITIES - COMPETITIONS (ANTES ERA "manifesto") -->
-                <section class="o-section -manifesto" data-scroll-target="conferencias_workshops_premios" data-module-manifesto
-                    style="--items: 3">
-
-                    <div class="o-section_background">
-                        <picture>
-                            <source srcset="images/mobile/manifesto.avif" media="(max-width: 1000px)" />
-                            <img src="images/webgl/manifesto.avif" alt="Echedey Aguilar" loading="lazy" />
-                        </picture>
-                    </div>
-
-                    <div class="o-section_inner">
-                        <div class="s-manifesto">
-                            <div class="s-manifesto_titles">
-                                <h2 class="c-heading -h2 s-manifesto_ova"><small>EAH</small></h2>
-                                <div class="s-manifesto_titles_rotator c-heading -h2">
-
-                                    <h2 class="c-heading -h2 s-manifesto_title" data-module-split data-split="chars"
-                                        data-item="0">
-                                        Conferences
-                                    </h2>
-
-                                    <h2 class="c-heading -h2 s-manifesto_title" data-module-split data-split="chars"
-                                        data-item="1">
-                                        Workshops
-                                    </h2>
-
-                                    <h2 class="c-heading -h2 s-manifesto_title" data-module-split data-split="chars"
-                                        data-item="2">
-                                        Activities & Competitions
-                                    </h2>
-
-                                </div>
-                            </div>
-
-                            <div class="s-manifesto_contents">
-
-                                <div class="s-manifesto_content" data-module-split data-split="lines,words"
-                                    data-item="0">
-                                    ROSCon Spain 2024 (Universidad Pablo de Olavide, Sevilla).<br />
-                                    XII Congreso Estatal RITSI (España).
-                                </div>
-
-                                <div class="s-manifesto_content" data-module-split data-split="lines,words"
-                                    data-item="1">
-                                    CISCO Networking Academy: Ethical Hacking, Networking Basics, Introduction to
-                                    Cybersecurity.<br />
-                                    MIT Professional Education: Generative AI, Internet of Things.<br />
-                                    Digital fabrication (FAB LAB, ETS Arquitectura).
-                                </div>
-
-                                <div class="s-manifesto_content" data-module-split data-split="lines,words"
-                                    data-item="2">
-                                    IX Hack For Good (Sevilla). Red Canaria GLOBE + RedECOS Centres. Proyecto OLIVINA
-                                    (Lego ROBOTIX).<br />
-                                    Canguro Matemático (XXII–XXVI). Geogebra video contest (participación).
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="s-manifesto_footer">
-                            <a href="https://www.linkedin.com/in/echedey-aguilar" target="_blank" rel="noopener">
-                                <strong>Echedey Aguilar Hernández</strong><br />
-                                Ingeniero Informático
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="o-section_trigger" data-scroll data-scroll-call="changeTitle, SectionTitle"
-                        data-scroll-offset="50%,50%" data-scroll-repeat
-                        data-section-title="Conferences - Workshops - Activities - Competitions"
-                        data-section-title-id="conferencias_workshops_premios"></div>
-
-                    <div class="o-section_trigger -show" data-scroll data-scroll-event-progress="manifestoShow"
-                        data-scroll-offset="0%,100%"></div>
-                    <div class="o-section_trigger -hide" data-scroll data-scroll-event-progress="manifestoHide"
-                        data-scroll-offset="30%,50%"></div>
-
-                    <div class="o-section_trigger -progress" data-scroll data-scroll-call="toggleUI, Manifesto"
-                        data-scroll-event-progress="manifestoProgress" data-scroll-offset="50%,50%" data-scroll-repeat>
-
-                        <div class="s-manifesto_target" data-item="0" data-scroll-target="manifesto" data-scroll
-                            data-scroll-call="activeItem, Manifesto" data-scroll-offset="50%,50%" data-scroll-repeat>
-                        </div>
-
-                        <div class="s-manifesto_target" data-item="1" data-scroll
-                            data-scroll-call="activeItem, Manifesto" data-scroll-offset="50%,50%" data-scroll-repeat>
-                        </div>
-
-                        <div class="s-manifesto_target" data-item="2" data-scroll
-                            data-scroll-call="activeItem, Manifesto" data-scroll-offset="50%,50%" data-scroll-repeat>
-                        </div>
-
-                    </div>
-                </section>
-
-                <!-- 7) PREMIOS (REUTILIZANDO TU SECCIÓN -about PARA MANTENER EL DISEÑO/EFECTOS) -->
-                <section class="o-section -about" data-module-about data-scroll-target="premios"
-                    style="--progressBgContact: 0;">
-
-                    <div class="o-section_trigger -titleAbout" data-scroll data-scroll-call="changeTitle, SectionTitle"
-                        data-scroll-offset="50%,50%" data-scroll-repeat data-section-title="Premios"
-                        data-section-title-id="premios"></div>
-
-                    <!-- Mantengo el trigger para que no se rompa el módulo, pero SIN crear una “sección” extra -->
-                    <div class="o-section_trigger -titleContact" data-scroll-target="contact" data-scroll
-                        data-scroll-call="changeTitle, SectionTitle" data-scroll-offset="50%,50%" data-scroll-repeat
-                        data-section-title="Premios" data-section-title-id="premios"></div>
-
-                    <div class="o-section_sticky">
-                        <div class="s-about_backgrounds">
-                            <div class="s-about_background -about">
-                                <picture>
-                                    <source srcset="images/mobile/about-1.avif" media="(max-width: 1000px)" />
-                                    <img src="images/webgl/about-1.avif" alt="Echedey Aguilar" loading="lazy" />
-                                </picture>
-                            </div>
-                            <div class="s-about_background -inter">
-                                <picture>
-                                    <source srcset="images/mobile/about-2.avif" media="(max-width: 1000px)" />
-                                    <img src="images/webgl/about-2.avif" alt="Echedey Aguilar" loading="lazy" />
-                                </picture>
-                            </div>
-                            <div class="s-about_background -contact">
-                                <picture>
-                                    <source srcset="images/mobile/contact.avif" media="(max-width: 1000px)" />
-                                    <img src="images/webgl/contact.avif" alt="Contacto" loading="lazy" />
-                                </picture>
-                            </div>
-                        </div>
-
-                        <div class="s-about">
-                            <div class="o-section_inner">
-                                <h2 class="c-heading -h1" data-module-split data-split="lines,words">Premios</h2>
-                                <div class="s-about_content">
-                                    <div class="s-about_content_scroller">
-
-                                        <div class="c-sp1" data-module-split data-split="lines,words,chars">
-                                            <strong>2016</strong> — Segundo premio · 1st Geogebra video contest (SCPM
-                                            Isaac Newton & Geogebra
-                                            Institute of the Canary Islands).
-                                        </div>
-
-                                        <div class="c-sp1" data-module-split data-split="lines,words,chars">
-                                            Interés continuo por la divulgación y la tecnología: participación en
-                                            competiciones y actividades
-                                            STEM (Canguro Matemático, Hack For Good, proyectos educativos y
-                                            científicos).
-                                        </div>
-
-                                        <div class="c-sp1" data-module-split data-split="lines,words,chars">
-                                            Si quieres colaborar o saber más sobre mis proyectos, puedes contactarme por
-                                            LinkedIn o email.
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- BLOQUE DE CONTACTO (NO ESTÁ EN EL MENÚ, PERO LO DEJO COMO FOOTER VISUAL) -->
-                        <div class="s-contact">
-                            <div class="o-section_inner">
-                                <div class="s-contact_wrap">
-                                    <h2 class="c-heading -h1" data-module-split data-split="lines,words">Contacto</h2>
-                                    <div class="c-sp1 s-contact_content" data-module-split data-split="lines,words">
-                                        Comparte tu visión.<br />Juntos, exploremos cómo transformar tus ideas en
-                                        oportunidades reales.
-                                    </div>
-                                </div>
-
-                                <footer class="o-footer">
-                                    <button type="button" class="c-button -top-button" data-scroll-to="hero">
-                                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M7.35355 1.64645C7.15829 1.45118 6.84171 1.45118 6.64645 1.64645L3.46447 4.82843C3.2692 5.02369 3.2692 5.34027 3.46447 5.53553C3.65973 5.7308 3.97631 5.7308 4.17157 5.53553L7 2.70711L9.82843 5.53553C10.0237 5.7308 10.3403 5.7308 10.5355 5.53553C10.7308 5.34027 10.7308 5.02369 10.5355 4.82843L7.35355 1.64645ZM7.5 14L7.5 2L6.5 2L6.5 14L7.5 14Z"
-                                                fill="white" />
-                                        </svg>
-                                    </button>
-
-                                    <div>
-                                        <p>Lanzarote, España<br />Ingeniero Informático</p>
-                                    </div>
-
-                                    <div>
-                                        <ul>
-                                            <li>
-                                                <a href="mailto:ahechedey@gmail.com" class="c-button">
-                                                    <span class="c-button_label">Email</span>
-                                                    <svg width="15" height="15" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M12.995 4.067a.5.5 0 0 0-.428-.563l-4.46-.602a.5.5 0 1 0-.133.99l3.963.537-.535 3.964a.5.5 0 1 0 .99.133l.604-4.459Zm-10.692 8.33 10.5-8-.606-.795-10.5 8 .606.796Z" />
-                                                    </svg>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </footer>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="o-section_trigger -showAboutTitle" data-scroll data-scroll-call="showAboutTitle, About"
-                        data-scroll-offset="50%,50%" data-scroll-repeat></div>
-                    <div class="o-section_trigger -showAboutContent" data-scroll
-                        data-scroll-call="showAboutContent, About" data-scroll-offset="50%,50%" data-scroll-repeat>
-                    </div>
-                    <div class="o-section_trigger -showContact" data-scroll data-scroll-call="showContact, About"
-                        data-scroll-offset="50%,50%" data-scroll-repeat></div>
-                    <div class="o-section_trigger -showBg" data-scroll data-scroll-event-progress="aboutShowBg"
-                        data-scroll-offset="25%,50%"></div>
-                    <div class="o-section_trigger -showBgContact" data-scroll
-                        data-scroll-event-progress="aboutShowBgContact" data-scroll-offset="0%,100%"></div>
-                    <div class="o-section_trigger -progressTxt" data-scroll
-                        data-scroll-event-progress="aboutProgressTxt" data-scroll-offset="50%,50%"></div>
-                    <div class="o-section_trigger -progressClip" data-scroll-target="about" data-scroll
-                        data-scroll-event-progress="aboutProgressClip" data-scroll-offset="50%,50%"></div>
-                </section>
-
-            </main>
         </div>
+        </section>
+
+        <!-- PROYECTOS -->
+        <section class="o-section -projects" data-scroll-target="proyectos">
+            <div class="o-section_trigger" data-scroll data-scroll-call="changeTitle, SectionTitle"
+                data-scroll-offset="50%,50%" data-scroll-repeat data-section-title="Proyectos"
+                data-section-title-id="proyectos"></div>
+
+            <div class="o-section_inner">
+                <h2 class="c-heading -h2">Proyectos</h2>
+                <!-- aquí metes cards/lista de proyectos -->
+            </div>
+        </section>
+
+        <!-- EXPERIENCIA LABORAL -->
+        <section class="o-section -work" data-scroll-target="experiencia_laboral"
+            style="min-height: 50vh; padding: 4rem 2rem;">
+            <div class="o-section_trigger" data-scroll data-scroll-call="changeTitle, SectionTitle"
+                data-scroll-offset="50%,50%" data-scroll-repeat data-section-title="Experiencia Laboral"
+                data-section-title-id="experiencia_laboral"></div>
+
+            <div class="o-section_inner">
+                <h2 class="c-heading -h2" data-module-split data-split="lines,words">Experiencia Laboral</h2>
+                <div class="c-sp1" style="margin-top: 2rem;">
+                    Contenido de experiencia laboral por desarrollar.
+                </div>
+            </div>
+        </section>
+
+        <!-- HABILIDADES TÉCNICAS -->
+        <section class="o-section -skills" data-scroll-target="habilidades_tecnicas">
+            <div class="o-section_trigger" data-scroll data-scroll-call="changeTitle, SectionTitle"
+                data-scroll-offset="50%,50%" data-scroll-repeat data-section-title="Habilidades técnicas"
+                data-section-title-id="habilidades_tecnicas"></div>
+
+            <div class="o-section_inner">
+                <h2 class="c-heading -h2">Habilidades técnicas</h2>
+                <!-- aquí metes tu listado real: lenguajes, frameworks, cloud, etc -->
+            </div>
+        </section>
+
+        <!-- EDUCACIÓN -->
+        <section class="o-section -education" data-scroll-target="educacion"
+            style="min-height: 50vh; padding: 4rem 2rem;">
+            <div class="o-section_trigger" data-scroll data-scroll-call="changeTitle, SectionTitle"
+                data-scroll-offset="50%,50%" data-scroll-repeat data-section-title="Educación"
+                data-section-title-id="educacion"></div>
+
+            <div class="o-section_inner">
+                <h2 class="c-heading -h2" data-module-split data-split="lines,words">Formación Académica</h2>
+                <div class="c-sp1" style="margin-top: 2rem;">
+                    Contenido de educación por desarrollar.
+                </div>
+            </div>
+        </section>
+
+        <!-- CERTIFICACIONES -->
+        <section class="o-section -certifications" data-scroll-target="certificaciones"
+            style="min-height: 50vh; padding: 4rem 2rem;">
+            <div class="o-section_trigger" data-scroll data-scroll-call="changeTitle, SectionTitle"
+                data-scroll-offset="50%,50%" data-scroll-repeat data-section-title="Certificaciones"
+                data-section-title-id="certificaciones"></div>
+
+            <div class="o-section_inner">
+                <h2 class="c-heading -h2" data-module-split data-split="lines,words">Certificaciones</h2>
+                <div class="c-sp1" style="margin-top: 2rem;">
+                    Contenido de certificaciones por desarrollar.
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CONFERENCIAS - WORKSHOPS - PREMIOS -->
+        <section class="o-section -manifesto" data-scroll-target="conferencias_workshops_premios" data-module-manifesto
+            style="--items: 3">
+
+            <div class="o-section_background">
+                <picture>
+                    <source srcset="images/mobile/manifesto.avif" media="(max-width: 1000px)" />
+                    <img src="images/webgl/manifesto.avif" alt="Echedey Aguilar" loading="lazy" />
+                </picture>
+            </div>
+
+            <div class="o-section_inner">
+                <div class="s-manifesto">
+                    <div class="s-manifesto_titles">
+                        <h2 class="c-heading -h2 s-manifesto_ova"><small>EAH</small></h2>
+                        <div class="s-manifesto_titles_rotator c-heading -h2">
+
+                            <h2 class="c-heading -h2 s-manifesto_title" data-module-split data-split="chars"
+                                data-item="0">
+                                Conferences
+                            </h2>
+
+                            <h2 class="c-heading -h2 s-manifesto_title" data-module-split data-split="chars"
+                                data-item="1">
+                                Workshops
+                            </h2>
+
+                            <h2 class="c-heading -h2 s-manifesto_title" data-module-split data-split="chars"
+                                data-item="2">
+                                Activities & Competitions
+                            </h2>
+
+                        </div>
+                    </div>
+
+                    <div class="s-manifesto_contents">
+
+                        <div class="s-manifesto_content" data-module-split data-split="lines,words" data-item="0">
+                            ROSCon Spain 2024 (Universidad Pablo de Olavide, Sevilla).<br />
+                            XII Congreso Estatal RITSI (España).
+                        </div>
+
+                        <div class="s-manifesto_content" data-module-split data-split="lines,words" data-item="1">
+                            CISCO Networking Academy: Ethical Hacking, Networking Basics, Introduction to
+                            Cybersecurity.<br />
+                            MIT Professional Education: Generative AI, Internet of Things.<br />
+                            Digital fabrication (FAB LAB, ETS Arquitectura).
+                        </div>
+
+                        <div class="s-manifesto_content" data-module-split data-split="lines,words" data-item="2">
+                            IX Hack For Good (Sevilla). Red Canaria GLOBE + RedECOS Centres. Proyecto OLIVINA
+                            (Lego ROBOTIX).<br />
+                            Canguro Matemático (XXII–XXVI). Geogebra video contest (participación).
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="s-manifesto_footer">
+                    <a href="https://www.linkedin.com/in/echedey-aguilar" target="_blank" rel="noopener">
+                        <strong>Echedey Aguilar Hernández</strong><br />
+                        Ingeniero Informático
+                    </a>
+                </div>
+            </div>
+
+            <div class="o-section_trigger" data-scroll data-scroll-call="changeTitle, SectionTitle"
+                data-scroll-offset="50%,50%" data-scroll-repeat
+                data-section-title="Conferences - Workshops - Activities - Competitions"
+                data-section-title-id="conferencias_workshops_premios"></div>
+
+            <div class="o-section_trigger -show" data-scroll data-scroll-event-progress="manifestoShow"
+                data-scroll-offset="0%,100%"></div>
+            <div class="o-section_trigger -hide" data-scroll data-scroll-event-progress="manifestoHide"
+                data-scroll-offset="30%,50%"></div>
+
+            <div class="o-section_trigger -progress" data-scroll data-scroll-call="toggleUI, Manifesto"
+                data-scroll-event-progress="manifestoProgress" data-scroll-offset="50%,50%" data-scroll-repeat>
+
+                <div class="s-manifesto_target" data-item="0" data-scroll-target="manifesto" data-scroll
+                    data-scroll-call="activeItem, Manifesto" data-scroll-offset="50%,50%" data-scroll-repeat>
+                </div>
+
+                <div class="s-manifesto_target" data-item="1" data-scroll data-scroll-call="activeItem, Manifesto"
+                    data-scroll-offset="50%,50%" data-scroll-repeat>
+                </div>
+
+                <div class="s-manifesto_target" data-item="2" data-scroll data-scroll-call="activeItem, Manifesto"
+                    data-scroll-offset="50%,50%" data-scroll-repeat>
+                </div>
+
+            </div>
+        </section>
+
+
+        </main>
+    </div>
     </div>
 
     <script src="scripts/app.js"></script>

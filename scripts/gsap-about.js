@@ -40,30 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
-        // Parallax for Content (moves up slightly slower)
-        gsap.to(content, {
-            yPercent: -10,
-            ease: "none",
-            scrollTrigger: {
-                trigger: section,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: true
-            }
-        });
-
-        // Parallax for Image (moves up faster)
-        gsap.to(image, {
-            yPercent: -15,
-            ease: "none",
-            scrollTrigger: {
-                trigger: section,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: true
-            }
-        });
-
         // Text reveal animation (re-implemented from inline script)
         if (contentItems.length > 0) {
             gsap.from(contentItems, {
