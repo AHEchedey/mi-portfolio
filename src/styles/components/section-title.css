@@ -1,0 +1,9 @@
+/*
+  Ownership: Components Team
+  Purpose: Future section-title component styles.
+  Note: Scaffold only. Not connected to production yet.
+*/
+
+.c-section-title {
+  text-transform: uppercase;
+}

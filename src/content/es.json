@@ -1,0 +1,10 @@
+{
+  "hero": {
+    "title": "Bienvenidos",
+    "subtitle": "Portfolio de Echedey Aguilar Hernández"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "summary": "Contenido provisional para migración modular."
+  }
+}

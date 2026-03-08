@@ -1,0 +1,9 @@
+/*
+  Ownership: Components Team
+  Purpose: Future nav component styles.
+  Note: Scaffold only. Not connected to production yet.
+*/
+
+.c-nav {
+  position: relative;
+}

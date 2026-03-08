@@ -1,0 +1,28 @@
+/*
+  Ownership: Frontend Architecture
+  Purpose: Base styles and baseline accessibility defaults.
+  Note: Scaffold only. Not connected to production yet.
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-fg);
+}
+
+:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}

@@ -1,0 +1,9 @@
+/*
+  Ownership: Components Team
+  Purpose: Future menu component styles.
+  Note: Scaffold only. Not connected to production yet.
+*/
+
+.c-menu {
+  position: relative;
+}

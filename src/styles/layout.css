@@ -1,0 +1,14 @@
+/*
+  Ownership: Frontend Architecture
+  Purpose: Global layout primitives (containers, wrappers, spacing behavior).
+  Note: Scaffold only. Not connected to production yet.
+*/
+
+.o-container {
+  width: min(1200px, 100% - 2rem);
+  margin-inline: auto;
+}
+
+.o-stack > * + * {
+  margin-top: var(--space-3);
+}

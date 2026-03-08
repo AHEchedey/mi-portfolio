@@ -1,0 +1,11 @@
+/*
+  Ownership: Components Team
+  Purpose: Future button component styles.
+  Note: Scaffold only. Not connected to production yet.
+*/
+
+.c-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
