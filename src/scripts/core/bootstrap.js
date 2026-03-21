@@ -11,12 +11,22 @@ import { createScrollAdapter } from "./scroll.js";
 import heroModule from "../sections/hero.js";
 import aboutModule from "../sections/about.js";
 
+const MODULAR_CONTENT_PATHS = {
+  es: "src/content/es.json",
+  en: "src/content/en.json"
+};
 const MODULES = new Map([
   ["hero", heroModule],
   ["about", aboutModule]
 ]);
 const SECTION_FLAG_PREFIX = "arch";
 const BOOTSTRAP_GUARD = "modularBootstrapInitialized";
+const activeSections = new Map();
+let bootstrapContext = null;
+
+function getInitialLanguage() {
+  return document.documentElement.lang || "es";
+}
 
 function getSectionFlag(sectionId) {
   return `${SECTION_FLAG_PREFIX}${sectionId.charAt(0).toUpperCase()}${sectionId.slice(1)}`;
@@ -29,11 +39,89 @@ function shouldInitSection({ body, sectionId }) {
   return body.dataset[flagName] === "modular";
 }
 
+function isInitialized(el) {
+  return el.dataset.initialized === "true";
+}
+
+function resolveModule(sectionId, modules) {
+  const mod = modules.get(sectionId);
+  if (!mod || typeof mod.init !== "function" || typeof mod.destroy !== "function") {
+    return null;
+  }
+  return mod;
+}
+
+function mountSection(el, module, deps) {
+  if (isInitialized(el)) return;
+  module.init(el, deps);
+  activeSections.set(el, module);
+}
+
+function unmountSection(el) {
+  const module = activeSections.get(el);
+  if (!module) return;
+  module.destroy();
+  activeSections.delete(el);
+}
+
+function syncLanguage(deps, nextLang) {
+  if (!nextLang) return;
+  if (!deps.i18n.setLang(nextLang)) return;
+  deps.events.emit("i18n:change", { lang: deps.i18n.getLang() });
+}
+
+function bindLegacyLanguageBridge(deps) {
+  const onClick = (event) => {
+    const control = event.target.closest("[data-lang]");
+    if (!control) return;
+    const nextLang = control.dataset.lang || control.getAttribute("lang");
+    queueMicrotask(() => syncLanguage(deps, document.documentElement.lang || nextLang));
+  };
+
+  document.addEventListener("click", onClick);
+
+  let restoreSetLanguage = null;
+  if (typeof globalThis.setLanguage === "function") {
+    const originalSetLanguage = globalThis.setLanguage;
+    const wrappedSetLanguage = function setLanguageBridge(nextLang) {
+      const result = originalSetLanguage.apply(this, arguments);
+      syncLanguage(deps, document.documentElement.lang || nextLang);
+      return result;
+    };
+
+    globalThis.setLanguage = wrappedSetLanguage;
+    restoreSetLanguage = () => {
+      if (globalThis.setLanguage === wrappedSetLanguage) {
+        globalThis.setLanguage = originalSetLanguage;
+      }
+    };
+  }
+
+  return () => {
+    document.removeEventListener("click", onClick);
+    if (restoreSetLanguage) restoreSetLanguage();
+  };
+}
+
+async function loadModularContent(deps) {
+  const entries = await Promise.all(
+    Object.entries(MODULAR_CONTENT_PATHS).map(async ([lang, path]) => {
+      const response = await fetch(path);
+      if (!response.ok) throw new Error(`Failed to load ${path}`);
+      return [lang, await response.json()];
+    })
+  );
+
+  entries.forEach(([lang, dictionary]) => deps.i18n.registerDictionary(lang, dictionary));
+  deps.events.emit("i18n:ready", { lang: deps.i18n.getLang() });
+  deps.events.emit("i18n:change", { lang: deps.i18n.getLang() });
+}
+
 export function bootstrap({ modules = MODULES } = {}) {
   const root = document.documentElement;
   const body = document.body;
   if (!root || !body) return null;
-  if (root.dataset[BOOTSTRAP_GUARD] === "true") return null;
+  if (root.dataset[BOOTSTRAP_GUARD] === "true" && bootstrapContext) return bootstrapContext;
 
   root.dataset[BOOTSTRAP_GUARD] = "true";
 
@@ -47,7 +135,7 @@ export function bootstrap({ modules = MODULES } = {}) {
     events: createEventBus(),
     scroll: createScrollAdapter({ strategy: "native" }),
     i18n: createI18n({
-      defaultLang: globalThis.currentLang || "es",
+      defaultLang: getInitialLanguage(),
       dictionaries,
       fallbackLang: "es"
     }),
@@ -61,16 +149,34 @@ export function bootstrap({ modules = MODULES } = {}) {
   modularSections.forEach((el) => {
     const sectionId = el.dataset.section;
     if (!sectionId) return;
-    if (!shouldInitSection({ body, sectionId })) return;
-    if (el.dataset.initialized === "true") return;
+    const module = resolveModule(sectionId, modules);
+    if (!module) return;
 
-    const module = modules.get(sectionId);
-    if (!module || typeof module.init !== "function") return;
-
-    module.init(el, deps);
+    if (shouldInitSection({ body, sectionId })) {
+      mountSection(el, module, deps);
+      return;
+    }
+    unmountSection(el);
   });
 
-  return deps;
+  const unbindLanguageBridge = bindLegacyLanguageBridge(deps);
+  loadModularContent(deps).catch(() => {
+    deps.events.emit("i18n:ready", { lang: deps.i18n.getLang() });
+    deps.events.emit("i18n:change", { lang: deps.i18n.getLang() });
+  });
+
+  bootstrapContext = {
+    deps,
+    destroy() {
+      [...activeSections.keys()].forEach((el) => unmountSection(el));
+      unbindLanguageBridge();
+      deps.events.clear();
+      root.dataset[BOOTSTRAP_GUARD] = "false";
+      bootstrapContext = null;
+    }
+  };
+
+  return bootstrapContext;
 }
 
 if (document.readyState === "loading") {

@@ -3,17 +3,22 @@
  * Purpose: Modular About pilot logic with safe legacy coexistence.
  * Note: Conservative behavior, no visual override.
  */
+import { createCleanupStack } from "../core/events.js";
+import { applyTranslations } from "../core/i18n.js";
+
 function createAboutModule() {
   const state = {
     el: null,
     trigger: null,
-    onVisibilityChange: null
+    onVisibilityChange: null,
+    applyContent: null,
+    cleanup: createCleanupStack()
   };
 
   return {
     init(el, deps) {
       if (!el) return;
-      if (el.dataset.initialized) return;
+      if (el.dataset.initialized === "true") return;
       el.dataset.initialized = "true";
 
       state.el = el;
@@ -30,29 +35,36 @@ function createAboutModule() {
           onLeave: () => this.onLeave?.(),
           onLeaveBack: () => this.onLeave?.()
         });
+        state.cleanup.add(() => state.trigger?.kill());
       }
+
+      state.applyContent = () => applyTranslations(el, deps?.i18n);
+      state.applyContent();
+      state.cleanup.add(deps?.events?.on("i18n:ready", state.applyContent));
+      state.cleanup.add(deps?.events?.on("i18n:change", state.applyContent));
 
       state.onVisibilityChange = () => {
         if (document.hidden) this.onLeave?.();
       };
       document.addEventListener("visibilitychange", state.onVisibilityChange);
+      state.cleanup.add(() => {
+        if (state.onVisibilityChange) {
+          document.removeEventListener("visibilitychange", state.onVisibilityChange);
+        }
+      });
     },
 
     destroy() {
       if (!state.el) return;
 
-      if (state.onVisibilityChange) {
-        document.removeEventListener("visibilitychange", state.onVisibilityChange);
-      }
-      if (state.trigger) {
-        state.trigger.kill();
-      }
+      state.cleanup.run();
 
       delete state.el.dataset.initialized;
       delete state.el.dataset.aboutModule;
       state.el = null;
       state.trigger = null;
       state.onVisibilityChange = null;
+      state.applyContent = null;
     },
 
     onEnter() {},

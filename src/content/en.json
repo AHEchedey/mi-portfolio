@@ -1,20 +1,47 @@
 {
   "hero": {
-    "title": "Welcome",
-    "subtitle": "Portfolio of Echedey Aguilar Hernández"
+    "greeting": "Welcome,",
+    "connector": "to my",
+    "titles": [
+      "Portfolio.",
+      "Project.",
+      "Future."
+    ],
+    "name": "Echedey Aguilar Hernández",
+    "description": "Passionate about technology, robotics, innovation and nature."
   },
   "about": {
-    "title": "About me",
-    "intro": "Computer engineer focused on applied technology and impactful projects.",
-    "body": [
-      "I work on knowledge-generation projects in the energy domain.",
-      "My interests include robotics, software engineering and science outreach."
+    "eyebrow": "SECTION 01",
+    "title": "About Me",
+    "sectionTitle": "About Me",
+    "paragraphs": [
+      "I am Echedey Aguilar Hernandez, originally from Lanzarote. Computer Engineer (Computer Engineering, University of Seville).",
+      "I currently work as a laboratory specialist technician on knowledge-generation projects, focused on the REEGREENH2 project.",
+      "I am interested in science communication, computer science and robotics, as well as traveling and enjoying nature."
     ],
     "focus": [
       "Software",
       "Robotics",
       "Renewables",
       "IoT"
-    ]
+    ],
+    "actions": {
+      "linkedin": "LinkedIn",
+      "email": "Email"
+    },
+    "imageAlt": "Portrait of Echedey"
+  },
+  "menu": {
+    "aboutMe": "About Me"
+  },
+  "nav": {
+    "aboutMe": "About Me",
+    "contact": "Contact"
+  },
+  "contact": {
+    "email": "Email"
+  },
+  "common": {
+    "linkedin": "LinkedIn"
   }
 }

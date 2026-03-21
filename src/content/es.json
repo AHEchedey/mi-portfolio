@@ -1,20 +1,47 @@
 {
   "hero": {
-    "title": "Bienvenidos",
-    "subtitle": "Portfolio de Echedey Aguilar Hernández"
+    "greeting": "Bienvenidos,",
+    "connector": "a mi",
+    "titles": [
+      "Portfolio.",
+      "Proyecto.",
+      "Futuro."
+    ],
+    "name": "Echedey Aguilar Hernández",
+    "description": "Apasionado por la tecnología, la robótica, la innovación y la naturaleza."
   },
   "about": {
+    "eyebrow": "SECCIÓN 01",
     "title": "Sobre mí",
-    "intro": "Ingeniero informático con foco en tecnología aplicada y proyectos de impacto.",
-    "body": [
-      "Trabajo en proyectos de generación de conocimiento en el ámbito energético.",
-      "Me interesan la robótica, el software y la divulgación científica."
+    "sectionTitle": "Sobre mí",
+    "paragraphs": [
+      "Soy Echedey Aguilar Hernández, originario de Lanzarote. Ingeniero Informático (Ingeniería de Computadores, Universidad de Sevilla).",
+      "Actualmente trabajo como Técnico Especialista de laboratorio en proyectos de generación de conocimiento, centrado en el proyecto REEGREENH2.",
+      "Me interesan la divulgación científica, la informática y la robótica, así como viajar y disfrutar de la naturaleza."
     ],
     "focus": [
       "Software",
       "Robótica",
       "Renovables",
       "IoT"
-    ]
+    ],
+    "actions": {
+      "linkedin": "LinkedIn",
+      "email": "Email"
+    },
+    "imageAlt": "Foto de perfil de Echedey"
+  },
+  "menu": {
+    "aboutMe": "Sobre mí"
+  },
+  "nav": {
+    "aboutMe": "Sobre mí",
+    "contact": "Contacto"
+  },
+  "contact": {
+    "email": "Email"
+  },
+  "common": {
+    "linkedin": "LinkedIn"
   }
 }
