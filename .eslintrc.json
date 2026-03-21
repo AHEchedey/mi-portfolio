@@ -1,18 +1,15 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es6": true
   },
   "extends": [
     "eslint:recommended"
   ],
   "parserOptions": {
-    "ecmaVersion": "latest",
+    "ecmaVersion": 2019,
     "sourceType": "script"
   },
-  "ignorePatterns": [
-    "scripts/app.js"
-  ],
   "rules": {
     "no-console": "off",
     "no-unused-vars": [
