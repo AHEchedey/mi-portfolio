@@ -5,7 +5,7 @@
  * modules explicitly flagged as modular.
  */
 import { createEventBus } from "./events.js";
-import { createI18n } from "./i18n.js";
+import { applyTranslations, createI18n } from "./i18n.js";
 import { registerGsap } from "./animation.js";
 import { createScrollAdapter } from "./scroll.js";
 import heroModule from "../sections/hero.js";
@@ -117,6 +117,18 @@ async function loadModularContent(deps) {
   deps.events.emit("i18n:change", { lang: deps.i18n.getLang() });
 }
 
+function bindGlobalTranslations(deps) {
+  const applyGlobalTranslations = () => applyTranslations(document.body, deps.i18n);
+  applyGlobalTranslations();
+  const offReady = deps.events.on("i18n:ready", applyGlobalTranslations);
+  const offChange = deps.events.on("i18n:change", applyGlobalTranslations);
+
+  return () => {
+    offReady();
+    offChange();
+  };
+}
+
 export function bootstrap({ modules = MODULES } = {}) {
   const root = document.documentElement;
   const body = document.body;
@@ -160,6 +172,7 @@ export function bootstrap({ modules = MODULES } = {}) {
   });
 
   const unbindLanguageBridge = bindLegacyLanguageBridge(deps);
+  const unbindGlobalTranslations = bindGlobalTranslations(deps);
   loadModularContent(deps).catch(() => {
     deps.events.emit("i18n:ready", { lang: deps.i18n.getLang() });
     deps.events.emit("i18n:change", { lang: deps.i18n.getLang() });
@@ -170,6 +183,7 @@ export function bootstrap({ modules = MODULES } = {}) {
     destroy() {
       [...activeSections.keys()].forEach((el) => unmountSection(el));
       unbindLanguageBridge();
+      unbindGlobalTranslations();
       deps.events.clear();
       root.dataset[BOOTSTRAP_GUARD] = "false";
       bootstrapContext = null;

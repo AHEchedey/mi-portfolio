@@ -32,11 +32,37 @@
     "imageAlt": "Portrait of Echedey"
   },
   "menu": {
-    "aboutMe": "About Me"
+    "label": "Menu",
+    "close": "Close",
+    "intro": "Curriculum / Portfolio: discover my profile, skills, experience, education, projects, events and awards.",
+    "aboutMe": "About Me",
+    "projects": "Projects",
+    "experience": "Work Experience",
+    "skills": "Technical Skills",
+    "education": "Education",
+    "certifications": "Certifications",
+    "conferences": "Conferences-workshops-awards",
+    "contact": "Contact"
   },
   "nav": {
     "aboutMe": "About Me",
     "contact": "Contact"
+  },
+  "sectionTitles": {
+    "about": "About Me",
+    "projects": "Projects",
+    "experience": "Work Experience",
+    "skills": "Technical Skills",
+    "education": "Education",
+    "certifications": "Certifications",
+    "conferences": "Conferences-workshops-awards"
+  },
+  "sectionHeadings": {
+    "projects": "Projects",
+    "experience": "Work Experience",
+    "skills": "Technical Skills",
+    "education": "Academic Education",
+    "certifications": "Certifications"
   },
   "contact": {
     "email": "Email"

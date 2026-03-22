@@ -7,6 +7,99 @@ function isPlainObject(value) {
   return Object.prototype.toString.call(value) === "[object Object]";
 }
 
+function createSplitElement(tagName, className, text) {
+  const el = document.createElement(tagName);
+  el.className = className;
+  if (text !== undefined) el.textContent = text;
+  return el;
+}
+
+function splitWords(text) {
+  return String(text)
+    .trim()
+    .replace(/\s+/g, " ")
+    .split(" ")
+    .filter(Boolean);
+}
+
+function splitChars(text) {
+  return Array.from(String(text));
+}
+
+function parseSplitConfig(config = "") {
+  const parts = String(config)
+    .split(",")
+    .map((part) => part.trim())
+    .filter(Boolean);
+
+  return {
+    lines: parts.includes("lines"),
+    words: parts.includes("words"),
+    chars: parts.includes("chars")
+  };
+}
+
+function renderSplitText(node, text) {
+  const config = parseSplitConfig(node.dataset.split);
+  const lines = String(text).split(/\n+/);
+  const fragment = document.createDocumentFragment();
+  let wordIndex = 0;
+  let charIndex = 0;
+
+  const renderWord = (word) => {
+    if (!config.words && !config.chars) return document.createTextNode(word);
+
+    if (config.chars) {
+      const wordEl = createSplitElement("span", "word");
+      wordEl.style.display = "inline-block";
+      wordEl.style.setProperty("--w-index", String(wordIndex++));
+
+      splitChars(word).forEach((char) => {
+        const charEl = createSplitElement("span", "char", char);
+        charEl.style.display = "inline-block";
+        charEl.style.setProperty("--c-index", String(charIndex++));
+        wordEl.appendChild(charEl);
+      });
+
+      return wordEl;
+    }
+
+    const wordEl = createSplitElement("span", "word", word);
+    wordEl.style.display = "inline-block";
+    wordEl.style.setProperty("--w-index", String(wordIndex++));
+    return wordEl;
+  };
+
+  lines.forEach((lineText, lineIndex) => {
+    const target = config.lines
+      ? createSplitElement("span", "line")
+      : fragment;
+
+    if (config.lines) {
+      target.style.display = "block";
+      target.style.setProperty("--l-index", String(lineIndex));
+    }
+
+    const words = splitWords(lineText);
+    if (words.length === 0) {
+      target.appendChild(document.createTextNode(""));
+    } else {
+      words.forEach((word, index) => {
+        target.appendChild(renderWord(word));
+        if (index < words.length - 1) {
+          target.appendChild(document.createTextNode(" "));
+        }
+      });
+    }
+
+    if (config.lines) {
+      fragment.appendChild(target);
+    }
+  });
+
+  node.replaceChildren(fragment);
+}
+
 function deepMerge(baseValue, nextValue) {
   if (Array.isArray(nextValue)) return [...nextValue];
   if (!isPlainObject(baseValue) || !isPlainObject(nextValue)) return nextValue;
@@ -56,11 +149,15 @@ export function createI18n({ defaultLang = "es", dictionaries = {}, fallbackLang
 function applyTextBinding(node, i18n) {
   const key = node.dataset.i18n;
   if (!key) return;
-  if (node.closest("[data-module-split]")) return;
   const value = i18n.t(key);
-  if (typeof value === "string" || typeof value === "number") {
-    node.textContent = String(value);
+  if (typeof value !== "string" && typeof value !== "number") return;
+
+  if (node.matches("[data-module-split]")) {
+    renderSplitText(node, String(value));
+    return;
   }
+
+  node.textContent = String(value);
 }
 
 function applyAttributeBindings(node, i18n) {
@@ -81,6 +178,14 @@ function applyAttributeBindings(node, i18n) {
       const value = i18n.t(key);
       if (typeof value === "string" || typeof value === "number") {
         node.setAttribute(attrName, String(value));
+        if (attrName === "data-section-title" && node.dataset.sectionTitleId) {
+          const render = document.querySelector(
+            `.c-section-title_render[data-id="${node.dataset.sectionTitleId}"]`
+          );
+          if (render) {
+            render.textContent = String(value);
+          }
+        }
       }
     });
 }

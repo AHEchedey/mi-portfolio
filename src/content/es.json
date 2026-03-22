@@ -32,11 +32,37 @@
     "imageAlt": "Foto de perfil de Echedey"
   },
   "menu": {
-    "aboutMe": "Sobre mí"
+    "label": "Menú",
+    "close": "Cerrar",
+    "intro": "Curriculum / Portfolio: conoce mi perfil, habilidades, experiencia, educación, proyectos, eventos y premios.",
+    "aboutMe": "Sobre mí",
+    "projects": "Proyectos",
+    "experience": "Experiencia laboral",
+    "skills": "Habilidades técnicas",
+    "education": "Educación",
+    "certifications": "Certificaciones",
+    "conferences": "Conferencias-workshops-premios",
+    "contact": "Contacto"
   },
   "nav": {
     "aboutMe": "Sobre mí",
     "contact": "Contacto"
+  },
+  "sectionTitles": {
+    "about": "Sobre mí",
+    "projects": "Proyectos",
+    "experience": "Experiencia laboral",
+    "skills": "Habilidades técnicas",
+    "education": "Educación",
+    "certifications": "Certificaciones",
+    "conferences": "Conferencias-workshops-premios"
+  },
+  "sectionHeadings": {
+    "projects": "Proyectos",
+    "experience": "Experiencia laboral",
+    "skills": "Habilidades técnicas",
+    "education": "Formación Académica",
+    "certifications": "Certificaciones"
   },
   "contact": {
     "email": "Email"
