@@ -13,7 +13,6 @@
   "about": {
     "eyebrow": "SECTION 01",
     "title": "About Me",
-    "sectionTitle": "About Me",
     "paragraphs": [
       "I am Echedey Aguilar Hernandez, originally from Lanzarote. Computer Engineer (Computer Engineering, University of Seville).",
       "I currently work as a laboratory specialist technician on knowledge-generation projects, focused on the REEGREENH2 project.",
@@ -31,38 +30,52 @@
     },
     "imageAlt": "Portrait of Echedey"
   },
-  "menu": {
-    "label": "Menu",
-    "close": "Close",
-    "intro": "Curriculum / Portfolio: discover my profile, skills, experience, education, projects, events and awards.",
-    "aboutMe": "About Me",
-    "projects": "Projects",
-    "experience": "Work Experience",
-    "skills": "Technical Skills",
-    "education": "Education",
-    "certifications": "Certifications",
-    "conferences": "Conferences-workshops-awards",
-    "contact": "Contact"
+  "navigation": {
+    "primary": {
+      "contact": "Contact",
+      "about": "About Me"
+    },
+    "menu": {
+      "open": "Menu",
+      "close": "Close",
+      "intro": "Curriculum / Portfolio: discover my profile, skills, experience, education, projects, events and awards.",
+      "about": "About Me",
+      "projects": "Projects",
+      "experience": "Work Experience",
+      "skills": "Technical Skills",
+      "education": "Education",
+      "certifications": "Certifications",
+      "conferences": "Conferences-workshops-awards",
+      "contact": "Contact"
+    }
   },
-  "nav": {
-    "aboutMe": "About Me",
-    "contact": "Contact"
-  },
-  "sectionTitles": {
-    "about": "About Me",
-    "projects": "Projects",
-    "experience": "Work Experience",
-    "skills": "Technical Skills",
-    "education": "Education",
-    "certifications": "Certifications",
-    "conferences": "Conferences-workshops-awards"
-  },
-  "sectionHeadings": {
-    "projects": "Projects",
-    "experience": "Work Experience",
-    "skills": "Technical Skills",
-    "education": "Academic Education",
-    "certifications": "Certifications"
+  "sections": {
+    "about": {
+      "titleBar": "About Me"
+    },
+    "projects": {
+      "titleBar": "Projects",
+      "title": "Projects"
+    },
+    "experience": {
+      "titleBar": "Work Experience",
+      "title": "Work Experience"
+    },
+    "skills": {
+      "titleBar": "Technical Skills",
+      "title": "Technical Skills"
+    },
+    "education": {
+      "titleBar": "Education",
+      "title": "Academic Education"
+    },
+    "certifications": {
+      "titleBar": "Certifications",
+      "title": "Certifications"
+    },
+    "conferences": {
+      "titleBar": "Conferences-workshops-awards"
+    }
   },
   "contact": {
     "email": "Email"

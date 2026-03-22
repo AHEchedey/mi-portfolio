@@ -13,7 +13,6 @@
   "about": {
     "eyebrow": "SECCIÓN 01",
     "title": "Sobre mí",
-    "sectionTitle": "Sobre mí",
     "paragraphs": [
       "Soy Echedey Aguilar Hernández, originario de Lanzarote. Ingeniero Informático (Ingeniería de Computadores, Universidad de Sevilla).",
       "Actualmente trabajo como Técnico Especialista de laboratorio en proyectos de generación de conocimiento, centrado en el proyecto REEGREENH2.",
@@ -31,38 +30,52 @@
     },
     "imageAlt": "Foto de perfil de Echedey"
   },
-  "menu": {
-    "label": "Menú",
-    "close": "Cerrar",
-    "intro": "Curriculum / Portfolio: conoce mi perfil, habilidades, experiencia, educación, proyectos, eventos y premios.",
-    "aboutMe": "Sobre mí",
-    "projects": "Proyectos",
-    "experience": "Experiencia laboral",
-    "skills": "Habilidades técnicas",
-    "education": "Educación",
-    "certifications": "Certificaciones",
-    "conferences": "Conferencias-workshops-premios",
-    "contact": "Contacto"
+  "navigation": {
+    "primary": {
+      "contact": "Contacto",
+      "about": "Sobre mí"
+    },
+    "menu": {
+      "open": "Menú",
+      "close": "Cerrar",
+      "intro": "Curriculum / Portfolio: conoce mi perfil, habilidades, experiencia, educación, proyectos, eventos y premios.",
+      "about": "Sobre mí",
+      "projects": "Proyectos",
+      "experience": "Experiencia laboral",
+      "skills": "Habilidades técnicas",
+      "education": "Educación",
+      "certifications": "Certificaciones",
+      "conferences": "Conferencias-workshops-premios",
+      "contact": "Contacto"
+    }
   },
-  "nav": {
-    "aboutMe": "Sobre mí",
-    "contact": "Contacto"
-  },
-  "sectionTitles": {
-    "about": "Sobre mí",
-    "projects": "Proyectos",
-    "experience": "Experiencia laboral",
-    "skills": "Habilidades técnicas",
-    "education": "Educación",
-    "certifications": "Certificaciones",
-    "conferences": "Conferencias-workshops-premios"
-  },
-  "sectionHeadings": {
-    "projects": "Proyectos",
-    "experience": "Experiencia laboral",
-    "skills": "Habilidades técnicas",
-    "education": "Formación Académica",
-    "certifications": "Certificaciones"
+  "sections": {
+    "about": {
+      "titleBar": "Sobre mí"
+    },
+    "projects": {
+      "titleBar": "Proyectos",
+      "title": "Proyectos"
+    },
+    "experience": {
+      "titleBar": "Experiencia laboral",
+      "title": "Experiencia laboral"
+    },
+    "skills": {
+      "titleBar": "Habilidades técnicas",
+      "title": "Habilidades técnicas"
+    },
+    "education": {
+      "titleBar": "Educación",
+      "title": "Formación Académica"
+    },
+    "certifications": {
+      "titleBar": "Certificaciones",
+      "title": "Certificaciones"
+    },
+    "conferences": {
+      "titleBar": "Conferencias-workshops-premios"
+    }
   },
   "contact": {
     "email": "Email"
