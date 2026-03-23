@@ -15143,7 +15143,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     var Ht = {
         autoSleep: 120,
         force3D: "auto",
-        nullTargetWarn: 1,
+        nullTargetWarn: 0,
         units: {
             lineHeight: ""
         }

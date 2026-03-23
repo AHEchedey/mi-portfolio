@@ -249,7 +249,7 @@ h3 {
 @font-face {
     font-display: swap;
     font-family: "Neue Montreal";
-    src: url("../fonts/NeueMontreal-Regular.woff2") format("woff2");
+    src: url("../../fonts/NeueMontreal-Regular.woff2") format("woff2");
     font-weight: 300;
     font-style: normal
 }
@@ -257,7 +257,7 @@ h3 {
 @font-face {
     font-display: swap;
     font-family: "Neue Montreal";
-    src: url("../fonts/NeueMontreal-Regular.woff2") format("woff2");
+    src: url("../../fonts/NeueMontreal-Regular.woff2") format("woff2");
     font-weight: 400;
     font-style: normal
 }
@@ -265,7 +265,7 @@ h3 {
 @font-face {
     font-display: swap;
     font-family: "Neue Montreal";
-    src: url("../fonts/NeueMontreal-Bold.woff2") format("woff2");
+    src: url("../../fonts/NeueMontreal-Bold.woff2") format("woff2");
     font-weight: 700;
     font-style: normal
 }
@@ -273,7 +273,7 @@ h3 {
 @font-face {
     font-display: swap;
     font-family: "Geist Mono";
-    src: url("../fonts/GeistMono-Medium.woff2") format("woff2");
+    src: url("../../fonts/GeistMono-Medium.woff2") format("woff2");
     font-weight: 400;
     font-style: normal
 }
@@ -281,7 +281,7 @@ h3 {
 @font-face {
     font-display: swap;
     font-family: "Geist Mono";
-    src: url("../fonts/GeistMono-Medium.woff2") format("woff2");
+    src: url("../../fonts/GeistMono-Medium.woff2") format("woff2");
     font-weight: 500;
     font-style: normal
 }
@@ -289,7 +289,7 @@ h3 {
 @font-face {
     font-display: swap;
     font-family: "Geist Mono";
-    src: url("../fonts/GeistMono-Medium.woff2") format("woff2");
+    src: url("../../fonts/GeistMono-Medium.woff2") format("woff2");
     font-weight: 700;
     font-style: normal
 }
