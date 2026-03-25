@@ -8,17 +8,40 @@ import { createEventBus } from "./events.js";
 import { applyTranslations, createI18n } from "./i18n.js";
 import { registerGsap } from "./animation.js";
 import { createScrollAdapter } from "./scroll.js";
+import menuComponent from "../components/menu.js";
 import heroModule from "../sections/hero.js";
 import aboutModule from "../sections/about.js";
+import projectsModule from "../sections/projects.js";
+import experienceModule from "../sections/experience.js";
 
 const MODULAR_CONTENT_PATHS = {
   es: "src/content/es.json",
   en: "src/content/en.json"
 };
+const SCROLL_TARGET_MAP = {
+  hero: "hero",
+  about: "sobre_mi",
+  projects: "proyectos",
+  experience: "experiencia_laboral",
+  skills: "habilidades_tecnicas",
+  education: "educacion",
+  certifications: "certificaciones",
+  conferences: "conferencias_workshops_premios",
+  manifesto: "manifesto"
+};
 const MODULES = new Map([
   ["hero", heroModule],
-  ["about", aboutModule]
+  ["about", aboutModule],
+  ["projects", projectsModule],
+  ["experience", experienceModule]
 ]);
+const COMPONENTS = [
+  {
+    id: "menu",
+    selector: '[data-component="menu"]',
+    module: menuComponent
+  }
+];
 const SECTION_FLAG_PREFIX = "arch";
 const BOOTSTRAP_GUARD = "modularBootstrapInitialized";
 const activeSections = new Map();
@@ -104,8 +127,49 @@ function bindLegacyLanguageBridge(deps) {
 }
 
 async function loadModularContent(deps) {
+  const bridgeReady = globalThis.__portfolioContentReady;
+  if (bridgeReady && typeof bridgeReady.then === "function") {
+    await bridgeReady;
+  }
+
+  const bridgeLoader = globalThis.loadPortfolioLanguageDictionary;
+  if (typeof bridgeLoader === "function") {
+    const missingFromBridge = Object.entries(MODULAR_CONTENT_PATHS).filter(
+      ([lang]) => !deps.i18n.has(lang)
+    );
+
+    await Promise.all(
+      missingFromBridge.map(async ([lang]) => {
+        try {
+          await bridgeLoader(lang);
+        } catch (_) {
+          // Fall through to direct fetch only if the legacy bridge cannot serve it.
+        }
+      })
+    );
+  }
+
+  const globalContent = globalThis.portfolioContent;
+  if (globalContent && typeof globalContent === "object") {
+    Object.entries(globalContent).forEach(([lang, dictionary]) => {
+      if (dictionary && typeof dictionary === "object") {
+        deps.i18n.registerDictionary(lang, dictionary);
+      }
+    });
+  }
+
+  const missingEntries = Object.entries(MODULAR_CONTENT_PATHS).filter(
+    ([lang]) => !deps.i18n.has(lang)
+  );
+
+  if (missingEntries.length === 0) {
+    deps.events.emit("i18n:ready", { lang: deps.i18n.getLang() });
+    deps.events.emit("i18n:change", { lang: deps.i18n.getLang() });
+    return;
+  }
+
   const entries = await Promise.all(
-    Object.entries(MODULAR_CONTENT_PATHS).map(async ([lang, path]) => {
+    missingEntries.map(async ([lang, path]) => {
       const response = await fetch(path);
       if (!response.ok) throw new Error(`Failed to load ${path}`);
       return [lang, await response.json()];
@@ -129,6 +193,22 @@ function bindGlobalTranslations(deps) {
   };
 }
 
+function mountComponents({ body, deps }) {
+  COMPONENTS.forEach(({ id, selector, module }) => {
+    if (!module || typeof module.init !== "function" || typeof module.destroy !== "function") {
+      return;
+    }
+
+    document.querySelectorAll(selector).forEach((el) => {
+      if (shouldInitSection({ body, sectionId: id })) {
+        mountSection(el, module, deps);
+        return;
+      }
+      unmountSection(el);
+    });
+  });
+}
+
 export function bootstrap({ modules = MODULES } = {}) {
   const root = document.documentElement;
   const body = document.body;
@@ -145,7 +225,10 @@ export function bootstrap({ modules = MODULES } = {}) {
   const dictionaries = globalThis.portfolioContent || {};
   const deps = {
     events: createEventBus(),
-    scroll: createScrollAdapter({ strategy: "native" }),
+    scroll: createScrollAdapter({
+      strategy: "native",
+      targetMap: SCROLL_TARGET_MAP
+    }),
     i18n: createI18n({
       defaultLang: getInitialLanguage(),
       dictionaries,
@@ -170,6 +253,8 @@ export function bootstrap({ modules = MODULES } = {}) {
     }
     unmountSection(el);
   });
+
+  mountComponents({ body, deps });
 
   const unbindLanguageBridge = bindLegacyLanguageBridge(deps);
   const unbindGlobalTranslations = bindGlobalTranslations(deps);
