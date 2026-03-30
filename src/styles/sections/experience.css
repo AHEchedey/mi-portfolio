@@ -1,0 +1,16 @@
+/*
+ * Ownership: Sections Team (Experience)
+ * Purpose: Modular ownership layer for the Experience pilot.
+ * Note: Conservative layer; visual output should remain equivalent to legacy.
+ */
+
+[data-section="experience"] {
+  position: relative;
+  min-height: 50vh;
+  padding: 4rem 2rem;
+}
+
+[data-section="experience"] .s-experience_intro {
+  margin-top: 2rem;
+  max-width: 36ch;
+}
