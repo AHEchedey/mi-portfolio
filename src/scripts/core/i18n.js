@@ -126,7 +126,7 @@ export function createI18n({ defaultLang = "es", dictionaries = {}, fallbackLang
     store[langKey] = deepMerge(store[langKey] || {}, dictionary);
   }
 
-  function t(path, fallback = "") {
+  function t(path, fallback) {
     const keys = path.split(".");
     let value = store[lang] ?? store[fallbackLang];
     for (const key of keys) {
@@ -140,7 +140,8 @@ export function createI18n({ defaultLang = "es", dictionaries = {}, fallbackLang
   }
 
   function has(langKey) {
-    return Boolean(store[langKey]);
+    const dictionary = store[langKey];
+    return isPlainObject(dictionary) && Object.keys(dictionary).length > 0;
   }
 
   return { setLang, t, has, registerDictionary, getLang: () => lang };
@@ -176,15 +177,15 @@ function applyAttributeBindings(node, i18n) {
       if (!attrName || !key) return;
 
       const value = i18n.t(key);
-      if (typeof value === "string" || typeof value === "number") {
-        node.setAttribute(attrName, String(value));
-        if (attrName === "data-section-title" && node.dataset.sectionTitleId) {
-          const render = document.querySelector(
-            `.c-section-title_render[data-id="${node.dataset.sectionTitleId}"]`
-          );
-          if (render) {
-            render.textContent = String(value);
-          }
+      if (typeof value !== "string" && typeof value !== "number") return;
+
+      node.setAttribute(attrName, String(value));
+      if (attrName === "data-section-title" && node.dataset.sectionTitleId) {
+        const render = document.querySelector(
+          `.c-section-title_render[data-id="${node.dataset.sectionTitleId}"]`
+        );
+        if (render) {
+          render.textContent = String(value);
         }
       }
     });

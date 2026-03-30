@@ -98,17 +98,22 @@ function bindLegacyLanguageBridge(deps) {
     const control = event.target.closest("[data-lang]");
     if (!control) return;
     const nextLang = control.dataset.lang || control.getAttribute("lang");
-    queueMicrotask(() => syncLanguage(deps, document.documentElement.lang || nextLang));
+    queueMicrotask(() => syncLanguage(deps, nextLang));
+  };
+
+  const onLanguageChange = (event) => {
+    syncLanguage(deps, event.detail?.lang);
   };
 
   document.addEventListener("click", onClick);
+  window.addEventListener("portfolio:language-change", onLanguageChange);
 
   let restoreSetLanguage = null;
   if (typeof globalThis.setLanguage === "function") {
     const originalSetLanguage = globalThis.setLanguage;
-    const wrappedSetLanguage = function setLanguageBridge(nextLang) {
-      const result = originalSetLanguage.apply(this, arguments);
-      syncLanguage(deps, document.documentElement.lang || nextLang);
+    const wrappedSetLanguage = async function setLanguageBridge(nextLang) {
+      const result = await originalSetLanguage.apply(this, arguments);
+      syncLanguage(deps, nextLang || document.documentElement.lang);
       return result;
     };
 
@@ -122,6 +127,7 @@ function bindLegacyLanguageBridge(deps) {
 
   return () => {
     document.removeEventListener("click", onClick);
+    window.removeEventListener("portfolio:language-change", onLanguageChange);
     if (restoreSetLanguage) restoreSetLanguage();
   };
 }
