@@ -6,6 +6,7 @@
 @import url("../src/styles/sections/about.css");
 @import url("../src/styles/sections/skills.css");
 @import url("../src/styles/sections/education.css");
+@import url("../src/styles/sections/certifications.css");
 
 .o-footer {
     position: relative;

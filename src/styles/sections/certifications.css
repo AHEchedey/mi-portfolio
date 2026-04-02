@@ -1,0 +1,15 @@
+/*
+ * Ownership: Sections Team (Certifications)
+ * Purpose: Modular ownership layer for the Certifications pilot.
+ * Note: Conservative layer; visual output should remain equivalent to legacy.
+ */
+
+[data-section="certifications"] {
+  position: relative;
+  min-height: 50vh;
+  padding: 4rem 2rem;
+}
+
+[data-section="certifications"] .s-certifications_intro {
+  margin-top: 2rem;
+}
