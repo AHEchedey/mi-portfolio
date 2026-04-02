@@ -13,6 +13,7 @@ import heroModule from "../sections/hero.js";
 import aboutModule from "../sections/about.js";
 import projectsModule from "../sections/projects.js";
 import experienceModule from "../sections/experience.js";
+import skillsModule from "../sections/skills.js";
 
 const MODULAR_CONTENT_PATHS = {
   es: "src/content/es.json",
@@ -33,7 +34,8 @@ const MODULES = new Map([
   ["hero", heroModule],
   ["about", aboutModule],
   ["projects", projectsModule],
-  ["experience", experienceModule]
+  ["experience", experienceModule],
+  ["skills", skillsModule]
 ]);
 const COMPONENTS = [
   {
