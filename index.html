@@ -39,7 +39,7 @@
     <script src="scripts/content.js"></script>
 </head>
 
-<body class="home" data-arch="legacy" data-arch-hero="modular" data-arch-about="modular" data-arch-experience="modular" data-arch-skills="modular">
+<body class="home" data-arch="legacy" data-arch-hero="modular" data-arch-about="modular" data-arch-menu="modular" data-arch-projects="modular" data-arch-experience="modular" data-arch-skills="modular">
 
     <div data-load-container>
         <div data-module-scroll="main">
@@ -72,8 +72,8 @@
                         </div>
                     </div>
 
-                    <div class="c-menu" data-module-menu>
-                        <div class="c-menu_toggle" data-menu="toggle">
+                    <div class="c-menu" data-component="menu" data-menu-state="closed">
+                        <div class="c-menu_toggle" data-menu="toggle" role="button" tabindex="0" aria-expanded="false" aria-controls="site-menu-panel">
                             <div class="c-menu_toggle_label">
                                 <span class="default"><span class="glitch-text -default" data-i18n="navigation.menu.open">Menú</span></span>
                                 <span class="opened"><span class="glitch-text -opened" data-i18n="navigation.menu.close">Cerrar</span></span>
@@ -81,13 +81,13 @@
                             <div class="c-menu_toggle_separator"></div>
                             <div class="c-menu_toggle_time" data-module-time>00:00 MAD</div>
                             <div class="c-menu_toggle_separator -mobile"></div>
-                            <div class="c-menu_toggle_logo" data-menu="scrollTo" data-section-id="hero">
+                            <div class="c-menu_toggle_logo" data-menu="scrollTo" data-section-id="hero" role="button" tabindex="0" aria-label="Ir al hero">
                                 <img src="images/logo_menu_eah.png" alt="EAH" loading="lazy" decoding="async" />
                                 <img src="images/logo_menu_eah.png" alt="EAH" loading="lazy" decoding="async" />
                             </div>
                         </div>
 
-                        <div class="c-menu_wrap">
+                        <div class="c-menu_wrap" id="site-menu-panel" aria-hidden="true">
                             <div class="c-menu_content" data-lenis-prevent>
                                 <div class="c-menu_content_intro" data-i18n="navigation.menu.intro">
                                     Curriculum / Portfolio: conoce mi perfil, habilidades, experiencia, educación,
@@ -101,39 +101,39 @@
                                 </div>
 
                                 <!-- Secciones en el orden solicitado -->
-                                <div class="c-menu_content_item" data-menu="scrollTo" data-section-id="sobre_mi">
+                                <div class="c-menu_content_item" data-menu="scrollTo" data-section-id="sobre_mi" role="button" tabindex="0">
                                     <span data-i18n="navigation.menu.about">Sobre mí</span>
                                     <img src="images/webgl/sobremi.png" alt="Sobre mí" loading="lazy" />
                                 </div>
 
-                                <div class="c-menu_content_item" data-menu="scrollTo" data-section-id="proyectos">
+                                <div class="c-menu_content_item" data-menu="scrollTo" data-section-id="proyectos" role="button" tabindex="0">
                                     <span data-i18n="navigation.menu.projects">Proyectos</span>
                                     <img src="images/webgl/voluntariado.jpeg" alt="Proyectos" loading="lazy" />
                                 </div>
 
-                                <div class="c-menu_content_item" data-menu="scrollTo"
+                                <div class="c-menu_content_item" data-menu="scrollTo" role="button" tabindex="0"
                                     data-section-id="experiencia_laboral">
                                     <span data-i18n="navigation.menu.experience">Experiencia laboral</span>
                                     <img src="images/webgl/trabajo.png" alt="Experiencia laboral" loading="lazy" />
                                 </div>
 
-                                <div class="c-menu_content_item" data-menu="scrollTo"
+                                <div class="c-menu_content_item" data-menu="scrollTo" role="button" tabindex="0"
                                     data-section-id="habilidades_tecnicas">
                                     <span data-i18n="navigation.menu.skills">Habilidades técnicas</span>
                                     <img src="images/webgl/foxglove.png" alt="Habilidades técnicas" loading="lazy" />
                                 </div>
 
-                                <div class="c-menu_content_item" data-menu="scrollTo" data-section-id="educacion">
+                                <div class="c-menu_content_item" data-menu="scrollTo" data-section-id="educacion" role="button" tabindex="0">
                                     <span data-i18n="navigation.menu.education">Educación</span>
                                     <img src="images/webgl/impresion3d.png" alt="Educación" loading="lazy" />
                                 </div>
 
-                                <div class="c-menu_content_item" data-menu="scrollTo" data-section-id="certificaciones">
+                                <div class="c-menu_content_item" data-menu="scrollTo" data-section-id="certificaciones" role="button" tabindex="0">
                                     <span data-i18n="navigation.menu.certifications">Certificaciones</span>
                                     <img src="images/webgl/sate-lite-us.jpeg" alt="Certificaciones" loading="lazy" />
                                 </div>
 
-                                <div class="c-menu_content_item" data-menu="scrollTo"
+                                <div class="c-menu_content_item" data-menu="scrollTo" role="button" tabindex="0"
                                     data-section-id="conferencias_workshops_premios">
                                     <span data-i18n="navigation.menu.conferences">Conferencias-workshops-premios</span>
                                     <img src="images/webgl/congresos1.png" alt="Conferencias-workshops-premios"
@@ -260,7 +260,7 @@
         </section>
 
         <!-- PROYECTOS -->
-        <section class="o-section -projects" data-scroll-target="proyectos">
+        <section class="o-section -projects" data-scroll-target="proyectos" data-section="projects">
             <div class="o-section_trigger" data-scroll data-scroll-call="changeTitle, SectionTitle"
                 data-scroll-offset="50%,50%" data-scroll-repeat data-section-title="Proyectos"
                 data-i18n-attr="data-section-title:sections.projects.titleBar"
@@ -268,7 +268,9 @@
 
             <div class="o-section_inner">
                 <h2 class="c-heading -h2" data-i18n="sections.projects.title">Proyectos</h2>
-                <!-- aquí metes cards/lista de proyectos -->
+                <div class="c-sp1 s-projects_intro" data-i18n="sections.projects.summary">
+                    Selección de proyectos académicos, técnicos y experimentales en evolución.
+                </div>
             </div>
         </section>
 

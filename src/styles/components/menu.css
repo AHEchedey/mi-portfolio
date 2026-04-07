@@ -1,9 +1,42 @@
 /*
   Ownership: Components Team
-  Purpose: Future menu component styles.
-  Note: Scaffold only. Not connected to production yet.
+  Purpose: Modular ownership layer for shared menu behavior.
+  Note: Conservative layer; legacy visual rendering remains the baseline.
 */
 
-.c-menu {
-  position: relative;
+.c-menu[data-menu-state="closed"] {
+  --menu-state: 0;
+}
+
+.c-menu[data-menu-state="open"] {
+  --menu-state: 1;
+}
+
+.c-menu [data-menu="toggle"]:focus-visible,
+.c-menu [data-menu="scrollTo"]:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 4px;
+}
+
+@media (max-width: 699px) {
+  .c-menu_wrap {
+    width: calc(100vw - (var(--grid-margin) * 2));
+    max-width: calc(100vw - (var(--grid-margin) * 2));
+    height: calc(100dvh - (var(--grid-margin) * 2) - 40px);
+    max-height: calc(100dvh - (var(--grid-margin) * 2) - 40px);
+  }
+
+  .c-menu_content {
+    height: 100%;
+    padding: calc(var(--grid-margin) * 0.85);
+  }
+
+  .c-menu_content_item + .c-menu_content_item {
+    margin-top: 0.75rem;
+  }
+
+  .c-menu_content_item span {
+    max-width: calc(100% - 24px);
+    padding: 0.45rem 0.7rem 0.4rem;
+  }
 }

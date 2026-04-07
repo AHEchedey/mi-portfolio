@@ -1,0 +1,14 @@
+/*
+ * Ownership: Sections Team (Projects)
+ * Purpose: Modular ownership layer for Projects pilot.
+ * Note: Conservative layer; visual output should remain equivalent to legacy.
+ */
+
+[data-section="projects"] {
+  position: relative;
+}
+
+[data-section="projects"] .s-projects_intro {
+  margin-top: 2rem;
+  max-width: 32ch;
+}
