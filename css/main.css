@@ -2,9 +2,14 @@
 @import url("../src/styles/base.css");
 @import url("../src/styles/layout.css");
 @import url("../src/styles/utilities.css");
+@import url("../src/styles/components/nav.css");
+@import url("../src/styles/components/menu.css");
 @import url("../src/styles/sections/hero.css");
 @import url("../src/styles/sections/about.css");
+@import url("../src/styles/sections/projects.css");
+@import url("../src/styles/sections/experience.css");
 @import url("../src/styles/sections/skills.css");
+@import url("../src/styles/sections/education.css");
 
 .o-footer {
     position: relative;
@@ -162,21 +167,22 @@
     top: 50svh;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-width: 600px;
+    width: min(600px, calc(100vw - 112px));
+    height: auto;
     display: block;
-    opacity: 0
+    opacity: 1
 }
 
 @media(max-width: 1599px) {
     .s-hero_logo {
-        max-width: 400px;
+        width: min(400px, calc(100vw - 112px));
         top: 56svh
     }
 }
 
 @media(max-width: 699px) {
     .s-hero_logo {
-        max-width: 300px;
+        width: min(300px, calc(100vw - 112px));
         top: 59svh
     }
 }

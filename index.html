@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="images/favicon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="OVA" />
-    <link rel="manifest" href="images/favicon/site.webmanifest" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <meta property="og:locale" content="es_ES" />
     <meta property="og:type" content="website" />
@@ -34,12 +34,13 @@
         content="Portfolio de Echedey Aguilar Hernández - Ingeniero Informático - Ingeniero de Computadores" />
     <meta name="twitter:image" content="images/hero-1.avif" />
 
+    <link rel="preload" as="image" href="images/logo_eah.png" fetchpriority="high" />
     <link rel="stylesheet" href="css/main.css">
 
     <script src="scripts/content.js"></script>
 </head>
 
-<body class="home" data-arch="legacy" data-arch-hero="modular" data-arch-about="modular" data-arch-menu="modular" data-arch-projects="modular" data-arch-experience="modular" data-arch-skills="modular">
+<body class="home" data-arch="legacy" data-arch-hero="modular" data-arch-about="modular" data-arch-menu="modular" data-arch-projects="modular" data-arch-experience="modular" data-arch-skills="modular" data-arch-education="modular">
 
     <div data-load-container>
         <div data-module-scroll="main">
@@ -159,7 +160,8 @@
                 <section class="o-section -hero" data-scroll-target="hero" data-module-hero data-section="hero"
                     style="--bgsProgress: 1; --bgEndProgress: 0;">
                     <div class="s-hero">
-                        <img src="images/logo_eah.png" alt="EAH - Echedey Aguilar Hernández" class="s-hero_logo" />
+                        <img src="images/logo_eah.png" alt="EAH - Echedey Aguilar Hernández" class="s-hero_logo"
+                            width="1024" height="1024" loading="eager" decoding="async" fetchpriority="high" />
                         <div class="s-hero_background">
                             <div class="s-hero_background_start">
                                 <picture>
@@ -209,7 +211,7 @@
 
 
                 <!-- SOBRE MÍ -->
-                <section class="o-section -about-me" data-scroll-target="sobre_mi" data-module-about-me data-section="about"
+                <section class="o-section -about-me" data-scroll-target="sobre_mi" data-section="about"
                     style="min-height: 100vh;">
                     <div class="o-section_trigger" data-scroll data-scroll-call="changeTitle, SectionTitle"
                         data-scroll-offset="50%,50%" data-scroll-repeat data-section-title="Sobre mí"
@@ -303,16 +305,15 @@
         </section>
 
         <!-- EDUCACIÓN -->
-        <section class="o-section -education" data-scroll-target="educacion"
-            style="min-height: 50vh; padding: 4rem 2rem;">
+        <section class="o-section -education" data-scroll-target="educacion" data-section="education">
             <div class="o-section_trigger" data-scroll data-scroll-call="changeTitle, SectionTitle"
                 data-scroll-offset="50%,50%" data-scroll-repeat data-section-title="Educación"
                 data-i18n-attr="data-section-title:sections.education.titleBar"
                 data-section-title-id="educacion"></div>
 
-            <div class="o-section_inner">
+            <div class="o-section_inner s-education">
                 <h2 class="c-heading -h2" data-module-split data-split="lines,words" data-i18n="sections.education.title">Formación Académica</h2>
-                <div class="c-sp1" style="margin-top: 2rem;">
+                <div class="c-sp1 s-education_intro" data-i18n="sections.education.summary">
                     Contenido de educación por desarrollar.
                 </div>
             </div>
@@ -435,12 +436,6 @@
     </div>
 
     <script src="scripts/app.js"></script>
-    <script>
-        (function () {
-            // Logic moved to scripts/gsap-about.js
-        })();
-    </script>
-    <script src="scripts/gsap-about.js"></script>
     <script type="module" src="src/scripts/core/bootstrap.js"></script>
 </body>
 

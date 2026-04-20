@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
+    if (document.body?.dataset.archAbout === "modular") {
+        return;
+    }
+
     // Ensure GSAP and ScrollTrigger are loaded
     if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
         console.warn("GSAP or ScrollTrigger not loaded");

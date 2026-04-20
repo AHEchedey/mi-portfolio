@@ -50,6 +50,7 @@ el.dataset.initialized = "true";
 - Use architecture flags:
   - global: `data-arch="legacy|modular"`
   - per section: `data-arch-hero="modular"`, `data-arch-about="modular"`, etc.
+- Retire legacy section hooks only when the modular section reproduces the required behavior; if a legacy hook still owns core production behavior, keep it temporarily and document the dependency.
 - Register GSAP plugins once in a single shared module.
 - Use one shared scroll adapter for all new modules.
 - Do not use global implicit dependencies in new code (no `window.gsap` usage in module internals).

@@ -21955,9 +21955,7 @@ precision highp float;in vec2 vUv;out vec4 fragColor;uniform sampler2D uMap;unif
                     duration: 1,
                     ease: "none"
                 }, 0),
-                this.tl.fromTo(this.logo, {
-                    autoAlpha: 0
-                }, {
+                this.tl.to(this.logo, {
                     autoAlpha: 1,
                     duration: .6,
                     ease: "none"

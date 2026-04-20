@@ -18,6 +18,7 @@ let portfolioContent = {
 
 const loadedLanguages = new Set();
 let currentLang = localStorage.getItem("portfolioLang") || "es";
+let initContentBridgePromise = null;
 
 function isPlainObject(value) {
     return Object.prototype.toString.call(value) === "[object Object]";
@@ -41,6 +42,8 @@ function deepMerge(baseValue, nextValue) {
 function syncGlobalState() {
     window.portfolioContent = portfolioContent;
     window.currentLang = currentLang;
+    window.loadPortfolioLanguageDictionary = loadLanguageDictionary;
+    window.__portfolioContentReady = initContentBridgePromise;
 }
 
 async function loadLanguageDictionary(lang) {
@@ -142,6 +145,11 @@ function bindLanguageControls() {
 }
 
 async function initContentBridge() {
+    if (initContentBridgePromise) {
+        return initContentBridgePromise;
+    }
+
+    initContentBridgePromise = (async () => {
     bindLanguageControls();
     updateContent();
     await Promise.all([
@@ -149,6 +157,11 @@ async function initContentBridge() {
         loadLanguageDictionary("en")
     ]);
     updateContent();
+    syncGlobalState();
+    })();
+
+    syncGlobalState();
+    return initContentBridgePromise;
 }
 
 syncGlobalState();

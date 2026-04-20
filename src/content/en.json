@@ -55,11 +55,13 @@
     },
     "projects": {
       "titleBar": "Projects",
-      "title": "Projects"
+      "title": "Projects",
+      "summary": "Selection of academic, technical and experimental projects currently evolving."
     },
     "experience": {
       "titleBar": "Work Experience",
-      "title": "Work Experience"
+      "title": "Work Experience",
+      "summary": "Technical and professional experience in laboratory work, robotics, digital fabrication and applied innovation projects."
     },
     "skills": {
       "titleBar": "Technical Skills",
@@ -67,7 +69,8 @@
     },
     "education": {
       "titleBar": "Education",
-      "title": "Academic Education"
+      "title": "Academic Education",
+      "summary": "Education content under development."
     },
     "certifications": {
       "titleBar": "Certifications",

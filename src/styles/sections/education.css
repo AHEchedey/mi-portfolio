@@ -1,0 +1,19 @@
+/*
+ * Ownership: Sections Team (Education)
+ * Purpose: Modular ownership layer for the Education pilot.
+ * Note: Conservative extraction; visual output should remain equivalent to legacy.
+ */
+
+[data-section="education"] {
+  position: relative;
+  min-height: 50vh;
+  padding: 4rem 2rem;
+}
+
+[data-section="education"] .s-education {
+  width: 100%;
+}
+
+[data-section="education"] .s-education_intro {
+  margin-top: 2rem;
+}
