@@ -11,3 +11,104 @@
 [data-section="about"][data-about-module="ready"] {
   /* No visual override by default. Keeps legacy rendering intact. */
 }
+
+[data-section="about"].o-section.-about-me {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+}
+
+[data-section="about"] .s-about_overlay-gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.38) 42%, rgba(0, 0, 0, 0.58) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.14) 0%, rgba(0, 0, 0, 0.32) 100%);
+}
+
+[data-section="about"] .pImage,
+[data-section="about"] [data-about-image] {
+  display: none !important;
+}
+
+[data-section="about"] .s-about {
+  position: relative;
+  z-index: 2;
+  width: min(1320px, 100%);
+  min-height: 100svh;
+  margin: 0 auto;
+  padding: clamp(88px, 10vh, 132px) var(--grid-margin);
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(380px, 620px);
+  gap: clamp(28px, 6vw, 96px);
+  align-items: center;
+}
+
+[data-section="about"] .s-about_left {
+  min-height: clamp(320px, 54vh, 620px);
+}
+
+[data-section="about"] .s-about_card.pContent {
+  width: min(100%, 620px);
+  max-width: 620px;
+  margin: 0 0 0 auto !important;
+  align-self: center;
+  justify-self: end;
+  padding: clamp(24px, 2.8vw, 38px);
+  border-radius: 28px;
+  background: rgba(10, 12, 18, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.4);
+}
+
+[data-section="about"] .s-about_label,
+[data-section="about"] .s-about_title,
+[data-section="about"] .s-about_card .c-body,
+[data-section="about"] .s-about_focus,
+[data-section="about"] .s-about_links {
+  text-align: left;
+}
+
+[data-section="about"] .s-about_title {
+  margin-bottom: 1.25rem;
+}
+
+[data-section="about"] .s-about_reveal {
+  color: rgba(255, 255, 255, 0.15);
+  line-height: 2;
+}
+
+[data-section="about"] .s-about_reveal .word {
+  color: inherit;
+  will-change: color;
+}
+
+[data-section="about"] .s-about_focus {
+  margin-top: 1.5rem;
+}
+
+[data-section="about"] .s-about_links {
+  margin-top: 1.25rem;
+}
+
+@media (max-width: 899px) {
+  [data-section="about"] .s-about {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: calc(72px + var(--grid-margin)) var(--grid-margin) var(--grid-margin);
+  }
+
+  [data-section="about"] .s-about_left {
+    display: none;
+  }
+
+  [data-section="about"] .s-about_card.pContent {
+    width: min(100%, 720px);
+    max-width: 100%;
+    justify-self: stretch;
+  }
+}

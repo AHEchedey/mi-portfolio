@@ -6,6 +6,64 @@
 import { createCleanupStack } from "../core/events.js";
 import { applyTranslations } from "../core/i18n.js";
 
+function splitWords(element) {
+  const text = element.textContent.trim();
+  if (!text) return [];
+
+  const words = text.split(/\s+/);
+  element.innerHTML = words.map((word) => `<span class="word">${word}&nbsp;</span>`).join("");
+  return Array.from(element.querySelectorAll(".word"));
+}
+
+function initAboutWordReveal(root, deps) {
+  const gsap = deps?.animation?.gsap;
+  const ScrollTrigger = deps?.animation?.scrollTrigger;
+  const paragraphs = root.querySelectorAll(".s-about_reveal");
+  if (!paragraphs.length || !gsap?.to || !ScrollTrigger?.create) return () => {};
+
+  const originals = [];
+  const tweens = [];
+
+  paragraphs.forEach((paragraph) => {
+    originals.push({
+      el: paragraph,
+      html: paragraph.innerHTML
+    });
+
+    const words = splitWords(paragraph);
+    if (!words.length) return;
+
+    gsap.set(words, {
+      color: "rgba(255,255,255,0.15)"
+    });
+
+    tweens.push(
+      gsap.to(words, {
+        color: "#fff",
+        stagger: 0.08,
+        ease: "none",
+        scrollTrigger: {
+          trigger: paragraph,
+          start: "top center",
+          end: "bottom center",
+          scrub: true,
+          invalidateOnRefresh: true
+        }
+      })
+    );
+  });
+
+  ScrollTrigger.refresh();
+
+  return () => {
+    tweens.forEach((tween) => tween?.scrollTrigger?.kill());
+    tweens.forEach((tween) => tween?.kill());
+    originals.forEach(({ el, html }) => {
+      el.innerHTML = html;
+    });
+  };
+}
+
 function createAboutModule() {
   const state = {
     el: null,
@@ -17,6 +75,8 @@ function createAboutModule() {
     onLeave: null,
     updateBounds: null,
     bounds: null,
+    cleanupWordReveal: null,
+    revealFrame: null,
     applyContent: null,
     cleanup: createCleanupStack()
   };
@@ -34,7 +94,7 @@ function createAboutModule() {
       const ScrollTrigger = deps?.animation?.scrollTrigger;
       const topNav = document.querySelector(".o-nav");
       const contentItems = el.querySelectorAll(
-        "[data-about-content] .c-eyebrow, [data-about-content] .c-title, [data-about-content] .c-body, [data-about-content] .c-tags, [data-about-content] .c-actions"
+        "[data-about-content] .c-eyebrow, [data-about-content] .c-title, [data-about-content] .c-tags, [data-about-content] .c-actions"
       );
       const card = el.querySelector("[data-about-card]");
 
@@ -130,7 +190,22 @@ function createAboutModule() {
         });
       }
 
-      state.applyContent = () => applyTranslations(el, deps?.i18n);
+      state.applyContent = () => {
+        state.cleanupWordReveal?.();
+        state.cleanupWordReveal = null;
+        if (state.revealFrame) {
+          cancelAnimationFrame(state.revealFrame);
+          state.revealFrame = null;
+        }
+
+        applyTranslations(el, deps?.i18n);
+
+        state.revealFrame = requestAnimationFrame(() => {
+          state.revealFrame = null;
+          state.cleanupWordReveal?.();
+          state.cleanupWordReveal = initAboutWordReveal(el, deps);
+        });
+      };
       state.applyContent();
       state.cleanup.add(deps?.events?.on("i18n:ready", state.applyContent));
       state.cleanup.add(deps?.events?.on("i18n:change", state.applyContent));
@@ -149,6 +224,10 @@ function createAboutModule() {
     destroy() {
       if (!state.el) return;
 
+      if (state.revealFrame) {
+        cancelAnimationFrame(state.revealFrame);
+      }
+      state.cleanupWordReveal?.();
       state.cleanup.run();
 
       delete state.el.dataset.initialized;
@@ -162,6 +241,8 @@ function createAboutModule() {
       state.onLeave = null;
       state.updateBounds = null;
       state.bounds = null;
+      state.cleanupWordReveal = null;
+      state.revealFrame = null;
       state.applyContent = null;
     },
 
