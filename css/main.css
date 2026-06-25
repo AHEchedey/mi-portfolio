@@ -450,6 +450,9 @@ body {
 }
 
 .o-nav_menu {
+    display: flex;
+    align-items: center;
+    gap: .9rem;
     text-align: right;
     font-size: 0
 }
@@ -682,7 +685,7 @@ body {
     transform: translate(-50%, -50%);
     max-width: 600px;
     display: block;
-    opacity: 0
+    opacity: 1
 }
 
 @media(max-width: 1599px) {
@@ -767,7 +770,7 @@ body {
 }
 
 .s-hero_background_start {
-    opacity: 0
+    opacity: 1
 }
 
 .s-hero_background_end {
@@ -792,8 +795,8 @@ body {
     width: 100%;
     bottom: 67lvh;
     text-align: center;
-    opacity: 0;
-    visibility: hidden
+    opacity: 1;
+    visibility: visible
 }
 
 @media(max-width: 1599px) {
@@ -851,8 +854,8 @@ body {
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    opacity: 0;
-    visibility: hidden
+    opacity: 1;
+    visibility: visible
 }
 
 @media(max-width: 1599px) {
@@ -2684,8 +2687,13 @@ body {
     justify-content: center;
     align-items: center;
     vertical-align: top;
+    min-width: 8.25rem;
     height: 3.3rem;
+    padding: 0 .9rem;
     border: 1px solid currentColor;
+    background-color: rgba(8, 8, 10, .28);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
     text-transform: uppercase;
     font-family: "Geist Mono", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
     font-weight: 500;
@@ -2724,7 +2732,8 @@ body {
     font-size: .6rem;
     line-height: 1;
     height: 1em;
-    width: 100%
+    width: 100%;
+    overflow: hidden
 }
 
 @media(max-width: 699px) {
@@ -2803,6 +2812,23 @@ body {
     animation: fadeInUp 0.8s ease forwards;
 }
 
+.s-skills_eyebrow {
+    margin: 0 0 1rem;
+    color: rgba(255, 255, 255, 0.66);
+    font-family: "Geist Mono", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.s-skills_lead {
+    max-width: 52ch;
+    margin: 1.5rem auto 0;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: clamp(1rem, 1.02vw, 1.12rem);
+    line-height: 1.7;
+}
+
 @keyframes fadeInUp {
     to {
         opacity: 1;
@@ -2874,6 +2900,48 @@ body {
     border-color: rgba(251, 146, 60, 0.3);
     color: #fb923c;
     box-shadow: 0 0 20px rgba(251, 146, 60, 0.2);
+}
+
+.s-skills_level_badge.-ai {
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(126, 34, 206, 0.15));
+    border-color: rgba(168, 85, 247, 0.3);
+    color: #c084fc;
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.18);
+}
+
+.s-skills_level_badge.-programming {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(37, 99, 235, 0.15));
+    border-color: rgba(59, 130, 246, 0.3);
+    color: #60a5fa;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.18);
+}
+
+.s-skills_level_badge.-systems {
+    background: linear-gradient(135deg, rgba(148, 163, 184, 0.14), rgba(100, 116, 139, 0.14));
+    border-color: rgba(148, 163, 184, 0.26);
+    color: #cbd5e1;
+    box-shadow: 0 0 20px rgba(148, 163, 184, 0.12);
+}
+
+.s-skills_level_badge.-monitoring {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.15), rgba(194, 65, 12, 0.15));
+    border-color: rgba(249, 115, 22, 0.3);
+    color: #fb923c;
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.18);
+}
+
+.s-skills_level_badge.-embedded {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.15));
+    border-color: rgba(16, 185, 129, 0.3);
+    color: #34d399;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.18);
+}
+
+.s-skills_level_badge.-databases {
+    background: linear-gradient(135deg, rgba(34, 211, 238, 0.15), rgba(8, 145, 178, 0.15));
+    border-color: rgba(34, 211, 238, 0.28);
+    color: #67e8f9;
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.14);
 }
 
 .s-skills_grid {
@@ -2962,9 +3030,22 @@ body {
     transition: all 0.3s ease;
 }
 
+.s-skills_card_icon img {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
 .s-skills_card:hover .s-skills_card_icon svg {
     opacity: 1;
     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+}
+
+.s-skills_card:hover .s-skills_card_icon img {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.22));
 }
 
 .s-skills_card_content {
@@ -2975,11 +3056,33 @@ body {
 .s-skills_card_name {
     font-size: 1rem;
     font-weight: 500;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.35rem;
     color: #fff;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: initial;
+    line-height: 1.25;
+}
+
+.s-skills_card_meta {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.64);
+    font-family: "Geist Mono", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.s-skills_card.-foxglove .s-skills_card_icon img {
+    width: 30px;
+    height: 30px;
+}
+
+.s-skills_card.-foxglove .s-skills_card_meta {
+    font-family: "Neue Montreal", -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.01em;
+    text-transform: none;
 }
 
 .s-skills_card_progress {
@@ -3087,7 +3190,6 @@ body {
     }
 
     .s-skills_title {
-        font-size: 2rem;
         margin-bottom: calc(var(--grid-margin) * 3);
     }
 
@@ -3120,6 +3222,11 @@ body {
     .s-skills_card_icon svg {
         width: 18px;
         height: 18px;
+    }
+
+    .s-skills_card_icon img {
+        width: 20px;
+        height: 20px;
     }
 
     .s-skills_card_name {
@@ -3248,6 +3355,741 @@ body {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
+    }
+}
+
+/* Work Section */
+.o-section.-work {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.08), transparent 26%),
+        linear-gradient(180deg, #050607 0%, #0a0b0d 100%);
+}
+
+.o-section.-work::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.28) 35%, rgba(0, 0, 0, 0.78) 100%);
+    z-index: 0;
+}
+
+.o-section.-work .o-section_inner {
+    justify-content: flex-start;
+    padding-top: clamp(140px, 16vh, 190px);
+    padding-bottom: clamp(88px, 12vh, 140px);
+    z-index: 1;
+}
+
+.s-experience_intro {
+    display: block;
+}
+
+.s-experience_intro-main .c-heading.-h2 {
+    font-size: clamp(68px, 5.2vw, 120px);
+    line-height: 0.88;
+    white-space: nowrap;
+}
+
+.s-experience_eyebrow {
+    margin: 0 0 1rem;
+    color: rgba(255, 255, 255, 0.66);
+    font-family: "Geist Mono", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.s-experience_lead {
+    max-width: 46ch;
+    margin: 1.5rem 0 0;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: clamp(1rem, 1.02vw, 1.12rem);
+    line-height: 1.7;
+}
+
+.s-experience_grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(18px, 2vw, 24px);
+    margin-top: clamp(36px, 5vw, 64px);
+    max-width: 1080px;
+}
+
+.s-experience_card {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.16);
+}
+
+.s-experience_card.-primary {
+    border-left-color: rgba(16, 185, 129, 0.78);
+}
+
+.s-experience_card_kicker {
+    margin: 0 0 0.75rem;
+    color: rgba(255, 255, 255, 0.62);
+    font-family: "Geist Mono", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.s-experience_card .s-card_title {
+    font-size: clamp(1.5rem, 1.6vw, 2rem);
+    margin-bottom: 0.75rem;
+}
+
+.s-experience_card .s-card_content p {
+    margin: 0;
+}
+
+.s-experience_card .s-card_content p + p {
+    margin-top: 0.95rem;
+}
+
+.s-experience_tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: 1.35rem;
+}
+
+.s-experience_tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 0.82rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.84);
+    font-family: "Geist Mono", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+@media (max-width: 1100px) {
+    .s-experience_intro-main .c-heading.-h2 {
+        white-space: normal;
+    }
+
+    .s-experience_lead {
+        max-width: 52ch;
+    }
+}
+
+/* Education Section */
+.o-section.-education {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 80% 18%, rgba(59, 130, 246, 0.09), transparent 24%),
+        linear-gradient(180deg, #050608 0%, #090b10 100%);
+}
+
+.o-section.-education::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.26) 36%, rgba(0, 0, 0, 0.8) 100%);
+    z-index: 0;
+}
+
+.o-section.-education .o-section_inner {
+    justify-content: flex-start;
+    padding-top: clamp(140px, 16vh, 190px);
+    padding-bottom: clamp(88px, 12vh, 140px);
+    z-index: 1;
+}
+
+.s-education_intro {
+    display: block;
+}
+
+.s-education_intro-main .c-heading.-h2 {
+    font-size: clamp(64px, 5vw, 116px);
+    line-height: 0.9;
+    white-space: nowrap;
+}
+
+.s-education_eyebrow {
+    margin: 0 0 1rem;
+    color: rgba(255, 255, 255, 0.66);
+    font-family: "Geist Mono", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.s-education_lead {
+    max-width: 48ch;
+    margin: 1.5rem 0 0;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: clamp(1rem, 1.02vw, 1.12rem);
+    line-height: 1.7;
+}
+
+.s-education_grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(18px, 2vw, 24px);
+    margin-top: clamp(36px, 5vw, 64px);
+    max-width: 1120px;
+}
+
+.s-education_card {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.16);
+}
+
+.s-education_card.-degree {
+    border-left-color: rgba(59, 130, 246, 0.72);
+}
+
+.s-education_card.-thesis {
+    border-left-color: rgba(96, 165, 250, 0.9);
+}
+
+.s-education_card_kicker {
+    margin: 0 0 0.75rem;
+    color: rgba(255, 255, 255, 0.62);
+    font-family: "Geist Mono", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.s-education_card .s-card_title {
+    font-size: clamp(1.45rem, 1.55vw, 1.95rem);
+    margin-bottom: 0.75rem;
+}
+
+.s-education_card .s-card_content p {
+    margin: 0;
+}
+
+.s-education_card .s-card_content p + p {
+    margin-top: 0.95rem;
+}
+
+.s-education_tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: 1.35rem;
+}
+
+.s-education_tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 0.82rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.84);
+    font-family: "Geist Mono", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+@media (max-width: 1100px) {
+    .s-education_intro-main .c-heading.-h2 {
+        white-space: normal;
+    }
+
+    .s-education_lead {
+        max-width: 52ch;
+    }
+
+    .s-education_grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Certifications Section */
+.o-section.-certifications {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 18% 16%, rgba(251, 191, 36, 0.12), transparent 24%),
+        radial-gradient(circle at 82% 18%, rgba(56, 189, 248, 0.11), transparent 24%),
+        linear-gradient(180deg, #06080b 0%, #0b1016 100%);
+}
+
+.o-section.-certifications::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.24) 36%, rgba(0, 0, 0, 0.78) 100%);
+    z-index: 0;
+}
+
+.o-section.-certifications .o-section_inner {
+    justify-content: flex-start;
+    padding-top: clamp(140px, 16vh, 190px);
+    padding-bottom: clamp(88px, 12vh, 140px);
+    z-index: 1;
+}
+
+.s-certifications {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.s-certifications_intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: clamp(24px, 4vw, 68px);
+    align-items: end;
+}
+
+.s-certifications_intro-main .c-heading.-h2 {
+    font-size: clamp(64px, 5vw, 116px);
+    line-height: 0.9;
+    white-space: nowrap;
+}
+
+.s-certifications_eyebrow {
+    margin: 0 0 1rem;
+    color: rgba(255, 255, 255, 0.66);
+    font-family: "Geist Mono", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.s-certifications_lead {
+    margin: 0;
+    max-width: 48ch;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: clamp(1rem, 1.02vw, 1.12rem);
+    line-height: 1.72;
+}
+
+.s-certifications_grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    gap: clamp(18px, 2vw, 24px);
+    margin-top: clamp(36px, 5vw, 64px);
+}
+
+.s-certifications_overview,
+.s-certifications_track {
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.16);
+}
+
+.s-certifications_overview {
+    display: flex;
+    flex-direction: column;
+    grid-row: span 2;
+    border-left: 3px solid rgba(251, 191, 36, 0.72);
+}
+
+.s-certifications_overview::before {
+    content: "05";
+    position: absolute;
+    top: 1.2rem;
+    right: clamp(1rem, 2vw, 1.8rem);
+    color: rgba(255, 255, 255, 0.05);
+    font-family: "Geist Mono", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    font-size: clamp(5rem, 10vw, 8.8rem);
+    font-weight: 500;
+    letter-spacing: -0.08em;
+    line-height: 0.9;
+    pointer-events: none;
+}
+
+.s-certifications_track {
+    --cert-accent: rgba(255, 255, 255, 0.88);
+    display: flex;
+    flex-direction: column;
+}
+
+.s-certifications_track.-mit {
+    --cert-accent: rgba(251, 191, 36, 0.9);
+    border-left: 3px solid rgba(251, 191, 36, 0.72);
+}
+
+.s-certifications_track.-cisco {
+    --cert-accent: rgba(56, 189, 248, 0.9);
+    border-left: 3px solid rgba(56, 189, 248, 0.72);
+}
+
+.s-certifications_card_kicker {
+    margin: 0 0 0.75rem;
+    color: rgba(255, 255, 255, 0.62);
+    font-family: "Geist Mono", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.s-certifications_overview .s-card_title,
+.s-certifications_track .s-card_title {
+    font-size: clamp(1.45rem, 1.55vw, 1.95rem);
+    margin-bottom: 0.75rem;
+}
+
+.s-certifications_track .s-card_subtitle {
+    gap: 0.75rem;
+}
+
+.s-certifications_overview .s-card_content p,
+.s-certifications_track .s-card_content p {
+    margin: 0;
+}
+
+.s-certifications_overview .s-card_content p + p,
+.s-certifications_track .s-card_content p + p {
+    margin-top: 0.95rem;
+}
+
+.s-certifications_metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.85rem;
+    margin-top: 1.45rem;
+}
+
+.s-certifications_metric {
+    padding: 1rem 1.05rem;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(14px);
+}
+
+.s-certifications_metric strong {
+    display: block;
+    color: rgba(255, 255, 255, 0.94);
+    font-family: "Geist Mono", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    font-size: clamp(1.4rem, 1.8vw, 1.8rem);
+    letter-spacing: -0.05em;
+}
+
+.s-certifications_metric span {
+    display: block;
+    margin-top: 0.35rem;
+    color: rgba(255, 255, 255, 0.62);
+    font-family: "Geist Mono", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.s-certifications_focus,
+.s-certifications_tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: auto;
+    padding-top: 1.45rem;
+}
+
+.s-certifications_focus_tag,
+.s-certifications_tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 0.82rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.84);
+    font-family: "Geist Mono", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.s-certifications_list {
+    margin: 1.35rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.85rem;
+    counter-reset: certifications;
+}
+
+.s-certifications_list li {
+    position: relative;
+    padding: 0.95rem 1rem 0.95rem 3rem;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+    counter-increment: certifications;
+}
+
+.s-certifications_list li::before {
+    content: counter(certifications, decimal-leading-zero);
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--cert-accent);
+    font-family: "Geist Mono", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+}
+
+@media (max-width: 1100px) {
+    .s-certifications_intro {
+        grid-template-columns: 1fr;
+    }
+
+    .s-certifications_intro-main .c-heading.-h2 {
+        white-space: normal;
+    }
+
+    .s-certifications_lead {
+        max-width: 52ch;
+    }
+
+    .s-certifications_grid {
+        grid-template-columns: 1fr;
+    }
+
+    .s-certifications_overview {
+        grid-row: auto;
+    }
+}
+
+@media (max-width: 699px) {
+    .s-certifications_intro-main .c-heading.-h2 {
+        font-size: clamp(3rem, 12vw, 3.9rem);
+        line-height: 0.96;
+    }
+
+    .s-certifications_metrics {
+        grid-template-columns: 1fr;
+    }
+
+    .s-certifications_overview::before {
+        font-size: 4.8rem;
+    }
+
+    .s-certifications_list li {
+        padding-left: 2.85rem;
+    }
+}
+
+/* Projects Section */
+.o-section.-projects {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(115, 147, 179, 0.18), transparent 34%),
+        linear-gradient(180deg, #020304 0%, #050608 100%);
+}
+
+.o-section.-projects::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.2) 38%, rgba(0, 0, 0, 0.72) 100%);
+    z-index: 0;
+}
+
+.o-section.-projects .o-section_inner {
+    justify-content: flex-start;
+    padding-top: clamp(140px, 16vh, 190px);
+    padding-bottom: clamp(88px, 12vh, 140px);
+    z-index: 1;
+}
+
+.s-projects {
+    width: 100%;
+    max-width: 1380px;
+    margin: 0 auto;
+}
+
+.s-projects_intro {
+    display: block;
+}
+
+.s-projects_eyebrow {
+    margin: 0 0 1rem;
+    color: rgba(255, 255, 255, 0.66);
+    font-family: "Geist Mono", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.s-projects_lead {
+    max-width: 36ch;
+    margin: 0 0 0 auto;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: clamp(1rem, 1.05vw, 1.14rem);
+    line-height: 1.7;
+}
+
+.s-projects_grid {
+    --project-preview-width: clamp(300px, 28vw, 430px);
+    --project-preview-gap: clamp(18px, 2.4vw, 32px);
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(18px, 2vw, 26px);
+    margin-top: clamp(36px, 5vw, 64px);
+    padding-left: calc(var(--project-preview-width) + var(--project-preview-gap));
+    max-width: 1240px;
+    overflow: visible;
+}
+
+.s-projects_card {
+    position: relative;
+    overflow: visible;
+    min-height: 100%;
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.18);
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.s-projects_preview {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc((var(--project-preview-width) + var(--project-preview-gap)) * -1);
+    width: var(--project-preview-width);
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 24px;
+    background: transparent;
+    box-shadow: none;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(28px) scale(0.96);
+    transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.s-projects_preview::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.24) 100%);
+}
+
+.s-projects_preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.s-projects_card:is(:hover, :focus-visible, :focus-within) {
+    transform: translateX(36px);
+    z-index: 3;
+}
+
+.s-projects_card:is(:hover, :focus-visible, :focus-within) .s-projects_preview {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+}
+
+.s-projects_card.-tfg {
+    border-left: 3px solid rgba(96, 165, 250, 0.65);
+}
+
+.s-projects_card.-research {
+    border-left: 3px solid rgba(16, 185, 129, 0.65);
+}
+
+.s-projects_card.-cuba {
+    border-left: 3px solid rgba(251, 191, 36, 0.65);
+}
+
+.s-projects_card.-cuba .s-projects_preview img {
+    object-position: center top;
+}
+
+.s-projects_card_kicker {
+    margin: 0 0 0.75rem;
+    color: rgba(255, 255, 255, 0.62);
+    font-family: "Geist Mono", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.s-projects_card .s-card_title {
+    font-size: clamp(1.45rem, 1.5vw, 1.8rem);
+    margin-bottom: 0.75rem;
+}
+
+.s-projects_card .s-card_subtitle {
+    gap: 0.75rem;
+}
+
+.s-projects_card .s-card_content p {
+    margin: 0;
+}
+
+.s-projects_card .s-card_content p + p {
+    margin-top: 0.95rem;
+}
+
+.s-projects_tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: 1.4rem;
+}
+
+.s-projects_tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 0.82rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.84);
+    font-family: "Geist Mono", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+@media (max-width: 1100px) {
+    .s-projects_intro {
+        display: block;
+    }
+
+    .s-projects_lead {
+        margin-left: 0;
+        max-width: 52ch;
+    }
+
+    .s-projects_grid {
+        padding-left: 0;
+    }
+
+    .s-projects_preview {
+        display: none;
+    }
+
+    .s-projects_card:is(:hover, :focus-visible, :focus-within) {
+        transform: none;
     }
 }
 
@@ -3432,10 +4274,10 @@ body {
     z-index: 0;
     pointer-events: none;
     background: linear-gradient(90deg,
-            rgba(0, 0, 0, .85) 0%,
-            rgba(0, 0, 0, .55) 40%,
-            rgba(0, 0, 0, .25) 60%,
-            rgba(0, 0, 0, .80) 100%);
+            rgba(0, 0, 0, .92) 0%,
+            rgba(0, 0, 0, .72) 34%,
+            rgba(0, 0, 0, .40) 58%,
+            rgba(0, 0, 0, .84) 100%);
 }
 
 /* Fade a negro al final para que NO haya corte brusco con la siguiente sección */
@@ -3455,8 +4297,7 @@ body {
             rgba(0, 0, 0, 1) 100%);
 }
 
-/* Neutraliza el antiguo sistema de parallax dentro de SOBRE MÍ (evita separaciones) */
-.o-section.-about-me .pImage,
+/* Neutraliza solo el contenedor legacy que ya no usamos */
 .o-section.-about-me .pSection {
     display: none !important;
 }
@@ -3468,28 +4309,28 @@ body {
     /* encima del overlay */
     width: 100%;
     min-height: 100lvh;
-    max-width: 1200px;
+    max-width: 1460px;
     margin: 0 auto;
-    padding: clamp(72px, 10vh, 120px) var(--grid-margin);
+    padding: clamp(170px, 22vh, 240px) clamp(24px, 4vw, 64px) clamp(72px, 9vh, 120px);
 
     display: grid;
-    grid-template-columns: minmax(240px, 360px) 1fr;
-    gap: clamp(18px, 4vw, 64px);
-    align-items: center;
-
-    /* importante: evita empujes raros del duplicado de .pContainer */
-    justify-content: initial !important;
+    grid-template-columns: minmax(380px, 470px) minmax(0, 840px);
+    gap: clamp(28px, 4vw, 80px);
+    align-items: start;
+    justify-content: end !important;
 }
 
 /* Foto perfil en forma de card */
 .o-section.-about-me .pProfile {
+    margin: 0;
     width: 100%;
+    max-width: 470px;
     aspect-ratio: 3 / 4;
     border-radius: 28px;
     overflow: hidden;
     position: relative;
-    transform-style: preserve-3d;
-    will-change: transform;
+    border: 1px solid rgba(255, 255, 255, .14);
+    box-shadow: 0 28px 80px rgba(0, 0, 0, .38);
 }
 
 /* Imagen perfil */
@@ -3497,8 +4338,8 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
-    filter: contrast(1.05) brightness(.95);
+    object-position: center top;
+    filter: contrast(1.03) brightness(.98);
 }
 
 /* Glow sutil futurista */
@@ -3519,12 +4360,102 @@ body {
 /* Caja de texto glass */
 .o-section.-about-me .pContent {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: start;
+    width: 100%;
+    max-width: 840px;
+    margin: 0;
     border-radius: 28px;
-    padding: clamp(18px, 2vw, 28px);
-    background: rgba(0, 0, 0, .28);
-    border: 1px solid rgba(255, 255, 255, .10);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    padding: clamp(32px, 3.2vw, 48px);
+    background: rgba(15, 15, 17, .42);
+    border: 1px solid rgba(255, 255, 255, .12);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, .28);
+    overflow: visible;
+}
+
+.o-section.-about-me .c-title {
+    margin: 0;
+    font-size: clamp(2.35rem, 3.4vw, 3.35rem);
+    line-height: 1.02;
+    letter-spacing: -.035em;
+}
+
+.o-section.-about-me .c-meta {
+    margin: .65rem 0 1.35rem;
+    max-width: 62ch;
+    color: rgba(255, 255, 255, .72);
+    font-family: "Geist Mono", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    font-size: .8rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.o-section.-about-me .pContent .c-body {
+    max-width: 64ch;
+    margin: 0;
+    color: rgba(255, 255, 255, .92);
+    font-size: clamp(1rem, 1.05vw, 1.12rem);
+    line-height: 1.72;
+}
+
+.o-section.-about-me .pContent .c-body+.c-body {
+    margin-top: .15rem;
+}
+
+.o-section.-about-me .c-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    margin-top: .5rem;
+}
+
+.o-section.-about-me .c-tag {
+    padding: .52rem .9rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, .16);
+    background: rgba(255, 255, 255, .06);
+    color: rgba(255, 255, 255, .88);
+    font-family: "Geist Mono", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    font-size: .74rem;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+}
+
+.o-section.-about-me .c-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .9rem;
+    margin-top: .65rem;
+}
+
+.o-section.-about-me .c-actions .c-button {
+    min-width: 132px;
+    padding: .82rem 1.05rem .74rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, .14);
+    background: rgba(255, 255, 255, .04);
+    color: rgba(255, 255, 255, .88);
+    text-align: center;
+}
+
+.o-section.-about-me .c-actions .c-button--primary {
+    background: rgba(255, 255, 255, .14);
+    color: #fff;
+}
+
+@media(hover: hover) {
+    .o-section.-about-me .c-actions .c-button:hover {
+        background: rgba(255, 255, 255, .10);
+        color: #fff;
+    }
+
+    .o-section.-about-me .c-actions .c-button--primary:hover {
+        background: rgba(255, 255, 255, .2);
+    }
 }
 
 /* Ajusta los bloques internos para que no se vean “aplastados” */
@@ -3543,10 +4474,23 @@ body {
     .o-section.-about-me .pContainer {
         grid-template-columns: 1fr;
         padding-top: calc(72px + var(--grid-margin));
+        justify-items: center;
     }
 
     .o-section.-about-me .pProfile {
-        max-width: 360px;
+        max-width: 400px;
         margin: 0 auto;
+    }
+
+    .o-section.-about-me .pContent {
+        max-width: 100%;
+    }
+
+    .o-section.-about-me .c-meta {
+        letter-spacing: .05em;
+    }
+
+    .o-section.-about-me .pContent .c-body {
+        max-width: none;
     }
 }
