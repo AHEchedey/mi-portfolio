@@ -4,7 +4,9 @@
     --grid-margin: 15px;
     --grid-color: #e73434;
     --container-width: calc(100vw - 2 * var(--grid-margin));
-    --font-size: 14px
+    --font-size: 14px;
+    --section-dark-base: #000;
+    --section-dark-scrim: linear-gradient(90deg, rgba(0, 0, 0, 0.84) 0%, rgba(0, 0, 0, 0.32) 35%, rgba(0, 0, 0, 0.84) 100%)
 }
 
 @media(min-width: 700px) {
@@ -1233,6 +1235,7 @@ body {
 }
 
 .o-section.-manifesto {
+    background: var(--section-dark-base);
     height: calc(100vh*var(--items) + 200vh)
 }
 
@@ -1285,13 +1288,30 @@ body {
     position: sticky;
     top: 0;
     height: 100lvh;
+    background:
+        radial-gradient(circle at 14% 18%, rgba(231, 52, 52, 0.10), transparent 26%),
+        radial-gradient(circle at 84% 20%, rgba(59, 130, 246, 0.10), transparent 28%),
+        linear-gradient(180deg, #000 0%, #050608 100%);
     transition: opacity .2s linear;
     opacity: var(--progressShow)
 }
 
 .o-section.-manifesto .o-section_background img {
-    transform-origin: 25% 20%;
-    object-position: 35% 50%
+    transform-origin: 50% 50%;
+    object-position: 50% 50%;
+    opacity: 0
+}
+
+.o-section.-manifesto .o-section_background::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: linear-gradient(180deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0) 78%);
+    opacity: .14
 }
 
 .o-section.-manifesto .o-section_background::after {
@@ -1301,8 +1321,8 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #000;
-    opacity: .2
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.34) 0%, rgba(0, 0, 0, 0.74) 100%);
+    opacity: 1
 }
 
 .o-section.-manifesto .o-section_inner {
@@ -1322,68 +1342,80 @@ body {
     .o-section.-manifesto .o-section_inner {
         min-height: 100dvh;
         justify-content: flex-start;
-        padding-top: calc(23lvh + 80px + var(--grid-margin)*2)
+        padding-top: calc(40px + var(--grid-margin)*2)
     }
 }
 
 .s-manifesto {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto
 }
 
-@media(max-width: 699px) {
-    .s-manifesto {
-        display: block
-    }
+.s-manifesto_intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: clamp(24px, 4vw, 68px);
+    align-items: end
+}
+
+.s-manifesto_intro-main .c-heading.-h2 {
+    font-size: clamp(54px, 4.2vw, 82px);
+    line-height: .92;
+    max-width: 10ch;
+    white-space: normal
+}
+
+.s-manifesto_eyebrow {
+    margin: 0 0 1rem;
+    color: rgba(255, 255, 255, .66);
+    font-family: "Geist Mono", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    font-size: .78rem;
+    letter-spacing: .12em;
+    text-transform: uppercase
+}
+
+.s-manifesto_lead {
+    margin: 0;
+    max-width: 48ch;
+    color: rgba(255, 255, 255, .76);
+    font-size: clamp(1rem, 1.02vw, 1.12rem);
+    line-height: 1.72
+}
+
+.s-manifesto_stage {
+    display: grid;
+    grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
+    gap: clamp(18px, 2vw, 28px);
+    margin-top: clamp(36px, 5vw, 64px);
+    align-items: start
 }
 
 .s-manifesto_titles {
-    width: calc((var(--container-width) - (var(--grid-columns) - 1) * var(--grid-gutter)) / var(--grid-columns) * 4 + 3 * var(--grid-gutter) + 0vw);
-    margin-left: calc((var(--container-width) - (var(--grid-columns) - 1) * var(--grid-gutter)) / var(--grid-columns) * 1 + 0 * var(--grid-gutter) + var(--grid-gutter));
-    text-align: right
-}
-
-@media(max-width: 999px) {
-    .s-manifesto_titles {
-        margin-left: 0
-    }
-}
-
-@media(max-width: 699px) {
-    .s-manifesto_titles {
-        width: 100%;
-        text-align: left
-    }
+    display: flex;
+    flex-direction: column;
+    gap: .9rem;
+    padding-top: .25rem
 }
 
 .s-manifesto_titles_rotator {
     position: relative;
-    height: 1.3em;
-    overflow: clip;
-    margin-top: -0.5rem
-}
-
-@media(max-width: 699px) {
-    .s-manifesto_titles_rotator {
-        margin-top: 0
-    }
+    min-height: 1.4em;
+    overflow: clip
 }
 
 .s-manifesto_titles_rotator .s-manifesto_title {
     position: absolute;
     top: 0;
-    right: 0;
+    left: 0;
     display: block;
-    line-height: 1.1 !important
-}
-
-@media(max-width: 699px) {
-    .s-manifesto_titles_rotator .s-manifesto_title {
-        right: auto;
-        left: 0
-    }
+    margin: 0;
+    color: rgba(255, 255, 255, .88);
+    font-family: "Geist Mono", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    font-size: clamp(1rem, 1.15vw, 1.15rem);
+    letter-spacing: .12em;
+    line-height: 1.2 !important;
+    text-transform: uppercase
 }
 
 .s-manifesto_titles_rotator .s-manifesto_title .char {
@@ -1391,50 +1423,56 @@ body {
 }
 
 .s-manifesto_ova {
-    opacity: 0
+    margin: 0;
+    opacity: 0;
+    color: rgba(255, 255, 255, .54);
+    font-family: "Geist Mono", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    font-size: .72rem;
+    letter-spacing: .12em;
+    text-transform: uppercase
 }
 
 .s-manifesto_contents {
     position: relative;
-    width: calc((var(--container-width) - (var(--grid-columns) - 1) * var(--grid-gutter)) / var(--grid-columns) * 2 + 1 * var(--grid-gutter) + 0vw)
-}
-
-@media(max-width: 1599px) {
-    .s-manifesto_contents {
-        font-size: .8rem;
-        line-height: 1.3
-    }
-}
-
-@media(max-width: 1399px) {
-    .s-manifesto_contents {
-        width: calc((var(--container-width) - (var(--grid-columns) - 1) * var(--grid-gutter)) / var(--grid-columns) * 2.5 + 1.5 * var(--grid-gutter) + 0vw)
-    }
-}
-
-@media(max-width: 999px) {
-    .s-manifesto_contents {
-        width: calc((var(--container-width) - (var(--grid-columns) - 1) * var(--grid-gutter)) / var(--grid-columns) * 3 + 2 * var(--grid-gutter) + var(--grid-gutter))
-    }
-}
-
-@media(max-width: 699px) {
-    .s-manifesto_contents {
-        width: 100%;
-        font-size: 1rem;
-        line-height: 1.3
-    }
+    min-height: clamp(320px, 40vh, 420px)
 }
 
 .s-manifesto_contents .s-manifesto_content {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0
+    inset: 0;
+    display: grid;
+    align-content: center;
+    gap: .2rem;
+    padding: clamp(1.6rem, 3vw, 2.6rem);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(255, 255, 255, .1);
+    box-shadow: 0 18px 48px rgba(0, 0, 0, .16)
 }
 
 .s-manifesto_contents .s-manifesto_content .line {
     overflow: clip
+}
+
+.s-manifesto_contents .s-manifesto_content .line.-primary {
+    color: #fff;
+    font-size: clamp(1.5rem, 2.2vw, 2.45rem);
+    font-weight: 500;
+    letter-spacing: -.03em;
+    line-height: 1.06
+}
+
+.s-manifesto_contents .s-manifesto_content .line.-primary:not(:first-child) {
+    margin-top: clamp(.75rem, 1vw, 1rem)
+}
+
+.s-manifesto_contents .s-manifesto_content .line.-meta {
+    color: rgba(255, 255, 255, .62);
+    font-family: "Geist Mono", Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    font-size: clamp(.74rem, .92vw, .88rem);
+    letter-spacing: .1em;
+    line-height: 1.5;
+    text-transform: uppercase
 }
 
 .s-manifesto_contents .s-manifesto_content .line .word {
@@ -1442,47 +1480,68 @@ body {
 }
 
 .s-manifesto_footer {
-    position: absolute;
-    bottom: var(--grid-margin);
-    right: var(--grid-margin);
-    width: calc((var(--container-width) - (var(--grid-columns) - 1) * var(--grid-gutter)) / var(--grid-columns) * 2 + 1 * var(--grid-gutter) + 0vw);
+    width: fit-content;
+    margin-top: clamp(18px, 2vw, 28px);
+    margin-left: auto;
     opacity: 0;
     font-size: .8rem;
-    line-height: 1.3
+    line-height: 1.4
 }
 
 .s-manifesto_footer a {
+    display: inline-flex;
+    flex-direction: column;
+    gap: .1rem;
+    padding: .95rem 1rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, .1);
+    background: rgba(255, 255, 255, .04);
     text-decoration: none
 }
 
 @media(hover: hover) {
     .s-manifesto_footer a:hover {
-        text-decoration: underline
+        background: rgba(255, 255, 255, .07)
     }
 }
 
-@media(max-width: 1399px) {
-    .s-manifesto_footer {
-        width: calc((var(--container-width) - (var(--grid-columns) - 1) * var(--grid-gutter)) / var(--grid-columns) * 2.5 + 1.5 * var(--grid-gutter) + 0vw)
+@media(max-width: 1100px) {
+    .s-manifesto_intro {
+        grid-template-columns: 1fr
     }
-}
 
-@media(max-width: 999px) {
-    .s-manifesto_footer {
-        width: calc((var(--container-width) - (var(--grid-columns) - 1) * var(--grid-gutter)) / var(--grid-columns) * 3 + 2 * var(--grid-gutter) + var(--grid-gutter))
+    .s-manifesto_stage {
+        grid-template-columns: 1fr
+    }
+
+    .s-manifesto_titles {
+        gap: .5rem
     }
 }
 
 @media(max-width: 699px) {
+    .s-manifesto_intro-main .c-heading.-h2 {
+        font-size: clamp(3rem, 12vw, 4rem)
+    }
+
+    .s-manifesto_contents {
+        min-height: clamp(360px, 54vh, 520px)
+    }
+
+    .s-manifesto_contents .s-manifesto_content {
+        padding: 1.35rem
+    }
+
+    .s-manifesto_contents .s-manifesto_content .line.-primary {
+        font-size: clamp(1.32rem, 7vw, 1.85rem)
+    }
+
+    .s-manifesto_contents .s-manifesto_content .line.-meta {
+        font-size: .72rem
+    }
+
     .s-manifesto_footer {
-        width: auto;
-        left: var(--grid-margin);
-        background-color: hsla(0, 0%, 100%, .1);
-        -webkit-backdrop-filter: blur(20px);
-        backdrop-filter: blur(20px);
-        padding: calc(var(--grid-margin)*.75) var(--grid-margin);
-        font-size: 1rem;
-        line-height: 1.3
+        margin-left: 0
     }
 }
 
@@ -2792,7 +2851,7 @@ body {
 /* Skills Section Styles */
 .o-section.-skills {
     min-height: 100lvh;
-    background: #000;
+    background: var(--section-dark-base);
     position: relative;
     padding: calc(var(--grid-margin) * 4) 0;
 }
@@ -2946,7 +3005,8 @@ body {
 
 .s-skills_grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 320px));
+    justify-content: center;
     gap: calc(var(--grid-margin) * 1.5);
     animation: fadeIn 0.8s ease forwards;
 }
@@ -3179,7 +3239,8 @@ body {
 /* Responsive adjustments */
 @media (max-width: 999px) {
     .s-skills_grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 300px));
+        justify-content: center;
         gap: var(--grid-margin);
     }
 }
@@ -3315,10 +3376,13 @@ body {
 }
 
 .s-card_subtitle span:last-child {
+    display: inline-flex;
+    align-items: center;
     background: rgba(255, 255, 255, 0.1);
     padding: 0.2rem 0.6rem;
     border-radius: 4px;
     font-size: 0.8rem;
+    white-space: nowrap;
 }
 
 .s-card_content {
@@ -3364,7 +3428,7 @@ body {
     overflow: hidden;
     background:
         radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.08), transparent 26%),
-        linear-gradient(180deg, #050607 0%, #0a0b0d 100%);
+        var(--section-dark-base);
 }
 
 .o-section.-work::before {
@@ -3372,8 +3436,7 @@ body {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background:
-        linear-gradient(90deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.28) 35%, rgba(0, 0, 0, 0.78) 100%);
+    background: var(--section-dark-scrim);
     z-index: 0;
 }
 
@@ -3487,7 +3550,7 @@ body {
     overflow: hidden;
     background:
         radial-gradient(circle at 80% 18%, rgba(59, 130, 246, 0.09), transparent 24%),
-        linear-gradient(180deg, #050608 0%, #090b10 100%);
+        var(--section-dark-base);
 }
 
 .o-section.-education::before {
@@ -3495,8 +3558,7 @@ body {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background:
-        linear-gradient(90deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.26) 36%, rgba(0, 0, 0, 0.8) 100%);
+    background: var(--section-dark-scrim);
     z-index: 0;
 }
 
@@ -3619,7 +3681,7 @@ body {
     background:
         radial-gradient(circle at 18% 16%, rgba(251, 191, 36, 0.12), transparent 24%),
         radial-gradient(circle at 82% 18%, rgba(56, 189, 248, 0.11), transparent 24%),
-        linear-gradient(180deg, #06080b 0%, #0b1016 100%);
+        var(--section-dark-base);
 }
 
 .o-section.-certifications::before {
@@ -3627,8 +3689,7 @@ body {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background:
-        linear-gradient(90deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.24) 36%, rgba(0, 0, 0, 0.78) 100%);
+    background: var(--section-dark-scrim);
     z-index: 0;
 }
 
@@ -3694,12 +3755,12 @@ body {
 .s-certifications_overview {
     display: flex;
     flex-direction: column;
-    grid-row: span 2;
+    grid-row: span 3;
     border-left: 3px solid rgba(251, 191, 36, 0.72);
 }
 
 .s-certifications_overview::before {
-    content: "05";
+    content: "07";
     position: absolute;
     top: 1.2rem;
     right: clamp(1rem, 2vw, 1.8rem);
@@ -3726,6 +3787,11 @@ body {
 .s-certifications_track.-cisco {
     --cert-accent: rgba(56, 189, 248, 0.9);
     border-left: 3px solid rgba(56, 189, 248, 0.72);
+}
+
+.s-certifications_track.-udemy {
+    --cert-accent: rgba(244, 114, 182, 0.9);
+    border-left: 3px solid rgba(244, 114, 182, 0.72);
 }
 
 .s-certifications_card_kicker {
@@ -3893,7 +3959,7 @@ body {
     overflow: hidden;
     background:
         radial-gradient(circle at 50% 0%, rgba(115, 147, 179, 0.18), transparent 34%),
-        linear-gradient(180deg, #020304 0%, #050608 100%);
+        var(--section-dark-base);
 }
 
 .o-section.-projects::before {
@@ -3901,8 +3967,7 @@ body {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background:
-        linear-gradient(90deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.2) 38%, rgba(0, 0, 0, 0.72) 100%);
+    background: var(--section-dark-scrim);
     z-index: 0;
 }
 
@@ -4009,6 +4074,10 @@ body {
 
 .s-projects_card.-tfg {
     border-left: 3px solid rgba(96, 165, 250, 0.65);
+}
+
+.s-projects_card.-cubesat {
+    border-left: 3px solid rgba(244, 114, 182, 0.65);
 }
 
 .s-projects_card.-research {

@@ -141,6 +141,16 @@ const portfolioContent = {
             title: "Cursos y Conferencias",
             items: [
                 {
+                    year: "2026",
+                    name: "LangChain, LangGraph and AI Agents with Python",
+                    institution: "Udemy"
+                },
+                {
+                    year: "2026",
+                    name: "ROS 2 for Beginners (ROS Jazzy 2026)",
+                    institution: "Udemy"
+                },
+                {
                     year: "2025",
                     name: "Ethical Hacking",
                     institution: "CISCO Networking Academy"
@@ -353,6 +363,16 @@ const portfolioContent = {
         courses: {
             title: "Courses and Conferences",
             items: [
+                {
+                    year: "2026",
+                    name: "LangChain, LangGraph and AI Agents with Python",
+                    institution: "Udemy"
+                },
+                {
+                    year: "2026",
+                    name: "ROS 2 for Beginners (ROS Jazzy 2026)",
+                    institution: "Udemy"
+                },
                 {
                     year: "2025",
                     name: "Ethical Hacking",
