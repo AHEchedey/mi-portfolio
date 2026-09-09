@@ -1,0 +1,8 @@
+{
+  "Content-Security-Policy": "default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js; script-src-attr 'unsafe-hashes' 'sha256-PDTFIeQKLYMcFQlMhAZtHKvZf+kMxNu0LnRdvSyxs6g=' 'sha256-glDDUtXJb73f1EfwrLl0MV5cNMKnYchKIace5qQd6gM='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests",
+  "Strict-Transport-Security": "max-age=31536000",
+  "X-Content-Type-Options": "nosniff",
+  "Referrer-Policy": "strict-origin-when-cross-origin",
+  "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+  "X-Frame-Options": "DENY"
+}

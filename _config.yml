@@ -1,0 +1,45 @@
+# GitHub Pages/Jekyll publishing exclusions. These are not HTTP headers.
+# Keep the existing static HTML, JavaScript, CSS and assets unchanged.
+exclude:
+  - _security
+  - test-results
+  - playwright-report
+  - coverage
+  - node_modules
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - package-lock.json
+  - yarn.lock
+  - pnpm-lock.yaml
+  # Jekyll 3 needs separate patterns for root files and nested files.
+  - ".env*"
+  - "*.pem"
+  - "*.key"
+  - "*.p12"
+  - "*.pfx"
+  - "credentials*.json"
+  - "secrets*.json"
+  - "*.log"
+  - "*.bak"
+  - "*.backup"
+  - "*.orig"
+  - "*.swp"
+  - "*.map"
+  - "*.pyc"
+  - "**/.env*"
+  - "**/*.pem"
+  - "**/*.key"
+  - "**/*.p12"
+  - "**/*.pfx"
+  - "**/credentials*.json"
+  - "**/secrets*.json"
+  - "**/*.log"
+  - "**/*.bak"
+  - "**/*.backup"
+  - "**/*.orig"
+  - "**/*.swp"
+  - "**/*.map"
+  - "**/__pycache__"
+  - "**/*.pyc"

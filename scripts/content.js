@@ -44,7 +44,7 @@ const portfolioContent = {
             subtitle: "Desde mi formación,",
             paragraphs: [
                 "Soy Echedey Aguilar Hernández, Ingeniero Informático graduado de la Universidad de Lanzarote con una sólida formación en desarrollo de software, robótica y sistemas energéticos.",
-                "Actualmente trabajo como Técnico Especialista en la Universidad de Lanzarote, en Proyectos de Generación de Conocimiento, específicamente en la Línea de Energía, trabajando con redes energéticas que integran baterías, grupos de hidrógeno (H2) y energías renovables.",
+                "Trabajé como Técnico Especialista en la Universidad de Lanzarote, en Proyectos de Generación de Conocimiento, específicamente en la Línea de Energía, trabajando con redes energéticas que integraban baterías, grupos de hidrógeno (H2) y energías renovables.",
                 "Mi pasión por la tecnología me ha llevado a participar en proyectos innovadores como FyCUS (CubeSat), robótica con Turtlebot, y competiciones como HACK FOR GOOD Seville."
             ],
             interests: "Intereses: Ciencia, Ingeniería Informática, Espacio, Aeronáutica, Música, Bodyboard, Surf"
@@ -109,7 +109,7 @@ const portfolioContent = {
                 {
                     position: "Técnico Especialista",
                     company: "Universidad de Lanzarote",
-                    period: "2024 - Presente",
+                    period: "2024 - 2026",
                     location: "Lanzarote, España",
                     description: "Proyectos de Generación de Conocimiento. Línea de Energía. Redes energéticas con baterías, grupo H2 y renovables."
                 }
@@ -267,7 +267,7 @@ const portfolioContent = {
             subtitle: "Since my training,",
             paragraphs: [
                 "I am Echedey Aguilar Hernández, Computer Engineer graduated from the University of Seville with solid training in software development, robotics and energy systems.",
-                "I currently work as a Specialist Technician at the University of Seville, in Knowledge Generation Projects, specifically in the Energy Line, working with energy networks that integrate batteries, hydrogen (H2) groups and renewable energies.",
+                "Until August 31, 2026, I worked as a Specialist Technician at the University of Seville, in Knowledge Generation Projects, specifically in the Energy Line, working with energy networks that integrated batteries, hydrogen (H2) groups and renewable energies.",
                 "My passion for technology has led me to participate in innovative projects such as FyCUS (CubeSat), robotics with Turtlebot, and competitions such as HACK FOR GOOD Seville."
             ],
             interests: "Interests: Science, Computer Engineering, Space, Aeronautics, Music, Bodyboarding, Surfing"
@@ -332,7 +332,7 @@ const portfolioContent = {
                 {
                     position: "Specialist Technician",
                     company: "University of Seville",
-                    period: "2024 - 2026",
+                    period: "2024 - August 31, 2026",
                     location: "Seville, Spain",
                     description: "Knowledge Generation Projects. Energy Line. Energy networks with batteries, H2 group and renewables."
                 }

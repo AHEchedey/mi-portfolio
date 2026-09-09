@@ -1,0 +1,29 @@
+# Local credentials and private configuration (never commit real values).
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+secrets*.json
+
+# Local tooling, build output and test artefacts.
+node_modules/
+vendor/
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.bundle/
+test-results/
+playwright-report/
+coverage/
+__pycache__/
+*.pyc
+*.log
+*.bak
+*.backup
+*.orig
+*.swp
+*~
+.DS_Store
